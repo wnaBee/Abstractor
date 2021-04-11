@@ -1,2 +1,2 @@
 # abstractor
-a formatter and auto commentor for code
+a formatter and auto commentor for code [heavy WIP]
