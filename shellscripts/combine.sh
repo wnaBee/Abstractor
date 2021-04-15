@@ -17,7 +17,7 @@ do
 		printf "\n"
 		echo ${cppd[j]}
 		printf "\n"
-		printf 'case "%s":\ncomment += "%s"\nbreak;\n' cppc[j] cppd[j] >> ./cppg/cppm/cppmerge${i}.txt
+		printf 'case "%s":\ncomment += "%s"\nbreak;\n' ${cppc[j]} ${cppd[j]} >> ./cppg/cppm/cppmerge${i}.txt
 		wait
 	done
 done
