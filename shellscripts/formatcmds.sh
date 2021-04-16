@@ -30,15 +30,17 @@ do
 	done
 
 	mv -f temp.txt ./cppg/cppc/cppcommands${i}.txt
-
+	wait
 	sed -r '/^\s*$/d' ./cppg/cppd/cppdescriptions${i}.txt > tempdec.txt | mv tempdec.txt ./cppg/cppd/cppdescriptions${i}.txt
+	wait
 done
 
 sleep 3
 
-for i in {1..66}
-do
- paste -d ": " ./cppg/cppc/cppcommands${i}.txt ./cppg/cppd/cppdescriptions${i}.txt > ./cppg/cppm/cppmerge${i}.txt
-done
+#for i in {1..66}
+#do
+#	paste -d ": " ./cppg/cppc/cppcommands${i}.txt ./cppg/cppd/cppdescriptions${i}.txt > ./cppg/cppm/cppmerge${i}.txt
+#	wait
+#done
 
 cd ./cppg/cppm
