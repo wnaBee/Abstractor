@@ -1,3025 +1,2761 @@
+#include <string>
+using namespace std;
 class CppDictionary{
 	public:	
-		String commentor(String commentarray[])	{
-			String comment +=.*";;
+		string commentor(String commentarray[])	{
+			string comment = "";
 			int commentarraylen =sizeof(commentarray)/sizeof(commentarray[0]);
 			for(int i =0; i < commentarraylen; i++){
-				switch (commentarray[i])
-				case "assert":
+				switch (commentarray[i]){
+				case 'assert':
 				comment += "Evaluate assertion ";
 				break;
-				case "isalpha":
+				case 'isalpha':
 				comment += "Check if character is alphabetic ";
 				break;
-				case "isblank":
+				case 'isblank':
 				comment += "Check if character is blank ";
 				break;
-				case "iscntrl":
+				case 'iscntrl':
 				comment += "Check if character is a control character ";
 				break;
-				case "isdigit":
+				case 'isdigit':
 				comment += "Check if character is decimal digit ";
 				break;
-				case "isgraph":
+				case 'isgraph':
 				comment += "Check if character has graphical representation ";
 				break;
-				case "islower":
+				case 'islower':
 				comment += "Check if character is lowercaseletter ";
 				break;
-				case "isprint":
+				case 'isprint':
 				comment += "Check if character is printable ";
 				break;
-				case "ispunct":
+				case 'ispunct':
 				comment += "Check if character is a punctuation character ";
 				break;
-				case "isspace":
+				case 'isspace':
 				comment += "Check if character is a white-space ";
 				break;
-				case "isupper":
+				case 'isupper':
 				comment += "Check if character is uppercaseletter ";
 				break;
-				case "isxdigit":
+				case 'isxdigit':
 				comment += "Check if character is hexadecimal digit ";
 				break;
-				case "tolower":
-				comment += "Convert uppercaseletter to lowercase "
+				case 'tolower':
+				comment += "Convert uppercaseletter to lowercase ";
 				break;
-				case "toupper":
-				comment += "Convert lowercaseletter to uppercase "
+				case 'toupper':
+				comment += "Convert lowercaseletter to uppercase ";
 				break;
 
-				case "errno":
+				case 'errno':
 				comment += "Last error number ";
 				break;
 
-				case "feclearexcept":
+				case 'feclearexcept':
 				comment += "Clear floating-point exceptions ";
 				break;
-				case "feraiseexcept":
+				case 'feraiseexcept':
 				comment += "Raise floating-point exception ";
 				break;
-				case "fegetexceptflag":
+				case 'fegetexceptflag':
 				comment += "Get floating-point exception flags ";
 				break;
-				case "fesetexceptflag":
+				case 'fesetexceptflag':
 				comment += "Set floating-point exception flags ";
 				break;
-				case "fegetround":
+				case 'fegetround':
 				comment += "Get rounding direction mode ";
 				break;
-				case "fesetround":
+				case 'fesetround':
 				comment += "Set rounding direction mode ";
 				break;
-				case "fegetenv":
+				case 'fegetenv':
 				comment += "Get floating-point environment ";
 				break;
-				case "fesetenv":
+				case 'fesetenv':
 				comment += "Set floating-point environment ";
 				break;
-				case "feholdexcept":
+				case 'feholdexcept':
 				comment += "Hold floating-point exceptions ";
 				break;
-				case "feupdateenv":
+				case 'feupdateenv':
 				comment += "Update floating-point environment ";
 				break;
-				case "fetestexcept":
+				case 'fetestexcept':
 				comment += "Test for floating-point exceptions ";
 				break;
-				case "fenv_t":
+				case 'fenv_t':
 				comment += "Floating-point environment type ";
 				break;
-				case "fexcept_t":
+				case 'fexcept_t':
 				comment += "Floating-point exceptions type ";
 				break;
-				case "FE_DIVBYZERO":
+				case 'FE_DIVBYZERO':
 				comment += "Pole error exception ";
 				break;
-				case "FE_INEXACT":
+				case 'FE_INEXACT':
 				comment += "Inexact result exception ";
 				break;
-				case "FE_INVALID":
+				case 'FE_INVALID':
 				comment += "Invalid argument exception ";
 				break;
-				case "FE_OVERFLOW":
+				case 'FE_OVERFLOW':
 				comment += "Overflow range error exception ";
 				break;
-				case "FE_UNDERFLOW":
+				case 'FE_UNDERFLOW':
 				comment += "Underflow range error exception ";
 				break;
-				case "FE_ALL_EXCEPT":
+				case 'FE_ALL_EXCEPT':
 				comment += "All exceptions ";
 				break;
-				case "FE_DOWNWARD":
+				case 'FE_DOWNWARD':
 				comment += "Downward rounding direction mode ";
 				break;
-				case "FE_TONEAREST":
+				case 'FE_TONEAREST':
 				comment += "To-nearest rounding direction mode ";
 				break;
-				case "FE_TOWARDZERO":
+				case 'FE_TOWARDZERO':
 				comment += "Toward-zero rounding direction mode ";
 				break;
-				case "FE_UPWARD":
+				case 'FE_UPWARD':
 				comment += "Upward rounding direction mode ";
 				break;
-				case "FE_DFL_ENV":
+				case 'FE_DFL_ENV':
 				comment += "Default environment ";
 				break;
-				case "FENV_ACCESS":
+				case 'FENV_ACCESS':
 				comment += "Access to Floating-point environment ";
 				break;
 
-				case "<climits>;":
+				case '<climits>;':
 				comment += "Sizes of integral types"
 				break;
 				
-				case "<cfloat>;":
+				case '<cfloat>;':
 				comment += "Characteristics of floating-point types ";
 				break;
-				case "struct lconv":
+				case 'struct lconv':
 				comment += " Formatting info for numeric values"
 				break;
-				case "setlocale":
+				case 'setlocale':
 				comment += "Set or retrieve locale ";
 				break;
-				case "localeconv":
+				case 'localeconv':
 				comment += "Get locale formatting parameters for quantities ";
 				break;
 
-				case "cos":
+				case 'cos':
 				comment += "Compute cosine ";
 				break;
-				case "sin":
+				case 'sin':
 				comment += "Compute sine ";
 				break;
-				case "tan":
+				case 'tan':
 				comment += "Compute tangent ";
 				break;
-				case "acos":
+				case 'acos':
 				comment += "Compute arc cosine ";
 				break;
-				case "asin":
+				case 'asin':
 				comment += "Compute arc sine ";
 				break;
-				case "atan":
+				case 'atan':
 				comment += "Compute arc tangent ";
 				break;
-				case "atan2":
+				case 'atan2':
 				comment += "Compute arc tangent with two parameters ";
 				break;
-				case "cosh":
+				case 'cosh':
 				comment += "Compute hyperbolic cosine ";
 				break;
-				case "sinh":
+				case 'sinh':
 				comment += "Compute hyperbolic sine ";
 				break;
-				case "tanh":
+				case 'tanh':
 				comment += "Compute hyperbolic tangent ";
 				break;
-				case "acosh":
+				case 'acosh':
 				comment += "Compute area hyperbolic cosine ";
 				break;
-				case "asinh":
+				case 'asinh':
 				comment += "Compute area hyperbolic sine ";
 				break;
-				case "atanh":
+				case 'atanh':
 				comment += "Compute area hyperbolic tangent ";
 				break;
-				case "exp":
+				case 'exp':
 				comment += "Compute exponential function ";
 				break;
-				case "frexp":
+				case 'frexp':
 				comment += "Get significand and exponent ";
 				break;
-				case "ldexp":
+				case 'ldexp':
 				comment += "Generate value from significand and exponent ";
 				break;
-				case "log":
+				case 'log':
 				comment += "Compute natural logarithm ";
 				break;
-				case "log10":
+				case 'log10':
 				comment += "Compute common logarithm ";
 				break;
-				case "modf":
+				case 'modf':
 				comment += "Break into fractional and integral parts ";
 				break;
-				case "exp2":
+				case 'exp2':
 				comment += "Compute binary exponential function ";
 				break;
-				case "expm1":
+				case 'expm1':
 				comment += "Compute exponential minus one ";
 				break;
-				case "ilogb":
+				case 'ilogb':
 				comment += "Integer binary logarithm ";
 				break;
-				case "log1p":
+				case 'log1p':
 				comment += "Compute logarithm plus one ";
 				break;
-				case "log2":
+				case 'log2':
 				comment += "Compute binary logarithm ";
 				break;
-				case "logb":
+				case 'logb':
 				comment += "Compute floating-point base logarithm ";
 				break;
-				case "scalbn":
+				case 'scalbn':
 				comment += "Scale significand using floating-point base exponent ";
 				break;
-				case "scalbln":
+				case 'scalbln':
 				comment += "Scale significand using floating-point base exponent (long) ";
 				break;
-				case "pow":
+				case 'pow':
 				comment += "Raise to power ";
 				break;
-				case "sqrt":
+				case 'sqrt':
 				comment += "Compute square root ";
 				break;
-				case "cbrt":
+				case 'cbrt':
 				comment += "Compute cubic root ";
 				break;
-				case "hypot":
+				case 'hypot':
 				comment += "Compute hypotenuse ";
 				break;
-				case "erf":
+				case 'erf':
 				comment += "Compute error function ";
 				break;
-				case "erfc":
+				case 'erfc':
 				comment += "Compute complementary error function ";
 				break;
-				case "tgamma":
+				case 'tgamma':
 				comment += "Compute gamma function ";
 				break;
-				case "lgamma":
+				case 'lgamma':
 				comment += "Compute log-gamma function ";
 				break;
-				case "ceil":
+				case 'ceil':
 				comment += "Round up value ";
 				break;
-				case "floor":
+				case 'floor':
 				comment += "Round down value ";
 				break;
-				case "fmod":
+				case 'fmod':
 				comment += "Compute remainder of division ";
 				break;
-				case "trunc":
+				case 'trunc':
 				comment += "Truncate value ";
 				break;
-				case "round":
+				case 'round':
 				comment += "Round to nearest ";
 				break;
-				case "lround":
+				case 'lround':
 				comment += "Round to nearest and cast to long integer ";
 				break;
-				case "llround":
+				case 'llround':
 				comment += "Round to nearest and cast to long long integer ";
 				break;
-				case "rint":
+				case 'rint':
 				comment += "Round to integral value ";
 				break;
-				case "lrint":
+				case 'lrint':
 				comment += "Round and cast to long integer ";
 				break;
-				case "llrint":
+				case 'llrint':
 				comment += "Round and cast to long long integer ";
 				break;
-				case "nearbyint":
+				case 'nearbyint':
 				comment += "Round to nearby integral value ";
 				break;
-				case "remainder":
+				case 'remainder':
 				comment += "Compute remainder (IEC 60559) ";
 				break;
-				case "remquo":
+				case 'remquo':
 				comment += "Compute remainder and quotient ";
 				break;
-				case "copysign":
+				case 'copysign':
 				comment += "Copy sign ";
 				break;
-				case "nan":
+				case 'nan':
 				comment += "Generate quiet NaN ";
 				break;
-				case "nextafter":
+				case 'nextafter':
 				comment += "Next representable value ";
 				break;
-				case "nexttoward":
+				case 'nexttoward':
 				comment += "Next representable value toward precise value ";
 				break;
-				case "fdim":
+				case 'fdim':
 				comment += "Positive difference ";
 				break;
-				case "fmax":
+				case 'fmax':
 				comment += "Maximum value ";
 				break;
-				case "fmin":
+				case 'fmin':
 				comment += "Minimum value ";
 				break;
-				case "fabs":
+				case 'fabs':
 				comment += "Compute absolute value ";
 				break;
-				case "abs":
+				case 'abs':
 				comment += "Compute absolute value ";
 				break;
-				case "fma":
+				case 'fma':
 				comment += "Multiply-add ";
 				break;
-				case "fpclassify":
+				case 'fpclassify':
 				comment += "Classify floating-point value ";
 				break;
-				case "isfinite":
+				case 'isfinite':
 				comment += "Is finite value ";
 				break;
-				case "isinf":
+				case 'isinf':
 				comment += "Is infinity ";
 				break;
-				case "isnan":
+				case 'isnan':
 				comment += "Is Not-A-Number ";
 				break;
-				case "isnormal":
+				case 'isnormal':
 				comment += "Is normal ";
 				break;
-				case "signbit":
+				case 'signbit':
 				comment += "Sign bit ";
 				break;
-				case "isgreater":
+				case 'isgreater':
 				comment += "Is greater ";
 				break;
-				case "isgreaterequal":
+				case 'isgreaterequal':
 				comment += "Is greater or equal ";
 				break;
-				case "isless":
+				case 'isless':
 				comment += "Is less ";
 				break;
-				case "islessequal":
+				case 'islessequal':
 				comment += "Is less or equal ";
 				break;
-				case "islessgreater":
+				case 'islessgreater':
 				comment += "Is less or greater ";
 				break;
-				case "isunordered":
+				case 'isunordered':
 				comment += "Is unordered ";
 				break;
-				case "math_errhandling":
+				case 'math_errhandling':
 				comment += "Error handling ";
 				break;
-				case "INFINITY":
+				case 'INFINITY':
 				comment += "Infinity ";
 				break;
-				case "NAN":
+				case 'NAN':
 				comment += "Not-A-Number ";
 				break;
-				case "HUGE_VAL":
+				case 'HUGE_VAL':
 				comment += "Huge value ";
 				break;
-				case "HUGE_VALF":
+				case 'HUGE_VALF':
 				comment += "Huge float valueHuge long double value ";
 				break;
-				case "HUGE_VALL":
+				case 'HUGE_VALL':
 				comment += "Huge float valueHuge long double value ";
 				break;
-				case "double_t":
+				case 'double_t':
 				comment += "Floating-point type ";
 				break;
-				case "float_t":
+				case 'float_t':
 				comment += "Floating-point type ";
 				break;
 
-				case "longjmp":
+				case 'longjmp':
 				comment += "Long jump ";
 				break;
-				case "setjmp":
+				case 'setjmp':
 				comment += "Save calling environment for long jump ";
 				break;
-				case "jmp_buf":
+				case 'jmp_buf':
 				comment += "Type to hold information to restore calling environment ";
 				break;
 
-				case "signal":
+				case 'signal':
 				comment += "Set function to handle signal ";
 				break;
-				case "raise":
+				case 'raise':
 				comment += "Generates a signal ";
 				break;
-				case "sig_atomic_t":
+				case 'sig_atomic_t':
 				comment += "Integral type ";
 				break;
 
-				case "va_list":
+				case 'va_list':
 				comment += "Type to hold information about variable arguments ";
 				break;
-				case "va_start":
+				case 'va_start':
 				comment += "Initialize a variable argument list ";
 				break;
-				case "va_arg":
+				case 'va_arg':
 				comment += "Retrieve next argument ";
 				break;
-				case "va_end":
+				case 'va_end':
 				comment += "End using variable argument list ";
 				break;
-				case "va_copy":
+				case 'va_copy':
 				comment += "Copy variable argument list ";
 				break;
 
-				case "ptrdiff_t":
+				case 'ptrdiff_t':
 				comment += "Result of pointer subtraction ";
 				break;
-				case "size_t":
+				case 'size_t':
 				comment += "Unsigned integral type ";
 				break;
-				case "max_align_t":
+				case 'max_align_t':
 				comment += "Type with widest scalar alignment ";
 				break;
-				case "nullptr_t":
+				case 'nullptr_t':
 				comment += "Null pointer type (C++) ";
 				break;
-				case "offsetof":
+				case 'offsetof':
 				comment += "Return member offset ";
 				break;
-				case "NULL":
+				case 'NULL':
 				comment += "Null pointer ";
 				break;
-				case "remove":
+				case 'remove':
 				comment += "Remove value or file ";
 				break;
-				case "rename":
+				case 'rename':
 				comment += "Rename file ";
 				break;
-				case "tmpfile":
+				case 'tmpfile':
 				comment += "Open a temporary file ";
 				break;
-				case "tmpnam":
+				case 'tmpnam':
 				comment += "Generate temporary filename ";
 				break;
-				case "fclose":
+				case 'fclose':
 				comment += "Close file ";
 				break;
-				case "fflush":
+				case 'fflush':
 				comment += "Flush stream ";
 				break;
-				case "fopen":
+				case 'fopen':
 				comment += "Open file ";
 				break;
-				case "freopen":
+				case 'freopen':
 				comment += "Reopen stream with different file or mode ";
 				break;
-				case "setbuf":
+				case 'setbuf':
 				comment += "Set stream buffer ";
 				break;
-				case "setvbuf":
+				case 'setvbuf':
 				comment += "Change stream buffering ";
 				break;
-				case "fprintf":
+				case 'fprintf':
 				comment += "Write formatted data to stream ";
 				break;
-				case "fscanf":
+				case 'fscanf':
 				comment += "Read formatted data from stream ";
 				break;
-				case "printf":
+				case 'printf':
 				comment += "Print formatted data to stdout ";
 				break;
-				case "scanf":
+				case 'scanf':
 				comment += "Read formatted data from stdin ";
 				break;
-				case "snprintf":
+				case 'snprintf':
 				comment += "Write formatted output to sized buffer ";
 				break;
-				case "sprintf":
+				case 'sprintf':
 				comment += "Write formatted data to string ";
 				break;
-				case "sscanf":
+				case 'sscanf':
 				comment += "Read formatted data from string ";
 				break;
-				case "vfprintf":
+				case 'vfprintf':
 				comment += "Write formatted data from variable argument list to stream ";
 				break;
-				case "vfscanf":
+				case 'vfscanf':
 				comment += "Read formatted data from stream into variable argument list ";
 				break;
-				case "vprintf":
+				case 'vprintf':
 				comment += "Print formatted data from variable argument list to stdout ";
 				break;
-				case "vscanf":
+				case 'vscanf':
 				comment += "Read formatted data into variable argument list ";
 				break;
-				case "vsnprintf":
+				case 'vsnprintf':
 				comment += "Write formatted data from variable argument list to sized buffer ";
 				break;
-				case "vsprintf":
+				case 'vsprintf':
 				comment += "Write formatted data from variable argument list to string ";
 				break;
-				case "vsscanf":
+				case 'vsscanf':
 				comment += "Read formatted data from string into variable argument list ";
 				break;
-				case "fgetc":
+				case 'fgetc':
 				comment += "Get character from stream ";
 				break;
-				case "fgets":
+				case 'fgets':
 				comment += "Get string from stream ";
 				break;
-				case "fputc":
+				case 'fputc':
 				comment += "Write character to stream ";
 				break;
-				case "fputs":
+				case 'fputs':
 				comment += "Write string to stream ";
 				break;
-				case "getc":
+				case 'getc':
 				comment += "Get character from stream ";
 				break;
-				case "getchar":
+				case 'getchar':
 				comment += "Get character from stdin ";
 				break;
-				case "gets":
+				case 'gets':
 				comment += "Get string from stdin ";
 				break;
-				case "putc":
+				case 'putc':
 				comment += "Write character to stream ";
 				break;
-				case "putchar":
+				case 'putchar':
 				comment += "Write character to stdout ";
 				break;
-				case "puts":
+				case 'puts':
 				comment += "Write string to stdout ";
 				break;
-				case "ungetc":
+				case 'ungetc':
 				comment += "Unget character from stream ";
 				break;
-				case "fread":
+				case 'fread':
 				comment += "Read block of data from stream ";
 				break;
-				case "fwrite":
+				case 'fwrite':
 				comment += "Write block of data to stream ";
 				break;
-				case "fgetpos":
+				case 'fgetpos':
 				comment += "Get current position in stream ";
 				break;
-				case "fseek":
+				case 'fseek':
 				comment += "Reposition stream position indicator ";
 				break;
-				case "fsetpos":
+				case 'fsetpos':
 				comment += "Set position indicator of stream ";
 				break;
-				case "ftell":
+				case 'ftell':
 				comment += "Get current position in stream ";
 				break;
-				case "rewind":
+				case 'rewind':
 				comment += "Set position of stream to the beginning ";
 				break;
-				case "clearerr":
+				case 'clearerr':
 				comment += "Clear error indicators ";
 				break;
-				case "feof":
+				case 'feof':
 				comment += "Check end-of-file indicator ";
 				break;
-				case "ferror":
+				case 'ferror':
 				comment += "Check error indicator ";
 				break;
-				case "perror":
+				case 'perror':
 				comment += "Print error message ";
 				break;
-				case "BUFSIZ":
+				case 'BUFSIZ':
 				comment += "Buffer size ";
 				break;
-				case "EOF":
+				case 'EOF':
 				comment += "End-of-File ";
 				break;
-				case "FILENAME_MAX":
+				case 'FILENAME_MAX':
 				comment += "Maximum length of file names ";
 				break;
-				case "FOPEN_MAX":
+				case 'FOPEN_MAX':
 				comment += "Potential limit of simultaneous open streams ";
 				break;
-				case "L_tmpnam":
+				case 'L_tmpnam':
 				comment += "Minimum length for temporary file name ";
 				break;
-				case "TMP_MAX":
+				case 'TMP_MAX':
 				comment += "Number of temporary files ";
 				break;
-				case "FILE":
+				case 'FILE':
 				comment += "Object containing information to control a stream ";
 				break;
-				case "fpos_t":
+				case 'fpos_t':
 				comment += "Object containing information to specify a position within a file ";
 				break;
-				case "atof":
+				case 'atof':
 				comment += "Convert string to double ";
 				break;
-				case "atoi":
+				case 'atoi':
 				comment += "Convert string to integer ";
 				break;
-				case "atol":
+				case 'atol':
 				comment += "Convert string to long integer ";
 				break;
-				case "atoll":
+				case 'atoll':
 				comment += "Convert string to long long integer ";
 				break;
-				case "strtod":
+				case 'strtod':
 				comment += "Convert string to double ";
 				break;
-				case "strtof":
+				case 'strtof':
 				comment += "Convert string to float ";
 				break;
-				case "strtol":
+				case 'strtol':
 				comment += "Convert string to long integer ";
 				break;
-				case "strtold":
+				case 'strtold':
 				comment += "Convert string to long double ";
 				break;
-				case "strtoll":
+				case 'strtoll':
 				comment += "Convert string to long long integer ";
 				break;
-				case "strtoul":
+				case 'strtoul':
 				comment += "Convert string to unsigned long integer ";
 				break;
-				case "strtoull":
+				case 'strtoull':
 				comment += "Convert string to unsigned long long integer ";
 				break;
-				case "rand":
+				case 'rand':
 				comment += "Generate random number ";
 				break;
-				case "srand":
+				case 'srand':
 				comment += "Initialize random number generator ";
 				break;
-				case "calloc":
+				case 'calloc':
 				comment += "Allocate and zero-initialize array ";
 				break;
-				case "free":
+				case 'free':
 				comment += "Deallocate memory block ";
 				break;
-				case "malloc":
+				case 'malloc':
 				comment += "Allocate memory block ";
 				break;
-				case "realloc":
+				case 'realloc':
 				comment += "Reallocate memory block ";
 				break;
-				case "abort":
+				case 'abort':
 				comment += "Abort current process ";
 				break;
-				case "atexit":
+				case 'atexit':
 				comment += "Set function to be executed on exit ";
 				break;
-				case "at_quick_exit":
+				case 'at_quick_exit':
 				comment += "Set function to be executed on quick exit ";
 				break;
-				case "exit":
+				case 'exit':
 				comment += "Terminate calling process ";
 				break;
-				case "getenv":
+				case 'getenv':
 				comment += "Get environment string ";
 				break;
-				case "quick_exit":
+				case 'quick_exit':
 				comment += "Terminate calling process quick ";
 				break;
-				case "system":
+				case 'system':
 				comment += "Execute system command ";
 				break;
-				case "_Exit":
+				case '_Exit':
 				comment += "Terminate calling process ";
 				break;
-				case "bsearch":
+				case 'bsearch':
 				comment += "Binary search in array ";
 				break;
-				case "qsort":
+				case 'qsort':
 				comment += "Sort elements of array ";
 				break;
-				case "div":
+				case 'div':
 				comment += "Integral division ";
 				break;
-				case "labs":
+				case 'labs':
 				comment += "Absolute value ";
 				break;
-				case "ldiv":
+				case 'ldiv':
 				comment += "Integral division ";
 				break;
-				case "llabs":
+				case 'llabs':
 				comment += "Absolute value ";
 				break;
-				case "lldiv":
+				case 'lldiv':
 				comment += "Integral division ";
 				break;
-				case "mblen":
+				case 'mblen':
 				comment += "Get length of multibyte character ";
 				break;
-				case "mbtowc":
+				case 'mbtowc':
 				comment += "Convert multibyte sequence to wide character ";
 				break;
-				case "wctomb":
+				case 'wctomb':
 				comment += "Convert wide character to multibyte sequence ";
 				break;
-				case "mbstowcs":
+				case 'mbstowcs':
 				comment += "Convert multibyte string to wide-character string ";
 				break;
-				case "wcstombs":
+				case 'wcstombs':
 				comment += "Convert wide-character string to multibyte string ";
 				break;
-				case "EXIT_FAILURE":
+				case 'EXIT_FAILURE':
 				comment += "Failure termination code ";
 				break;
-				case "EXIT_SUCCESS":
+				case 'EXIT_SUCCESS':
 				comment += "Success termination code ";
 				break;
-				case "MB_CUR_MAX":
+				case 'MB_CUR_MAX':
 				comment += "Maximum size of multibyte characters ";
 				break;
-				case "RAND_MAX":
+				case 'RAND_MAX':
 				comment += "Maximum value returned by rand ";
 				break;
-				case "div_t":
+				case 'div_t':
 				comment += "Structure returned by div ";
 				break;
-				case "ldiv_t":
+				case 'ldiv_t':
 				comment += "Structure returned by ldiv ";
 				break;
-				case "lldiv_t":
+				case 'lldiv_t':
 				comment += "Structure returned by lldiv ";
 				break;
-				case "memcpy":
+				case 'memcpy':
 				comment += "Copy block of memory ";
 				break;
-				case "memmove":
+				case 'memmove':
 				comment += "Move block of memory ";
 				break;
-				case "strcpy":
+				case 'strcpy':
 				comment += "Copy string ";
 				break;
-				case "strncpy":
+				case 'strncpy':
 				comment += "Copy characters from string ";
 				break;
-				case "strcat":
+				case 'strcat':
 				comment += "Concatenate strings ";
 				break;
-				case "strncat":
+				case 'strncat':
 				comment += "Append characters from string ";
 				break;
-				case "memcmp":
+				case 'memcmp':
 				comment += "Compare two blocks of memory ";
 				break;
-				case "strcmp":
+				case 'strcmp':
 				comment += "Compare two strings ";
 				break;
-				case "strcoll":
+				case 'strcoll':
 				comment += "Compare two strings using locale ";
 				break;
-				case "strncmp":
+				case 'strncmp':
 				comment += "Compare characters of two strings ";
 				break;
-				case "strxfrm":
+				case 'strxfrm':
 				comment += "Transform string using locale ";
 				break;
-				case "memchr":
+				case 'memchr':
 				comment += "Locate character in block of memory ";
 				break;
-				case "strchr":
+				case 'strchr':
 				comment += "Locate first occurrence of character in string ";
 				break;
-				case "strcspn":
+				case 'strcspn':
 				comment += "Get span until character in string ";
 				break;
-				case "strpbrk":
+				case 'strpbrk':
 				comment += "Locate characters in string ";
 				break;
-				case "strrchr":
+				case 'strrchr':
 				comment += "Locate last occurrence of character in string ";
 				break;
-				case "strspn":
+				case 'strspn':
 				comment += "Get span of character set in string ";
 				break;
-				case "strstr":
+				case 'strstr':
 				comment += "Locate substring ";
 				break;
-				case "strtok":
+				case 'strtok':
 				comment += "Split string into tokens ";
 				break;
-				case "memset":
+				case 'memset':
 				comment += "Fill block of memory ";
 				break;
-				case "strerror":
+				case 'strerror':
 				comment += "Get pointer to error message string ";
 				break;
-				case "strlen":
+				case 'strlen':
 				comment += "Get string length ";
 				break;
-				case "clock":
+				case 'clock':
 				comment += "Clock program ";
 				break;
-				case "difftime":
+				case 'difftime':
 				comment += "Return difference between two times ";
 				break;
-				case "mktime":
+				case 'mktime':
 				comment += "Convert tm structure to time_t ";
 				break;
-				case "time":
+				case 'time':
 				comment += "Get current time ";
 				break;
-				case "asctime":
+				case 'asctime':
 				comment += "Convert tm structure to string ";
 				break;
-				case "ctime":
+				case 'ctime':
 				comment += "Convert time_t value to string ";
 				break;
-				case "gmtime":
+				case 'gmtime':
 				comment += "Convert time_t to tm as UTC time ";
 				break;
-				case "localtime":
+				case 'localtime':
 				comment += "Convert time_t to tm as local time ";
 				break;
-				case "strftime":
+				case 'strftime':
 				comment += "Format time as string ";
 				break;
-				case "CLOCKS_PER_SEC":
+				case 'CLOCKS_PER_SEC':
 				comment += "Clock ticks per second ";
 				break;
-				case "clock_t":
+				case 'clock_t':
 				comment += "Clock type ";
 				break;
-				case "time_t":
+				case 'time_t':
 				comment += "Time type ";
 				break;
-				case "struct tm":
+				case 'struct tm':
 				comment += "Time structure "
 				break;
 
-				case "c16rtomb":
+				case 'c16rtomb':
 				comment += "Convert 16-bit character to multibyte sequence ";
 				break;
-				case "c32rtomb":
+				case 'c32rtomb':
 				comment += "Convert 32-bit character to multibyte sequence ";
 				break;
-				case "mbrtoc16":
+				case 'mbrtoc16':
 				comment += "Convert multibyte sequence to 16-bit character ";
 				break;
-				case "mbrtoc32":
+				case 'mbrtoc32':
 				comment += "Convert multibyte sequence to 32-bit character ";
 				break;
 
-				case "fgetwc":
+				case 'fgetwc':
 				comment += "Get wide character from stream ";
 				break;
-				case "fgetws":
+				case 'fgetws':
 				comment += "Get wide string from stream ";
 				break;
-				case "fputwc":
+				case 'fputwc':
 				comment += "Write wide character to stream ";
 				break;
-				case "fputws":
+				case 'fputws':
 				comment += "Write wide string to stream ";
 				break;
-				case "fwide":
+				case 'fwide':
 				comment += "Stream orientation ";
 				break;
-				case "fwprintf":
+				case 'fwprintf':
 				comment += "Write formatted data to stream ";
 				break;
-				case "fwscanf":
+				case 'fwscanf':
 				comment += "Read formatted data from stream ";
 				break;
-				case "getwc":
+				case 'getwc':
 				comment += "Get wide character from stream ";
 				break;
-				case "getwchar":
+				case 'getwchar':
 				comment += "Get wide character from stdin ";
 				break;
-				case "putwc":
+				case 'putwc':
 				comment += "Write wide character to stream ";
 				break;
-				case "putwchar":
+				case 'putwchar':
 				comment += "Write wide character to stdout ";
 				break;
-				case "swprintf":
+				case 'swprintf':
 				comment += "Write formatted data to wide string ";
 				break;
-				case "swscanf":
+				case 'swscanf':
 				comment += "Read formatted data from string ";
 				break;
-				case "ungetwc":
+				case 'ungetwc':
 				comment += "Unget wide character from stream ";
 				break;
-				case "vfwprintf":
+				case 'vfwprintf':
 				comment += "Write formatted data from variable argument list to stream ";
 				break;
-				case "vfwscanf":
+				case 'vfwscanf':
 				comment += "Read formatted data from stream into variable argument list ";
 				break;
-				case "vswprintf":
+				case 'vswprintf':
 				comment += "Write formatted data from variable argument list to sized buffer ";
 				break;
-				case "vswscanf":
+				case 'vswscanf':
 				comment += "Read formatted data from wide string into variable argument list ";
 				break;
-				case "vwprintf":
+				case 'vwprintf':
 				comment += "Print formatted data from variable argument list to stdout ";
 				break;
-				case "vwscanf":
+				case 'vwscanf':
 				comment += "Read formatted data into variable argument list ";
 				break;
-				case "wprintf":
+				case 'wprintf':
 				comment += "Print formatted data to stdout ";
 				break;
-				case "wscanf":
+				case 'wscanf':
 				comment += "Read formatted data from stdin ";
 				break;
-				case "wcstod":
+				case 'wcstod':
 				comment += "Convert wide string to double ";
 				break;
-				case "wcstof":
+				case 'wcstof':
 				comment += "Convert wide string to float ";
 				break;
-				case "wcstol":
+				case 'wcstol':
 				comment += "Convert wide string to long integer ";
 				break;
-				case "wcstold":
+				case 'wcstold':
 				comment += "Convert wide string to long double ";
 				break;
-				case "wcstoll":
+				case 'wcstoll':
 				comment += "Convert wide string to long long integer ";
 				break;
-				case "wcstoul":
+				case 'wcstoul':
 				comment += "Convert wide string to unsigned long integer ";
 				break;
-				case "wcstoull":
+				case 'wcstoull':
 				comment += "Convert wide string to unsigned long long integer ";
 				break;
-				case "btowc":
+				case 'btowc':
 				comment += "Convert single byte character to wide character ";
 				break;
-				case "mbrlen":
+				case 'mbrlen':
 				comment += "Get length of multibyte character ";
 				break;
-				case "mbrtowc":
+				case 'mbrtowc':
 				comment += "Convert multibyte sequence to wide character ";
 				break;
-				case "mbsinit":
+				case 'mbsinit':
 				comment += "Check if initial conversion state ";
 				break;
-				case "mbsrtowcs":
+				case 'mbsrtowcs':
 				comment += "Convert multibyte string to wide-character string ";
 				break;
-				case "wcrtomb":
+				case 'wcrtomb':
 				comment += "Convert wide character to multibyte sequence ";
 				break;
-				case "wctob":
+				case 'wctob':
 				comment += "Convert wide character to single byte ";
 				break;
-				case "wcsrtombs":
+				case 'wcsrtombs':
 				comment += "Convert wide-character string to multibyte string ";
 				break;
-				case "wcscat":
+				case 'wcscat':
 				comment += "Concatenate wide strings ";
 				break;
-				case "wcschr":
+				case 'wcschr':
 				comment += "Locate first occurrence of character in wide string ";
 				break;
-				case "wcscmp":
+				case 'wcscmp':
 				comment += "Compare two strings ";
 				break;
-				case "wcscoll":
+				case 'wcscoll':
 				comment += "Compare two wide strings using locale ";
 				break;
-				case "wcscpy":
+				case 'wcscpy':
 				comment += "Copy wide string ";
 				break;
-				case "wcscspn":
+				case 'wcscspn':
 				comment += "Get span until character in wide string ";
 				break;
-				case "wcslen":
+				case 'wcslen':
 				comment += "Get wide string length ";
 				break;
-				case "wcsncat":
+				case 'wcsncat':
 				comment += "Append characters from wide string ";
 				break;
-				case "wcsncmp":
+				case 'wcsncmp':
 				comment += "Compare characters of two wide strings ";
 				break;
-				case "wcsncpy":
+				case 'wcsncpy':
 				comment += "Copy characters from wide string ";
 				break;
-				case "wcspbrk":
+				case 'wcspbrk':
 				comment += "Locate characters in wide string ";
 				break;
-				case "wcsrchr":
+				case 'wcsrchr':
 				comment += "Locate last occurrence of character in wide string ";
 				break;
-				case "wcsspn":
+				case 'wcsspn':
 				comment += "Get span of character set in wide string ";
 				break;
-				case "wcsstr":
+				case 'wcsstr':
 				comment += "Locate substring of wide string ";
 				break;
-				case "wcstok":
+				case 'wcstok':
 				comment += "Split wide string into tokens ";
 				break;
-				case "wcsxfrm":
+				case 'wcsxfrm':
 				comment += "Transform wide string using locale ";
 				break;
-				case "wmemchr":
+				case 'wmemchr':
 				comment += "Locate character in block of wide characters ";
 				break;
-				case "wmemcmp":
+				case 'wmemcmp':
 				comment += "Compare two blocks of wide characters ";
 				break;
-				case "wmemcpy":
+				case 'wmemcpy':
 				comment += "Copy block of wide characters ";
 				break;
-				case "wmemmove":
+				case 'wmemmove':
 				comment += "Move block of wide characters ";
 				break;
-				case "wmemset":
+				case 'wmemset':
 				comment += "Fill array of wide characters ";
 				break;
-				case "wcsftime":
+				case 'wcsftime':
 				comment += "Format time as wide string ";
 				break;
-				case "mbstate_t":
+				case 'mbstate_t':
 				comment += "Multibyte conversion state ";
 				break;
-				case "wchar_t":
+				case 'wchar_t':
 				comment += "Wide character ";
 				break;
-				case "wint_t":
+				case 'wint_t':
 				comment += "Wide int type (header/type)";
 				break;
-				case "WCHAR_MAX":
+				case 'WCHAR_MAX':
 				comment += "Maximum value of wchar_t ";
 				break;
-				case "WCHAR_MIN":
+				case 'WCHAR_MIN':
 				comment += "Minimum value of wchar_t ";
 				break;
-				case "WEOF":
+				case 'WEOF':
 				comment += "Wide end-of-file ";
 				break;
 
-				case "iswalnum":
+				case 'iswalnum':
 				comment += "Check if wide character is alphanumeric ";
 				break;
-				case "iswalpha":
+				case 'iswalpha':
 				comment += "Check if wide character is alphabetic ";
 				break;
-				case "iswblank":
+				case 'iswblank':
 				comment += "Check if wide character is blank ";
 				break;
-				case "iswcntrl":
+				case 'iswcntrl':
 				comment += "Check if wide character is a control character ";
 				break;
-				case "iswdigit":
+				case 'iswdigit':
 				comment += "Check if wide character is decimal digit ";
 				break;
-				case "iswgraph":
+				case 'iswgraph':
 				comment += "Check if wide character has graphical representation ";
 				break;
-				case "iswlower":
-				comment += "Check if wide character is lowercaseletter ";
+				case 'iswlower':
+				comment += 'Check if wide character is lowercaseletter ';
 				break;
-				case "iswprint":
+				case 'iswprint':
 				comment += "Check if wide character is printable ";
 				break;
-				case "iswpunct":
+				case 'iswpunct':
 				comment += "Check if wide character is punctuation character ";
 				break;
-				case "iswspace":
+				case 'iswspace':
 				comment += "Check if wide character is a white-space ";
 				break;
-				case "iswupper":
-				comment += "Check if wide character is uppercaseletter ";
+				case 'iswupper':
+				comment += 'Check if wide character is uppercaseletter ';
 				break;
-				case "iswxdigit":
+				case 'iswxdigit':
 				comment += "Check if wide character is hexadecimal digit ";
 				break;
-				case "towlower":
-				comment += "Convert uppercasewide character to lowercase "
+				case 'towlower':
+				comment += 'Convert uppercasewide character to lowercase '
 				break;
-				case "towupper":
-				comment += "Convert lowercasewide character to uppercase "
+				case 'towupper':
+				comment += 'Convert lowercasewide character to uppercase '
 				break;
-				case "iswctype":
+				case 'iswctype':
 				comment += "Check if wide character has property ";
 				break;
-				case "towctrans":
+				case 'towctrans':
 				comment += "Convert using transformation ";
 				break;
-				case "wctrans":
+				case 'wctrans':
 				comment += "Return character transformation ";
 				break;
-				case "wctype":
+				case 'wctype':
 				comment += "Return character property ";
 				break;
-				case "wctrans_t":
+				case 'wctrans_t':
 				comment += "Wide character transformation ";
 				break;
-				case "wctype_t":
+				case 'wctype_t':
 				comment += "Wide character type ";
 				break;
-				case "array":
+				case 'array':
 				comment += "Array class ";
 				break;
-				case "end":
+				case 'end':
 				comment += "Iterator to end ";
 				break;
-				case "bitset":
+				case 'bitset':
 				comment += "Bitset ";
 				break;
 
-				case "deque":
+				case 'deque':
 				comment += "Double ended queue ";
 				break;
-				case "forward_list":
+				case 'forward_list':
 				comment += "Forward list ";
 				break;
-				case "list":
+				case 'list':
 				comment += "List ";
 				break;
-				case "map":
+				case 'map':
 				comment += "Map ";
 				break;
-				case "multimap":
+				case 'multimap':
 				comment += "Multiple-key map ";
 				break;
-				case "queue":
+				case 'queue':
 				comment += "FIFO queue ";
 				break;
-				case "priority_queue":
+				case 'priority_queue':
 				comment += "Priority queue ";
 				break;
 
-				case "set":
+				case 'set':
 				comment += "Set ";
 				break;
-				case "multiset":
+				case 'multiset':
 				comment += "Multiple-key set ";
 				break;
-				case "stack":
+				case 'stack':
 				comment += "LIFO stack ";
 				break;
-				case "unordered_map":
+				case 'unordered_map':
 				comment += "Unordered Map ";
 				break;
-				case "unordered_multimap":
+				case 'unordered_multimap':
 				comment += "Unordered Multimap ";
 				break;
-				case "unordered_set":
+				case 'unordered_set':
 				comment += "Unordered Set ";
 				break;
-				case "unordered_multiset":
+				case 'unordered_multiset':
 				comment += "Unordered Multiset ";
 				break;
-				case "vector":
+				case 'vector':
 				comment += "Vector ";
 				break;
-				case "vector<;bool>;":
+				case 'vector<;bool>;':
 				comment += "Vector of bool ";
 				break;
-				case "atomic":
+				case 'atomic':
 				comment += "Atomic ";
 				break;
-				case "atomic_flag":
+				case 'atomic_flag':
 				comment += "Atomic flag ";
 				break;
-				case "memory_order":
+				case 'memory_order':
 				comment += "Memory order ";
 				break;
-				case "kill_dependency":
+				case 'kill_dependency':
 				comment += "Kill dependency ";
 				break;
-				case "atomic_thread_fence":
+				case 'atomic_thread_fence':
 				comment += "Thread fence ";
 				break;
-				case "atomic_signal_fence":
+				case 'atomic_signal_fence':
 				comment += "Signal fence ";
 				break;
-				case "atomic_is_lock_free":
+				case 'atomic_is_lock_free':
 				comment += "Is lock-free ";
 				break;
-				case "atomic_init":
+				case 'atomic_init':
 				comment += "Initialize atomic object ";
 				break;
-				case "atomic_store":
+				case 'atomic_store':
 				comment += "Modify contained value ";
 				break;
-				case "atomic_store_explicit":
+				case 'atomic_store_explicit':
 				comment += "Modify contained value (explicit memory order) ";
 				break;
-				case "atomic_load":
+				case 'atomic_load':
 				comment += "Read contained value ";
 				break;
-				case "atomic_load_explicit":
+				case 'atomic_load_explicit':
 				comment += "Read contained value (explicit memory order) ";
 				break;
-				case "atomic_exchange":
+				case 'atomic_exchange':
 				comment += "Read and modify contained value ";
 				break;
-				case "atomic_exchange_explicit":
+				case 'atomic_exchange_explicit':
 				comment += "Read  and modify contained value (explicit memory order) ";
 				break;
-				case "atomic_compare_exchange_weak":
+				case 'atomic_compare_exchange_weak':
 				comment += "Compare and exchange contained value (weak) ";
 				break;
-				case "atomic_compare_exchange_weak_explicit":
+				case 'atomic_compare_exchange_weak_explicit':
 				comment += "Compare and exchange contained value (weak, explicit) ";
 				break;
-				case "atomic_compare_exchange_strong":
+				case 'atomic_compare_exchange_strong':
 				comment += "Compare and exchange contained value (strong) ";
 				break;
-				case "atomic_compare_exchange_strong_explicit":
+				case 'atomic_compare_exchange_strong_explicit':
 				comment += "Compare and exchange contained value (strong, explicit) ";
 				break;
-				case "atomic_fetch_add":
+				case 'atomic_fetch_add':
 				comment += "Add to contained value ";
 				break;
-				case "atomic_fetch_add_explicit":
+				case 'atomic_fetch_add_explicit':
 				comment += "Add to contained value (explicit memory order) ";
 				break;
-				case "atomic_fetch_sub":
+				case 'atomic_fetch_sub':
 				comment += "Subtract from contained value ";
 				break;
-				case "atomic_fetch_sub_explicit":
+				case 'atomic_fetch_sub_explicit':
 				comment += "Subtract from contained value (explicit memory order) ";
 				break;
-				case "atomic_fetch_and":
+				case 'atomic_fetch_and':
 				comment += "Apply bitwise AND to contained value ";
 				break;
-				case "atomic_fetch_and_explicit":
+				case 'atomic_fetch_and_explicit':
 				comment += "Apply bitwise AND to contained value (explicit memory order) ";
 				break;
-				case "atomic_fetch_or":
+				case 'atomic_fetch_or':
 				comment += "Apply bitwise OR to contained value ";
 				break;
-				case "atomic_fetch_or_explicit":
+				case 'atomic_fetch_or_explicit':
 				comment += "Apply bitwise OR to contained value (explicit memory order) ";
 				break;
-				case "atomic_fetch_xor":
+				case 'atomic_fetch_xor':
 				comment += "Apply bitwise XOR to contained value ";
 				break;
-				case "atomic_fetch_xor_explicit":
+				case 'atomic_fetch_xor_explicit':
 				comment += "Apply bitwise XOR to contained value (explicit memory order) ";
 				break;
-				case "atomic_flag_test_and_set":
+				case 'atomic_flag_test_and_set':
 				comment += "Test and set atomic flag ";
 				break;
-				case "atomic_flag_test_and_set_explicit":
+				case 'atomic_flag_test_and_set_explicit':
 				comment += "Test and set atomic flag (explicit memory order) ";
 				break;
-				case "atomic_flag_clear":
+				case 'atomic_flag_clear':
 				comment += "Clear atomic flag ";
 				break;
-				case "atomic_flag_clear_explicit":
+				case 'atomic_flag_clear_explicit':
 				comment += "Clear atomic flag (explicit memory order) ";
 				break;
-				case "ATOMIC_VAR_INIT":
+				case 'ATOMIC_VAR_INIT':
 				comment += "Initialization of atomic variable ";
 				break;
-				case "ATOMIC_FLAG_INIT":
+				case 'ATOMIC_FLAG_INIT':
 				comment += "Initialization of atomic flag ";
 				break;
 
-				case "condition_variable":
+				case 'condition_variable':
 				comment += "Condition variable ";
 				break;
-				case "condition_variable_any":
+				case 'condition_variable_any':
 				comment += "Condition variable (any lock) ";
 				break;
-				case "cv_status":
+				case 'cv_status':
 				comment += "Condition variable status ";
 				break;
-				case "notify_all_at_thread_exit":
+				case 'notify_all_at_thread_exit':
 				comment += "Notify all at thread exit ";
 				break;
 
-				case "promise":
+				case 'promise':
 				comment += "Promise ";
 				break;
-				case "packaged_task":
+				case 'packaged_task':
 				comment += "Packaged task ";
 				break;
-				case "future":
+				case 'future':
 				comment += "Future ";
 				break;
-				case "shared_future":
+				case 'shared_future':
 				comment += "Shared future ";
 				break;
-				case "future_error":
+				case 'future_error':
 				comment += "Future error exception ";
 				break;
-				case "future_errc":
+				case 'future_errc':
 				comment += "Error conditions for future objects ";
 				break;
-				case "future_status":
+				case 'future_status':
 				comment += "Return value for timed future operations ";
 				break;
-				case "launch":
+				case 'launch':
 				comment += "Launching policy for async ";
 				break;
-				case "async":
+				case 'async':
 				comment += "Call function asynchronously ";
 				break;
-				case "future_category":
+				case 'future_category':
 				comment += "Return future category ";
 				break;
-				case "mutex":
+				case 'mutex':
 				comment += "Mutex class ";
 				break;
-				case "recursive_mutex":
+				case 'recursive_mutex':
 				comment += "Recursive mutex class ";
 				break;
-				case "timed_mutex":
+				case 'timed_mutex':
 				comment += "Timed mutex class ";
 				break;
-				case "recursive_timed_mutex":
+				case 'recursive_timed_mutex':
 				comment += "Recursive timed mutex ";
 				break;
-				case "lock_guard":
+				case 'lock_guard':
 				comment += "Lock guard ";
 				break;
-				case "unique_lock":
+				case 'unique_lock':
 				comment += "Unique lock ";
 				break;
-				case "once_flag":
+				case 'once_flag':
 				comment += "Flag argument type for call_once ";
 				break;
-				case "adopt_lock_t":
+				case 'adopt_lock_t':
 				comment += "Type of adopt_lock ";
 				break;
-				case "defer_lock_t":
+				case 'defer_lock_t':
 				comment += "Type of defer_lock ";
 				break;
-				case "try_to_lock_t":
+				case 'try_to_lock_t':
 				comment += "Type of try_to_lock ";
 				break;
-				case "try_lock":
+				case 'try_lock':
 				comment += "Try to lock multiple mutexes ";
 				break;
-				case "lock":
+				case 'lock':
 				comment += "Lock multiple mutexes ";
 				break;
-				case "call_once":
+				case 'call_once':
 				comment += "Call function once "
 				break;
 
-				case "thread":
+				case 'thread':
 				comment += "Thread ";
 				break;
-				case "this_thread":
+				case 'this_thread':
 				comment += "This thread ";
 				break;
 
-				case "all_of":
+				case 'all_of':
 				comment += "Test condition on all elements in range ";
 				break;
-				case "any_of":
+				case 'any_of':
 				comment += "Test if any element in range fulfills condition ";
 				break;
-				case "none_of":
+				case 'none_of':
 				comment += "Test if no elements fulfill condition ";
 				break;
-				case "for_each":
+				case 'for_each':
 				comment += "Apply function to range ";
 				break;
-				case "find":
+				case 'find':
 				comment += "Find value in range ";
 				break;
-				case "find_if":
+				case 'find_if':
 				comment += "Find element in range ";
 				break;
-				case "find_if_not":
+				case 'find_if_not':
 				comment += "Find element in range (negative condition) ";
 				break;
-				case "find_end":
+				case 'find_end':
 				comment += "Find last subsequence in range ";
 				break;
-				case "find_first_of":
+				case 'find_first_of':
 				comment += "Find element from set in range ";
 				break;
-				case "adjacent_find":
+				case 'adjacent_find':
 				comment += "Find equal adjacent elements in range ";
 				break;
-				case "count":
+				case 'count':
 				comment += "Count appearances of value in range ";
 				break;
-				case "count_if":
+				case 'count_if':
 				comment += "Return number of elements in range satisfying condition ";
 				break;
-				case "mismatch":
+				case 'mismatch':
 				comment += "Return first position where two ranges differ ";
 				break;
-				case "equal":
+				case 'equal':
 				comment += "Test whether the elements in two ranges are equal ";
 				break;
-				case "is_permutation":
+				case 'is_permutation':
 				comment += "Test whether range is permutation of another ";
 				break;
-				case "search":
+				case 'search':
 				comment += "Search range for subsequence ";
 				break;
-				case "search_n":
+				case 'search_n':
 				comment += "Search range for elements ";
 				break;
-				case "copy":
+				case 'copy':
 				comment += "Copy range of elements ";
 				break;
-				case "copy_n":
+				case 'copy_n':
 				comment += "Copy elements ";
 				break;
-				case "copy_if":
+				case 'copy_if':
 				comment += "Copy certain elements of range ";
 				break;
-				case "copy_backward":
+				case 'copy_backward':
 				comment += "Copy range of elements backward ";
 				break;
-				case "move":
+				case 'move':
 				comment += "Move range of elements ";
 				break;
-				case "move_backward":
+				case 'move_backward':
 				comment += "Move range of elements backward ";
 				break;
-				case "swap":
+				case 'swap':
 				comment += "Exchange values of two objects ";
 				break;
-				case "swap_ranges":
+				case 'swap_ranges':
 				comment += "Exchange values of two ranges ";
 				break;
-				case "iter_swap":
+				case 'iter_swap':
 				comment += "Exchange values of objects pointed to by two iterators ";
 				break;
-				case "transform":
+				case 'transform':
 				comment += "Transform range ";
 				break;
-				case "replace":
+				case 'replace':
 				comment += "Replace value in range ";
 				break;
-				case "replace_if":
+				case 'replace_if':
 				comment += "Replace values in range ";
 				break;
-				case "replace_copy":
+				case 'replace_copy':
 				comment += "Copy range replacing value ";
 				break;
-				case "replace_copy_if":
+				case 'replace_copy_if':
 				comment += "Copy range replacing value ";
 				break;
-				case "fill":
+				case 'fill':
 				comment += "Fill range with value ";
 				break;
-				case "fill_n":
+				case 'fill_n':
 				comment += "Fill sequence with value ";
 				break;
-				case "generate":
+				case 'generate':
 				comment += "Generate values for range with function ";
 				break;
-				case "generate_n":
+				case 'generate_n':
 				comment += "Generate values for sequence with function ";
 				break;
-				case "remove_if":
+				case 'remove_if':
 				comment += "Remove elements from range ";
 				break;
-				case "remove_copy":
+				case 'remove_copy':
 				comment += "Copy range removing value ";
 				break;
-				case "remove_copy_if":
+				case 'remove_copy_if':
 				comment += "Copy range removing values ";
 				break;
-				case "unique":
+				case 'unique':
 				comment += "Remove consecutive duplicates in range ";
 				break;
-				case "unique_copy":
+				case 'unique_copy':
 				comment += "Copy range removing duplicates ";
 				break;
-				case "reverse":
+				case 'reverse':
 				comment += "Reverse range ";
 				break;
-				case "reverse_copy":
+				case 'reverse_copy':
 				comment += "Copy range reversed ";
 				break;
-				case "rotate":
+				case 'rotate':
 				comment += "Rotate left the elements in range ";
 				break;
-				case "rotate_copy":
+				case 'rotate_copy':
 				comment += "Copy range rotated left ";
 				break;
-				case "random_shuffle":
+				case 'random_shuffle':
 				comment += "Randomly rearrange elements in range ";
 				break;
-				case "shuffle":
+				case 'shuffle':
 				comment += "Randomly rearrange elements in range using generator ";
 				break;
-				case "is_partitioned":
+				case 'is_partitioned':
 				comment += "Test whether range is partitioned ";
 				break;
-				case "partition":
+				case 'partition':
 				comment += "Partition range in two ";
 				break;
-				case "stable_partition":
+				case 'stable_partition':
 				comment += "Partition range in two - stable ordering ";
 				break;
-				case "partition_copy":
+				case 'partition_copy':
 				comment += "Partition range into two ";
 				break;
-				case "partition_point":
+				case 'partition_point':
 				comment += "Get partition point ";
 				break;
-				case "sort":
+				case 'sort':
 				comment += "Sort elements in range ";
 				break;
-				case "stable_sort":
+				case 'stable_sort':
 				comment += "Sort elements preserving order of equivalents ";
 				break;
-				case "partial_sort":
+				case 'partial_sort':
 				comment += "Partially sort elements in range ";
 				break;
-				case "partial_sort_copy":
+				case 'partial_sort_copy':
 				comment += "Copy and partially sort range ";
 				break;
-				case "is_sorted":
+				case 'is_sorted':
 				comment += "Check whether range is sorted ";
 				break;
-				case "is_sorted_until":
+				case 'is_sorted_until':
 				comment += "Find first unsorted element in range ";
 				break;
-				case "nth_element":
+				case 'nth_element':
 				comment += "Sort element in range ";
 				break;
-				case "lower_bound":
+				case 'lower_bound':
 				comment += "Return iterator to lower bound ";
 				break;
-				case "upper_bound":
+				case 'upper_bound':
 				comment += "Return iterator to upper bound ";
 				break;
-				case "equal_range":
+				case 'equal_range':
 				comment += "Get subrange of equal elements ";
 				break;
-				case "binary_search":
+				case 'binary_search':
 				comment += "Test if value exists in sorted sequence ";
 				break;
-				case "merge":
+				case 'merge':
 				comment += "Merge sorted ranges ";
 				break;
-				case "inplace_merge":
+				case 'inplace_merge':
 				comment += "Merge consecutive sorted ranges ";
 				break;
-				case "includes":
+				case 'includes':
 				comment += "Test whether sorted range includes another sorted range ";
 				break;
-				case "set_union":
+				case 'set_union':
 				comment += "Union of two sorted ranges ";
 				break;
-				case "set_intersection":
+				case 'set_intersection':
 				comment += "Intersection of two sorted ranges ";
 				break;
-				case "set_difference":
+				case 'set_difference':
 				comment += "Difference of two sorted ranges ";
 				break;
-				case "set_symmetric_difference":
+				case 'set_symmetric_difference':
 				comment += "Symmetric difference of two sorted ranges ";
 				break;
-				case "push_heap":
+				case 'push_heap':
 				comment += "Push element into heap range ";
 				break;
-				case "pop_heap":
+				case 'pop_heap':
 				comment += "Pop element from heap range ";
 				break;
-				case "make_heap":
+				case 'make_heap':
 				comment += "Make heap from range ";
 				break;
-				case "sort_heap":
+				case 'sort_heap':
 				comment += "Sort elements of heap ";
 				break;
-				case "is_heap":
+				case 'is_heap':
 				comment += "Test if range is heap ";
 				break;
-				case "is_heap_until":
+				case 'is_heap_until':
 				comment += "Find first element not in heap order ";
 				break;
-				case "min":
+				case 'min':
 				comment += "Return the smallest ";
 				break;
-				case "max":
+				case 'max':
 				comment += "Return the largest ";
 				break;
-				case "minmax":
+				case 'minmax':
 				comment += "Return smallest and largest elements ";
 				break;
-				case "min_element":
+				case 'min_element':
 				comment += "Return smallest element in range ";
 				break;
-				case "max_element":
+				case 'max_element':
 				comment += "Return largest element in range ";
 				break;
-				case "minmax_element":
+				case 'minmax_element':
 				comment += "Return smallest and largest elements in range ";
 				break;
-				case "lexicographical_compare":
+				case 'lexicographical_compare':
 				comment += "Lexicographical less-than comparison ";
 				break;
-				case "next_permutation":
+				case 'next_permutation':
 				comment += "Transform range to next permutation ";
 				break;
-				case "prev_permutation":
+				case 'prev_permutation':
 				comment += "Transform range to previous permutation ";
 				break;
 
-				case "duration":
+				case 'duration':
 				comment += "Duration ";
 				break;
-				case "time_point":
+				case 'time_point':
 				comment += "Time point ";
 				break;
-				case "system_clock":
+				case 'system_clock':
 				comment += "System clock ";
 				break;
-				case "steady_clock":
+				case 'steady_clock':
 				comment += "Steady clock ";
 				break;
-				case "high_resolution_clock":
+				case 'high_resolution_clock':
 				comment += "High resolution clock ";
 				break;
-				case "treat_as_floating_point":
+				case 'treat_as_floating_point':
 				comment += "Treat as floating point ";
 				break;
-				case "duration_values":
+				case 'duration_values':
 				comment += "Duration values ";
 				break;
-				case "common_type (duration)***":
+				case 'common_type (duration)***':
 				comment += "Specialization of common_type for duration "
 				break;
-				case "duration_cast":
+				case 'duration_cast':
 				comment += "Duration cast ";
 				break;
-				case "time_point_cast":
+				case 'time_point_cast':
 				comment += "Time_point cast ";
 				break;
-				case "hours":
+				case 'hours':
 				comment += "Duration in hours ";
 				break;
-				case "minutes":
+				case 'minutes':
 				comment += "Duration in minutes ";
 				break;
-				case "seconds":
+				case 'seconds':
 				comment += "Duration in seconds ";
 				break;
-				case "milliseconds":
+				case 'milliseconds':
 				comment += "Duration in milliseconds ";
 				break;
-				case "microseconds":
+				case 'microseconds':
 				comment += "Duration in microseconds ";
 				break;
-				case "nanoseconds":
+				case 'nanoseconds':
 				comment += "Duration in nanoseconds ";
 				break;
 
-				case "codecvt_mode":
+				case 'codecvt_mode':
 				comment += "Codecvt mode ";
 				break;
-				case "codecvt_utf8":
+				case 'codecvt_utf8':
 				comment += "Convert UTF-8 ";
 				break;
-				case "codecvt_utf16":
+				case 'codecvt_utf16':
 				comment += "Convert UTF-16 ";
 				break;
-				case "codecvt_utf8_utf16":
+				case 'codecvt_utf8_utf16':
 				comment += "Convert between UTF-8 and UTF-16 ";
 				break;
 
-				case "complex":
+				case 'complex':
 				comment += "Complex number class ";
 				break;
-				case "real":
+				case 'real':
 				comment += "Real part of complex ";
 				break;
-				case "imag":
+				case 'imag':
 				comment += "Imaginary part of complex ";
 				break;
-				case "arg":
+				case 'arg':
 				comment += "Phase angle of complex ";
 				break;
-				case "norm":
+				case 'norm':
 				comment += "Norm of complex ";
 				break;
-				case "conj":
+				case 'conj':
 				comment += "Complex conjugate ";
 				break;
-				case "polar":
+				case 'polar':
 				comment += "Complex from polar components ";
 				break;
-				case "proj":
+				case 'proj':
 				comment += "Complex projection. ";
 				break;
-				case "complex operators":
+				case 'complex operators':
 				comment += "Complex number operators "
 				break;
-				case "exception":
+				case 'exception':
 				comment += "Standard exception class ";
 				break;
-				case "bad_exception":
+				case 'bad_exception':
 				comment += "Exception thrown by unexpected handler ";
 				break;
-				case "nested_exception":
+				case 'nested_exception':
 				comment += "Nested exception class ";
 				break;
-				case "exception_ptr":
+				case 'exception_ptr':
 				comment += "Exception pointer ";
 				break;
-				case "terminate_handler":
+				case 'terminate_handler':
 				comment += "Type of terminate handler function ";
 				break;
-				case "unexpected_handler":
+				case 'unexpected_handler':
 				comment += "Type of unexpected handler function ";
 				break;
-				case "terminate":
+				case 'terminate':
 				comment += "Function handling termination on exception ";
 				break;
-				case "get_terminate":
+				case 'get_terminate':
 				comment += "Get terminate handler function ";
 				break;
-				case "set_terminate":
+				case 'set_terminate':
 				comment += "Set terminate handler function ";
 				break;
-				case "unexpected":
+				case 'unexpected':
 				comment += "Function handling unexpected exceptions ";
 				break;
-				case "get_unexpected":
+				case 'get_unexpected':
 				comment += "Get unexpected handler function ";
 				break;
-				case "set_unexpected":
+				case 'set_unexpected':
 				comment += "Set unexpected handler function ";
 				break;
-				case "uncaught_exception":
+				case 'uncaught_exception':
 				comment += "Return exception status ";
 				break;
-				case "current_exception":
+				case 'current_exception':
 				comment += "Get smart pointer to current exception ";
 				break;
-				case "rethrow_exception":
+				case 'rethrow_exception':
 				comment += "Rethrow exception ";
 				break;
-				case "make_exception_ptr":
+				case 'make_exception_ptr':
 				comment += "Make exception_ptr ";
 				break;
-				case "throw_with_nested":
+				case 'throw_with_nested':
 				comment += "Throw with nested ";
 				break;
-				case "rethrow_if_nested":
+				case 'rethrow_if_nested':
 				comment += "Rethrow if nested ";
 				break;
 
-				case "unary_function":
+				case 'unary_function':
 				comment += "Unary function object base class ";
 				break;
-				case "binary_function":
+				case 'binary_function':
 				comment += "Binary function object base class ";
 				break;
-				/*
-				case "plus":
-				comment += "Addition function object class ";
-				break;
-				case "minus":
-				comment += "Subtraction function object class ";
-				break;
-				case "multiplies":
-				comment += "Multiplication function object class ";
-				break;
-				case "divides":
-				comment += "Division function object class ";
-				break;
-				case "modulus":
-				comment += "Modulus function object class ";
-				break;
-				case "negate":
-				comment += "Negative function object class ";
-				break;
-				case "equal_to":
-				comment += "Function object class for equality comparison ";
-				break;
-				case "not_equal_to":
-				comment += "Function object class for non-equality comparison ";
-				break;
-				case "greater":
-				comment += "Function object class for greater-than inequality comparison ";
-				break;
-				case "less":
-				comment += "Function object class for less-than inequality comparison ";
-				break;
-				case "greater_equal":
-				comment += "Function object class for greater-than-or-equal-to comparison ";
-				break;
-				case "less_equal":
-				comment += "Function object class for less-than-or-equal-to comparison ";
-				break;
-				case "logical_and":
-				comment += "Logical AND function object class ";
-				break;
-				case "logical_or":
-				comment += "Logical OR function object class ";
-				break;
-				case "logical_not":
-				comment += "Logical NOT function object class ";
-				break;
-				case "Negators":
-				comment += "Return negation of unary function object ";
-				break;
-				case "not1":
-				comment += "Return negation of binary function object ";
-				break;
-				case "not2":
-				comment += "Return function object with first parameter bound ";
-				break;
-				
-				case "Return function object with second parameter bound ";:
-				comment += ""
-				break;
-				case "bind1st":
-				comment += "Convert function pointer to function object ";
-				break;
-				case "bind2nd":
-				comment += "Convert member function to function object (pointer version) ";
-				break;
-				case "Conversors":
-				comment += "Convert member function to function object (reference version) ";
-				break;
-				case "ptr_fun":
-				comment += "Negate unary function object class ";
-				break;
-				case "mem_fun":
-				comment += "Negate binary function object class ";
-				break;
-				case "mem_fun_ref":
-				comment += "Generate function object class with 1st parameter bound ";
-				break;
-				case "unary_negate":
-				comment += "Generate function object class with 2nd parameter bound ";
-				break;
-				case "binary_negate":
-				comment += "Generate unary function object class from pointer ";
-				break;
-				case "binder1st":
-				comment += "Generate binary function object class from pointer ";
-				break;
-				case "binder2nd":
-				comment += "Generate function object class from parameterless member (pointer version) ";
-				break;
-				case "pointer_to_unary_function":
-				comment += "Generate function object class from single-parameter member (pointer version) ";
-				break;
-				case "pointer_to_binary_function":
-				comment += "Generate function object class from const parameterless member (pointer version) ";
-				break;
-				case "mem_fun_t":
-				comment += "Generate function object class from single-parameter const member (pointer version) ";
-				break;
-				case "mem_fun1_t":
-				comment += "Generate function object class from parameterless member (reference version) ";
-				break;
-				case "const_mem_fun_t":
-				comment += "Generate function object class from single-parameter member (reference version) ";
-				break;
-				case "const_mem_fun1_t":
-				comment += "Generate function object class from const parameterless member (reference version) ";
-				break;
-				case "mem_fun_ref_t":
-				comment += "Generate function object class from single-parameter const member (reference version) ";
-				break;
-				case "mem_fun1_ref_t":
-				comment += "Bind function arguments ";
-				break;
-				case "const_mem_fun_ref_t":
-				comment += "Construct reference_wrapper to const ";
-				break;
-				case "const_mem_fun1_ref_t":
-				comment += "Convert member function to function object ";
-				break;
-				case "bind":
-				comment += "Return negation of unary function object ";
-				break;
-				case "cref":
-				comment += "Return negation of binary function object ";
-				break;
-				case "mem_fn":
-				comment += "Construct reference_wrapper ";
-				break;
-				case "not1":
-				comment += "Negate binary function object class ";
-				break;
-				case "not2":
-				comment += "Function wrapper ";
-				break;
-				case "ref":
-				comment += "Reference wrapper ";
-				break;
-				case "binary_negate":
-				comment += "Negate unary function object class ";
-				break;
-				case "function":
-				comment += "Bitwise AND function object class ";
-				break;
-				case "reference_wrapper":
-				comment += "Bitwise OR function object class ";
-				break;
-				case "unary_negate":
-				comment += "Bitwise XOR function object class ";
-				break;
-				case "bit_and":
-				comment += "Division function object class ";
-				break;
-				case "bit_or":
-				comment += "Function object class for equality comparison ";
-				break;
-				case "bit_xor":
-				comment += "Function object class for greater-than inequality comparison ";
-				break;
-				case "divides":
-				comment += "Function object class for greater-than-or-equal-to comparison ";
-				break;
-				case "equal_to":
-				comment += "Function object class for less-than inequality comparison ";
-				break;
-				case "greater":
-				comment += "Function object class for less-than-or-equal-to comparison ";
-				break;
-				case "greater_equal":
-				comment += "Logical AND function object class ";
-				break;
-				case "less":
-				comment += "Logical NOT function object class ";
-				break;
-				case "less_equal":
-				comment += "Logical OR function object class ";
-				break;
-				case "logical_and":
-				comment += "Subtraction function object class ";
-				break;
-				case "logical_not":
-				comment += "Modulus function object class ";
-				break;
-				case "logical_or":
-				comment += "Multiplication function object class ";
-				break;
-				case "minus":
-				comment += "Negative function object class ";
-				break;
-				case "modulus":
-				comment += "Function object class for non-equality comparison ";
-				break;
-				case "multiplies":
-				comment += "Addition function object class ";
-				break;
-				case "negate":
-				comment += "Exception thrown on bad call ";
-				break;
-				case "not_equal_to":
-				comment += "Default hash function object class ";
-				break;
-				case "plus":
-				comment += "Is bind expression ";
-				break;
-				case "bad_function_call":
-				comment += "Is placeholder ";
-				break;
-				case "hash":
-				comment += "Bind argument placeholders ";
-				break;
-				case "is_bind_expression":
-				comment += ""
-				break;
-				case "is_placeholder":
-				comment += ""
-				break;
-				case "placeholders":
-				comment += ""
-				break;
-		*/
-				case "initializer_list":
+				/*paste commentblock 1*/
+				case 'initializer_list':
 				comment += "Initializer list ";
 				break;
 
-				case "advance":
+				case 'advance':
 				comment += "Advance iterator ";
 				break;
-				case "distance":
+				case 'distance':
 				comment += "Return distance between iterators ";
 				break;
-				case "prev":
+				case 'prev':
 				comment += "Get iterator to previous element ";
 				break;
-				case "next":
+				case 'next':
 				comment += "Get iterator to next element ";
 				break;
-				case "back_inserter":
+				case 'back_inserter':
 				comment += "Construct back insert iterator ";
 				break;
-				case "front_inserter":
+				case 'front_inserter':
 				comment += "Constructs front insert iterator ";
 				break;
-				case "inserter":
+				case 'inserter':
 				comment += "Construct insert iterator ";
 				break;
-				case "make_move_iterator":
+				case 'make_move_iterator':
 				comment += "Construct move iterator ";
 				break;
-				case "iterator":
+				case 'iterator':
 				comment += "Iterator base class ";
 				break;
-				case "iterator_traits":
+				case 'iterator_traits':
 				comment += "Iterator traits ";
 				break;
-				case "reverse_iterator":
+				case 'reverse_iterator':
 				comment += "Reverse iterator ";
 				break;
-				case "move_iterator":
+				case 'move_iterator':
 				comment += "Move iterator ";
 				break;
-				case "back_insert_iterator":
+				case 'back_insert_iterator':
 				comment += "Back insert iterator ";
 				break;
-				case "front_insert_iterator":
+				case 'front_insert_iterator':
 				comment += "Front insert iterator ";
 				break;
-				case "insert_iterator":
+				case 'insert_iterator':
 				comment += "Insert iterator ";
 				break;
-				case "istream_iterator":
+				case 'istream_iterator':
 				comment += "Istream iterator ";
 				break;
-				case "ostream_iterator":
+				case 'ostream_iterator':
 				comment += "Ostream iterator ";
 				break;
-				case "istreambuf_iterator":
+				case 'istreambuf_iterator':
 				comment += "Input stream buffer iterator ";
 				break;
-				case "ostreambuf_iterator":
+				case 'ostreambuf_iterator':
 				comment += "Output stream buffer iterator ";
 				break;
-				case "input_iterator_tag":
+				case 'input_iterator_tag':
 				comment += "Input iterator category ";
 				break;
-				case "output_iterator_tag":
+				case 'output_iterator_tag':
 				comment += "Output iterator category ";
 				break;
-				case "forward_iterator_tag":
+				case 'forward_iterator_tag':
 				comment += "Forward iterator category ";
 				break;
-				case "bidirectional_iterator_tag":
+				case 'bidirectional_iterator_tag':
 				comment += "Bidirectional iterator category ";
 				break;
-				case "random_access_iterator_tag":
+				case 'random_access_iterator_tag':
 				comment += "Random-access iterator category ";
 				break;
 
-				case "numeric_limits":
+				case 'numeric_limits':
 				comment += "Numeric limits type ";
 				break;
-				case "float_round_style":
+				case 'float_round_style':
 				comment += "Enum type for float rounding style ";
 				break;
-				case "float_denorm_style":
+				case 'float_denorm_style':
 				comment += "Enum type for float denormalization style ";
 				break;
 
-				case "use_facet":
+				case 'use_facet':
 				comment += "Access facet of locale ";
 				break;
-				case "has_facet":
+				case 'has_facet':
 				comment += "Check if locale has facet ";
 				break;
-				case "isalnum":
+				case 'isalnum':
 				comment += "Check if character is alphanumeric ";
 				break;
-				case "locale":
+				case 'locale':
 				comment += "Locale class ";
 				break;
-				case "ctype":
+				case 'ctype':
 				comment += "Character type facet ";
 				break;
-				case "ctype_byname":
+				case 'ctype_byname':
 				comment += "Character type facet ";
 				break;
-				case "codecvt":
+				case 'codecvt':
 				comment += "Convert codeset facet ";
 				break;
-				case "codecvt_byname":
+				case 'codecvt_byname':
 				comment += "Convert codeset facet ";
 				break;
-				case "num_get":
+				case 'num_get':
 				comment += "Facet to parse numeric values ";
 				break;
-				case "num_put":
+				case 'num_put':
 				comment += "Facet to format numeric values ";
 				break;
-				case "numpunct":
+				case 'numpunct':
 				comment += "Numeric punctuation facet ";
 				break;
-				case "numpunct_byname":
+				case 'numpunct_byname':
 				comment += "Numeric puntuation facet ";
 				break;
-				case "collate":
+				case 'collate':
 				comment += "Facet to compare and hash strings ";
 				break;
-				case "collate_byname":
+				case 'collate_byname':
 				comment += "Facet to compare and hash strings ";
 				break;
-				case "time_get":
+				case 'time_get':
 				comment += "Facet to parse dates and times ";
 				break;
-				case "time_get_byname":
+				case 'time_get_byname':
 				comment += "Facet to parse dates and times ";
 				break;
-				case "time_put":
+				case 'time_put':
 				comment += "Facet to format dates and times ";
 				break;
-				case "time_put_byname":
+				case 'time_put_byname':
 				comment += "Facet to format dates and times ";
 				break;
-				case "money_get":
+				case 'money_get':
 				comment += "Facet to parse monetary expressions ";
 				break;
-				case "money_put":
+				case 'money_put':
 				comment += "Facet to format monetary expressions ";
 				break;
-				case "moneypunct":
+				case 'moneypunct':
 				comment += "Monetary punctuation facet ";
 				break;
-				case "moneypunct_byname":
+				case 'moneypunct_byname':
 				comment += "Monetary punctuation facet ";
 				break;
-				case "messages":
+				case 'messages':
 				comment += "Facet to access message catalogs ";
 				break;
-				case "messages_byname":
+				case 'messages_byname':
 				comment += "Facet to access message catalogs  ";
 				break;
-				case "ctype_base":
+				case 'ctype_base':
 				comment += "Base class for ctype ";
 				break;
-				case "codecvt_base":
+				case 'codecvt_base':
 				comment += "Base class for codecvt ";
 				break;
-				case "time_base":
+				case 'time_base':
 				comment += "Base class for time_get ";
 				break;
-				case "money_base":
+				case 'money_base':
 				comment += "Base class for moneypunct ";
 				break;
 
-				case "allocator":
+				case 'allocator':
 				comment += "Default allocator ";
 				break;
-				case "allocator_arg":
+				case 'allocator_arg':
 				comment += "Allocator arg ";
 				break;
-				case "allocator_arg_t":
+				case 'allocator_arg_t':
 				comment += "Allocator arg type ";
 				break;
-				case "allocator_traits":
+				case 'allocator_traits':
 				comment += "Allocator traits ";
 				break;
-				case "auto_ptr":
+				case 'auto_ptr':
 				comment += "Automatic Pointer [deprecated] ";
 				break;
-				case "auto_ptr_ref":
+				case 'auto_ptr_ref':
 				comment += "Reference to automatic pointer ";
 				break;
-				case "shared_ptr":
+				case 'shared_ptr':
 				comment += "Shared pointer ";
 				break;
-				case "weak_ptr":
+				case 'weak_ptr':
 				comment += "Weak shared pointer ";
 				break;
-				case "unique_ptr":
+				case 'unique_ptr':
 				comment += "Unique pointer ";
 				break;
-				case "default_delete":
+				case 'default_delete':
 				comment += "Default deleter ";
 				break;
-				case "make_shared":
+				case 'make_shared':
 				comment += "Make shared_ptr ";
 				break;
-				case "allocate_shared":
+				case 'allocate_shared':
 				comment += "Allocate shared_ptr ";
 				break;
-				case "static_pointer_cast":
+				case 'static_pointer_cast':
 				comment += "Static cast of shared_ptr ";
 				break;
-				case "dynamic_pointer_cast":
+				case 'dynamic_pointer_cast':
 				comment += "Dynamic cast of shared_ptr ";
 				break;
-				case "const_pointer_cast":
+				case 'const_pointer_cast':
 				comment += "Const cast of shared_ptr ";
 				break;
-				case "get_deleter":
+				case 'get_deleter':
 				comment += "Get deleter from shared_ptr ";
 				break;
-				case "owner_less":
+				case 'owner_less':
 				comment += "Owner-based less-than operation ";
 				break;
-				case "enable_shared_from_this":
+				case 'enable_shared_from_this':
 				comment += "Enable shared_from_this ";
 				break;
-				case "raw_storage_iterator":
+				case 'raw_storage_iterator':
 				comment += "Raw storage iterator ";
 				break;
-				case "get_temporary_buffer":
+				case 'get_temporary_buffer':
 				comment += "Get block of temporary memory ";
 				break;
-				case "return_temporary_buffer":
+				case 'return_temporary_buffer':
 				comment += "Return block of temporary memory ";
 				break;
-				case "uninitialized_copy":
+				case 'uninitialized_copy':
 				comment += "Copy block of memory ";
 				break;
-				case "uninitialized_copy_n":
+				case 'uninitialized_copy_n':
 				comment += "Copy block of memory ";
 				break;
-				case "uninitialized_fill":
+				case 'uninitialized_fill':
 				comment += "Fill block of memory ";
 				break;
-				case "uninitialized_fill_n":
+				case 'uninitialized_fill_n':
 				comment += "Fill block of memory ";
 				break;
-				case "pointer_traits":
+				case 'pointer_traits':
 				comment += "Pointer traits ";
 				break;
-				case "pointer_safety":
+				case 'pointer_safety':
 				comment += "Pointer safety enum ";
 				break;
-				case "declare_reachable":
+				case 'declare_reachable':
 				comment += "Declare pointer as reachable ";
 				break;
-				case "undeclare_reachable":
+				case 'undeclare_reachable':
 				comment += "Undeclare pointer as reachable ";
 				break;
-				case "declare_no_pointers":
+				case 'declare_no_pointers':
 				comment += "Declare memory block as containing no pointers ";
 				break;
-				case "undeclare_no_pointers":
+				case 'undeclare_no_pointers':
 				comment += "Undeclare memory block as containing no pointers ";
 				break;
-				case "get_pointer_safety":
+				case 'get_pointer_safety':
 				comment += "Get pointer safety ";
 				break;
-				case "align":
+				case 'align':
 				comment += "Align in range ";
 				break;
-				case "addressof":
+				case 'addressof':
 				comment += "Address of object or function ";
 				break;
 
-				case "operator new":
-				comment += "Allocate storage space "
+				case 'operator new':
+				comment += "Allocate storage space ";
 				break;
-				case "operator new[]":
-				comment += "Allocate storage space for array "
+				case 'operator new[]':
+				comment += "Allocate storage space for array ";
 				break;
-				case "operator delete":
-				comment += "Deallocate storage space "
+				case 'operator delete':
+				comment += "Deallocate storage space ";
 				break;
-				case "operator delete[]":
-				comment += "Deallocate storage space of array "
+				case 'operator delete[]':
+				comment += "Deallocate storage space of array ";
 				break;
-				case "set_new_handler":
+				case 'set_new_handler':
 				comment += "Set new handler function ";
 				break;
-				case "get_new_handler":
+				case 'get_new_handler':
 				comment += "Get new handler function ";
 				break;
-				case "nothrow_t":
+				case 'nothrow_t':
 				comment += "Nothrow type ";
 				break;
-				case "new_handler":
+				case 'new_handler':
 				comment += "Type of new handler function ";
 				break;
-				case "bad_alloc":
+				case 'bad_alloc':
 				comment += "Exception thrown on failure allocating memory ";
 				break;
-				case "bad_array_new_length":
+				case 'bad_array_new_length':
 				comment += "Exception on bad array length ";
 				break;
-				case "nothrow":
+				case 'nothrow':
 				comment += "Nothrow constant ";
 				break;
 
-				case "accumulate":
+				case 'accumulate':
 				comment += "Accumulate values in range ";
 				break;
-				case "adjacent_difference":
+				case 'adjacent_difference':
 				comment += "Compute adjacent difference of range ";
 				break;
-				case "inner_product":
+				case 'inner_product':
 				comment += "Compute cumulative inner product of range ";
 				break;
-				case "partial_sum":
+				case 'partial_sum':
 				comment += "Compute partial sums of range ";
 				break;
-				case "iota":
+				case 'iota':
 				comment += "Store increasing sequence ";
 				break;
 
-				case "linear_congruential_engine":
+				case 'linear_congruential_engine':
 				comment += "Linear congruential random number engine ";
 				break;
-				case "mersenne_twister_engine":
+				case 'mersenne_twister_engine':
 				comment += "Mersenne twister random number engine ";
 				break;
-				case "subtract_with_carry_engine":
+				case 'subtract_with_carry_engine':
 				comment += "Subtract-with-carry random number engine ";
 				break;
-				case "discard_block_engine":
+				case 'discard_block_engine':
 				comment += "Discard-block random number engine adaptor ";
 				break;
-				case "independent_bits_engine":
+				case 'independent_bits_engine':
 				comment += "Independent-bits random number engine adaptor ";
 				break;
-				case "shuffle_order_engine":
+				case 'shuffle_order_engine':
 				comment += "Shuffle-order random number engine adaptor ";
 				break;
-				case "default_random_engine":
+				case 'default_random_engine':
 				comment += "Default random engine ";
 				break;
-				case "minstd_rand":
+				case 'minstd_rand':
 				comment += "Minimal Standard minstd_rand generator ";
 				break;
-				case "minstd_rand0":
+				case 'minstd_rand0':
 				comment += "Minimal Standard minstd_rand0 generator ";
 				break;
-				case "mt19937":
+				case 'mt19937':
 				comment += "Mersenne Twister 19937 generator ";
 				break;
-				case "mt19937_64":
+				case 'mt19937_64':
 				comment += "Mersenne Twister 19937 generator (64 bit) ";
 				break;
-				case "ranlux24_base":
+				case 'ranlux24_base':
 				comment += "Ranlux 24 base generator ";
 				break;
-				case "ranlux48_base":
+				case 'ranlux48_base':
 				comment += "Ranlux 48 base generator ";
 				break;
-				case "ranlux24":
+				case 'ranlux24':
 				comment += "Ranlux 24 generator ";
 				break;
-				case "ranlux48":
+				case 'ranlux48':
 				comment += "Ranlux 48 generator ";
 				break;
-				case "knuth_b":
+				case 'knuth_b':
 				comment += "Knuth-B generator ";
 				break;
-				case "random_device":
+				case 'random_device':
 				comment += "True random number generator ";
 				break;
-				case "uniform_int_distribution":
+				case 'uniform_int_distribution':
 				comment += "Uniform discrete distribution ";
 				break;
-				case "uniform_real_distribution":
+				case 'uniform_real_distribution':
 				comment += "Uniform real distribution ";
 				break;
-				case "bernoulli_distribution":
+				case 'bernoulli_distribution':
 				comment += "Bernoulli distribution ";
 				break;
-				case "binomial_distribution":
+				case 'binomial_distribution':
 				comment += "Binomial distribution ";
 				break;
-				case "geometric_distribution":
+				case 'geometric_distribution':
 				comment += "Geometric distribution ";
 				break;
-				case "negative_binomial_distribution":
+				case 'negative_binomial_distribution':
 				comment += "Negative binomial distribution ";
 				break;
-				case "poisson_distribution":
+				case 'poisson_distribution':
 				comment += "Poisson distribution ";
 				break;
-				case "exponential_distribution":
+				case 'exponential_distribution':
 				comment += "Exponential distribution ";
 				break;
-				case "gamma_distribution":
+				case 'gamma_distribution':
 				comment += "Gamma distribution ";
 				break;
-				case "weibull_distribution":
+				case 'weibull_distribution':
 				comment += "Weibull distribution ";
 				break;
-				case "extreme_value_distribution":
+				case 'extreme_value_distribution':
 				comment += "Extreme Value distribution ";
 				break;
-				case "normal_distribution":
+				case 'normal_distribution':
 				comment += "Normal distribution ";
 				break;
-				case "lognormal_distribution":
+				case 'lognormal_distribution':
 				comment += "Lognormal distribution ";
 				break;
-				case "chi_squared_distribution":
+				case 'chi_squared_distribution':
 				comment += "Chi-squared distribution ";
 				break;
-				case "cauchy_distribution":
+				case 'cauchy_distribution':
 				comment += "Cauchy distribution ";
 				break;
-				case "fisher_f_distribution":
+				case 'fisher_f_distribution':
 				comment += "Fisher F-distribution ";
 				break;
-				case "student_t_distribution":
+				case 'student_t_distribution':
 				comment += "Student T-Distribution ";
 				break;
-				case "discrete_distribution":
+				case 'discrete_distribution':
 				comment += "Discrete distribution ";
 				break;
-				case "piecewise_constant_distribution":
+				case 'piecewise_constant_distribution':
 				comment += "Piecewise constant distribution ";
 				break;
-				case "piecewise_linear_distribution":
+				case 'piecewise_linear_distribution':
 				comment += "Piecewise linear distribution ";
 				break;
-				case "seed_seq":
+				case 'seed_seq':
 				comment += "Seed sequence ";
 				break;
-				case "generate_canonical":
+				case 'generate_canonical':
 				comment += "Generate canonical numbers ";
 				break;
 
-				case "ratio":
+				case 'ratio':
 				comment += "Ratio ";
 				break;
-				case "ratio_add":
+				case 'ratio_add':
 				comment += "Add two ratios ";
 				break;
-				case "ratio_subtract":
+				case 'ratio_subtract':
 				comment += "Subtract ratios ";
 				break;
-				case "ratio_multiply":
+				case 'ratio_multiply':
 				comment += "Multiply two ratios ";
 				break;
-				case "ratio_divide":
+				case 'ratio_divide':
 				comment += "Divide ratios ";
 				break;
-				case "ratio_equal":
+				case 'ratio_equal':
 				comment += "Compare ratios ";
 				break;
-				case "ratio_not_equal":
+				case 'ratio_not_equal':
 				comment += "Compare ratios for inequality ";
 				break;
-				case "ratio_less":
+				case 'ratio_less':
 				comment += "Compare ratios for less-than inequality ";
 				break;
-				case "ratio_less_equal":
+				case 'ratio_less_equal':
 				comment += "Compare ratios for equality or less-than inequality ";
 				break;
-				case "ratio_greater":
+				case 'ratio_greater':
 				comment += "Compare ratios for greater than inequality ";
 				break;
-				case "ratio_greater_equal":
+				case 'ratio_greater_equal':
 				comment += "Compare ratios for equality or greater-than inequality ";
 				break;
 
-				case "regex_match":
+				case 'regex_match':
 				comment += "Match sequence ";
 				break;
-				case "regex_search":
+				case 'regex_search':
 				comment += "Search sequence ";
 				break;
-				case "regex_replace":
+				case 'regex_replace':
 				comment += "Replace matched sequence ";
 				break;
-				case "regex_iterator":
+				case 'regex_iterator':
 				comment += "Regex iterator ";
 				break;
-				case "regex_token_iterator":
+				case 'regex_token_iterator':
 				comment += "Regex token iterator ";
 				break;
-				case "basic_regex":
+				case 'basic_regex':
 				comment += "Regular expression ";
 				break;
-				case "match_results":
+				case 'match_results':
 				comment += "Match results ";
 				break;
-				case "sub_match":
+				case 'sub_match':
 				comment += "Sub-expression match ";
 				break;
-				case "regex_traits":
+				case 'regex_traits':
 				comment += "Regex traits ";
 				break;
-				case "regex_error":
+				case 'regex_error':
 				comment += "Regex exception ";
 				break;
-				case "regex":
+				case 'regex':
 				comment += "Regex ";
 				break;
-				case "wregex":
+				case 'wregex':
 				comment += "Regex for wchar_t ";
 				break;
-				case "cmatch":
+				case 'cmatch':
 				comment += "match_results for string literals ";
 				break;
-				case "wcmatch":
+				case 'wcmatch':
 				comment += "match_results for wide string literals ";
 				break;
-				case "smatch":
+				case 'smatch':
 				comment += "match_results for string objects ";
 				break;
-				case "wsmatch":
+				case 'wsmatch':
 				comment += "match_results for wide string objects ";
 				break;
-				case "csub_match":
+				case 'csub_match':
 				comment += "sub_match for string literals ";
 				break;
-				case "wcsub_match":
+				case 'wcsub_match':
 				comment += "sub_match for wide string literals ";
 				break;
-				case "ssub_match":
+				case 'ssub_match':
 				comment += "sub_match for strings ";
 				break;
-				case "wssub_match":
+				case 'wssub_match':
 				comment += "sub_match for wide strings ";
 				break;
-				case "regex_constants":
+				case 'regex_constants':
 				comment += "regex constants ";
 				break;
-				case "ECMAScript syntax":
-				comment += "ECMAScript regular expressions pattern syntax "
+				case 'ECMAScript syntax':
+				comment += "ECMAScript regular expressions pattern syntax ";
 				break;
 				
-				case "begin":
+				case 'begin':
 				comment += "Iterator to beginning ";
 				break;
-				case "logic_error":
+				case 'logic_error':
 				comment += "Logic error exception ";
 				break;
-				case "domain_error":
+				case 'domain_error':
 				comment += "Domain error exception ";
 				break;
-				case "invalid_argument":
+				case 'invalid_argument':
 				comment += "Invalid argument exception ";
 				break;
-				case "length_error":
+				case 'length_error':
 				comment += "Length error exception ";
 				break;
-				case "out_of_range":
+				case 'out_of_range':
 				comment += "Out-of-range exception ";
 				break;
-				case "runtime_error":
+				case 'runtime_error':
 				comment += "Runtime error exception ";
 				break;
-				case "range_error":
+				case 'range_error':
 				comment += "Range error exception ";
 				break;
-				case "overflow_error":
+				case 'overflow_error':
 				comment += "Overflow error exception ";
 				break;
-				case "underflow_error":
+				case 'underflow_error':
 				comment += "Underflow error exception ";
 				break;
-				case "basic_string":
+				case 'basic_string':
 				comment += "Generic string class ";
 				break;
-				case "char_traits":
+				case 'char_traits':
 				comment += "Character traits ";
 				break;
-				case "string":
+				case 'string':
 				comment += "String class ";
 				break;
-				case "u16string":
+				case 'u16string':
 				comment += "String of 16-bit characters ";
 				break;
-				case "u32string":
+				case 'u32string':
 				comment += "String of 32-bit characters ";
 				break;
-				case "wstring":
+				case 'wstring':
 				comment += "Wide string ";
 				break;
-				case "stoi":
+				case 'stoi':
 				comment += "Convert string to integer ";
 				break;
-				case "stol":
+				case 'stol':
 				comment += "Convert string to long int ";
 				break;
-				case "stoul":
+				case 'stoul':
 				comment += "Convert string to unsigned integer ";
 				break;
-				case "stoll":
+				case 'stoll':
 				comment += "Convert string to long long ";
 				break;
-				case "stoull":
+				case 'stoull':
 				comment += "Convert string to unsigned long long ";
 				break;
-				case "stof":
+				case 'stof':
 				comment += "Convert string to float ";
 				break;
-				case "stod":
+				case 'stod':
 				comment += "Convert string to double ";
 				break;
-				case "stold":
+				case 'stold':
 				comment += "Convert string to long double ";
 				break;
-				case "to_string":
+				case 'to_string':
 				comment += "Convert numerical value to string ";
 				break;
-				case "to_wstring":
+				case 'to_wstring':
 				comment += "Convert numerical value to wide string ";
 				break;
-				case "error_category":
+				case 'error_category':
 				comment += "Error category ";
 				break;
-				case "error_code":
+				case 'error_code':
 				comment += "Error code ";
 				break;
-				case "error_condition":
+				case 'error_condition':
 				comment += "Error condition ";
 				break;
-				case "system_error":
+				case 'system_error':
 				comment += "System error exception ";
 				break;
-				case "is_error_code_enum":
+				case 'is_error_code_enum':
 				comment += "error_code enum flag ";
 				break;
-				case "is_error_condition_enum":
+				case 'is_error_condition_enum':
 				comment += "error_condition enum flag ";
 				break;
-				case "errc":
+				case 'errc':
 				comment += "Generic error conditions ";
 				break;
-				case "generic_category":
+				case 'generic_category':
 				comment += "Return generic category ";
 				break;
-				case "system_category":
+				case 'system_category':
 				comment += "Return system category ";
 				break;
-				case "make_error_code":
+				case 'make_error_code':
 				comment += "Make error code ";
 				break;
-				case "make_error_condition":
+				case 'make_error_condition':
 				comment += "Make error condition ";
 				break;
 
-				case "tuple":
+				case 'tuple':
 				comment += "Tuple ";
 				break;
-				case "tuple_size":
+				case 'tuple_size':
 				comment += "Tuple size traits ";
 				break;
-				case "tuple_element":
+				case 'tuple_element':
 				comment += "Tuple element type ";
 				break;
-				case "make_tuple":
+				case 'make_tuple':
 				comment += "Construct tuple ";
 				break;
-				case "forward_as_tuple":
+				case 'forward_as_tuple':
 				comment += "Forward as tuple ";
 				break;
-				case "tie":
+				case 'tie':
 				comment += "Tie arguments to tuple elements ";
 				break;
-				case "tuple_cat":
+				case 'tuple_cat':
 				comment += "Concatenate tuples ";
 				break;
-				case "get":
+				case 'get':
 				comment += "Get element ";
 				break;
-				case "ignore":
+				case 'ignore':
 				comment += "Ignore assignment ";
 				break;
 
-				case "type_index":
+				case 'type_index':
 				comment += "Type index ";
 				break;
-				case "hash<;type_index>;":
+				case 'hash<;type_index>;':
 				comment += "Hash for type_index ";
 				break;
 
-				case "type_info":
+				case 'type_info':
 				comment += "Type information type ";
 				break;
-				case "bad_cast":
+				case 'bad_cast':
 				comment += "Exception thrown on failure to dynamic cast ";
 				break;
-				case "bad_typeid":
+				case 'bad_typeid':
 				comment += "Exception thrown on typeid of null pointer ";
 				break;
 
-				case "integral_constant":
+				case 'integral_constant':
 				comment += "Integral constant ";
 				break;
-				case "true_type":
+				case 'true_type':
 				comment += "True type ";
 				break;
-				case "false_type":
+				case 'false_type':
 				comment += "False type ";
 				break;
-				case "is_array":
+				case 'is_array':
 				comment += "Is array ";
 				break;
-				case "is_class":
+				case 'is_class':
 				comment += "Is non-union class ";
 				break;
-				case "is_enum":
+				case 'is_enum':
 				comment += "Is enum ";
 				break;
-				case "is_floating_point":
+				case 'is_floating_point':
 				comment += "Is floating point ";
 				break;
-				case "is_function":
+				case 'is_function':
 				comment += "Is function ";
 				break;
-				case "is_integral":
+				case 'is_integral':
 				comment += "Is integral ";
 				break;
-				case "is_lvalue_reference":
+				case 'is_lvalue_reference':
 				comment += "Is lvalue reference ";
 				break;
-				case "is_member_function_pointer":
+				case 'is_member_function_pointer':
 				comment += "Is member function pointer ";
 				break;
-				case "is_member_object_pointer":
+				case 'is_member_object_pointer':
 				comment += "Is member object pointer ";
 				break;
-				case "is_pointer":
+				case 'is_pointer':
 				comment += "Is pointer ";
 				break;
-				case "is_rvalue_reference":
+				case 'is_rvalue_reference':
 				comment += "Is rvalue reference ";
 				break;
-				case "is_union":
+				case 'is_union':
 				comment += "Is union ";
 				break;
-				case "is_void":
+				case 'is_void':
 				comment += "Is void ";
 				break;
-				case "is_arithmetic":
+				case 'is_arithmetic':
 				comment += "Is arithmetic type ";
 				break;
-				case "is_compound":
+				case 'is_compound':
 				comment += "Is compound type ";
 				break;
-				case "is_fundamental":
+				case 'is_fundamental':
 				comment += "Is fundamental type ";
 				break;
-				case "is_member_pointer":
+				case 'is_member_pointer':
 				comment += "Is member pointer type ";
 				break;
-				case "is_object":
+				case 'is_object':
 				comment += "Is object type ";
 				break;
-				case "is_reference":
+				case 'is_reference':
 				comment += "Is reference type ";
 				break;
-				case "is_scalar":
+				case 'is_scalar':
 				comment += "Is scalar type ";
 				break;
-				case "is_abstract":
+				case 'is_abstract':
 				comment += "Is abstract class ";
 				break;
-				case "is_const":
+				case 'is_const':
 				comment += "Is const-qualified ";
 				break;
-				case "is_empty":
+				case 'is_empty':
 				comment += "Is empty class ";
 				break;
-				case "is_literal_type":
+				case 'is_literal_type':
 				comment += "Is literal type ";
 				break;
-				case "is_pod":
+				case 'is_pod':
 				comment += "Is POD type ";
 				break;
-				case "is_polymorphic":
+				case 'is_polymorphic':
 				comment += "Is polymorphic ";
 				break;
-				case "is_signed":
+				case 'is_signed':
 				comment += "Is signed type ";
 				break;
-				case "is_standard_layout":
+				case 'is_standard_layout':
 				comment += "Is standard-layout type ";
 				break;
-				case "is_trivial":
+				case 'is_trivial':
 				comment += "Is trivial type ";
 				break;
-				case "is_trivially_copyable":
+				case 'is_trivially_copyable':
 				comment += "Is trivially copyable ";
 				break;
-				case "is_unsigned":
+				case 'is_unsigned':
 				comment += "Is unsigned type ";
 				break;
-				case "is_volatile":
+				case 'is_volatile':
 				comment += "Is volatile-qualified ";
 				break;
-				case "has_virtual_destructor":
+				case 'has_virtual_destructor':
 				comment += "Has virtual destructor ";
 				break;
-				case "is_assignable":
+				case 'is_assignable':
 				comment += "Is assignable ";
 				break;
-				case "is_constructible":
+				case 'is_constructible':
 				comment += "Is constructible ";
 				break;
-				case "is_copy_assignable":
+				case 'is_copy_assignable':
 				comment += "Is copy assignable ";
 				break;
-				case "is_copy_constructible":
+				case 'is_copy_constructible':
 				comment += "Is copy constructible ";
 				break;
-				case "is_destructible":
+				case 'is_destructible':
 				comment += "Is destructible ";
 				break;
-				case "is_default_constructible":
+				case 'is_default_constructible':
 				comment += "Is default constructible ";
 				break;
-				case "is_move_assignable":
+				case 'is_move_assignable':
 				comment += "Is move assignable ";
 				break;
-				case "is_move_constructible":
+				case 'is_move_constructible':
 				comment += "Is move constructible ";
 				break;
-				case "is_trivially_assignable":
+				case 'is_trivially_assignable':
 				comment += "Is trivially assignable ";
 				break;
-				case "is_trivially_constructible":
+				case 'is_trivially_constructible':
 				comment += "Is trivially constructible ";
 				break;
-				case "is_trivially_copy_assignable":
+				case 'is_trivially_copy_assignable':
 				comment += "Is trivially copy assignable ";
 				break;
-				case "is_trivially_copy_constructible":
+				case 'is_trivially_copy_constructible':
 				comment += "Is trivially copy constructible ";
 				break;
-				case "is_trivially_destructible":
+				case 'is_trivially_destructible':
 				comment += "Is trivially destructible ";
 				break;
-				case "is_trivially_default_constructible":
+				case 'is_trivially_default_constructible':
 				comment += "Is trivially default constructible ";
 				break;
-				case "is_trivially_move_assignable":
+				case 'is_trivially_move_assignable':
 				comment += "Is trivially move assignable ";
 				break;
-				case "is_trivially_move_constructible":
+				case 'is_trivially_move_constructible':
 				comment += "Is trivially move constructible ";
 				break;
-				case "is_nothrow_assignable":
+				case 'is_nothrow_assignable':
 				comment += "Is assignable throwing no exceptions ";
 				break;
-				case "is_nothrow_constructible":
+				case 'is_nothrow_constructible':
 				comment += "Is constructible  throwing no exceptions ";
 				break;
-				case "is_nothrow_copy_assignable":
+				case 'is_nothrow_copy_assignable':
 				comment += "Is copy assignable throwing no exceptions ";
 				break;
-				case "is_nothrow_copy_constructible":
+				case 'is_nothrow_copy_constructible':
 				comment += "Is copy constructible throwing no exceptions ";
 				break;
-				case "is_nothrow_destructible":
+				case 'is_nothrow_destructible':
 				comment += "Is nothrow destructible ";
 				break;
-				case "is_nothrow_default_constructible":
+				case 'is_nothrow_default_constructible':
 				comment += "Is default constructible throwing no exceptions ";
 				break;
-				case "is_nothrow_move_assignable":
+				case 'is_nothrow_move_assignable':
 				comment += "Is move assignable throwing no exception ";
 				break;
-				case "is_nothrow_move_constructible":
+				case 'is_nothrow_move_constructible':
 				comment += "Is move constructible throwing no exceptions ";
 				break;
-				case "is_base_of":
+				case 'is_base_of':
 				comment += "Is base class of ";
 				break;
-				case "is_convertible":
+				case 'is_convertible':
 				comment += "Is convertible ";
 				break;
-				case "is_same":
+				case 'is_same':
 				comment += "Is same type ";
 				break;
-				case "alignment_of":
+				case 'alignment_of':
 				comment += "Alignment of ";
 				break;
-				case "extent":
+				case 'extent':
 				comment += "Array dimension extent ";
 				break;
-				case "rank":
+				case 'rank':
 				comment += "Array rank ";
 				break;
-				case "add_const":
+				case 'add_const':
 				comment += "Add const qualification ";
 				break;
-				case "add_cv":
+				case 'add_cv':
 				comment += "Add const volatile qualification ";
 				break;
-				case "add_volatile":
+				case 'add_volatile':
 				comment += "Add volatile qualification ";
 				break;
-				case "remove_const":
+				case 'remove_const':
 				comment += "Remove const qualification ";
 				break;
-				case "remove_cv":
+				case 'remove_cv':
 				comment += "Remove cv qualification ";
 				break;
-				case "remove_volatile":
+				case 'remove_volatile':
 				comment += "Remove volatile qualification ";
 				break;
-				case "add_pointer":
+				case 'add_pointer':
 				comment += "Add pointer ";
 				break;
-				case "add_lvalue_reference":
+				case 'add_lvalue_reference':
 				comment += "Add lvalue reference ";
 				break;
-				case "add_rvalue_reference":
+				case 'add_rvalue_reference':
 				comment += "Add rvalue reference ";
 				break;
-				case "decay":
+				case 'decay':
 				comment += "Decay type ";
 				break;
-				case "make_signed":
+				case 'make_signed':
 				comment += "Make signed ";
 				break;
-				case "make_unsigned":
+				case 'make_unsigned':
 				comment += "Make unsigned ";
 				break;
-				case "remove_all_extents":
+				case 'remove_all_extents':
 				comment += "Remove all array extents ";
 				break;
-				case "remove_extent":
+				case 'remove_extent':
 				comment += "Remove array extent ";
 				break;
-				case "remove_pointer":
+				case 'remove_pointer':
 				comment += "Remove pointer ";
 				break;
-				case "remove_reference":
+				case 'remove_reference':
 				comment += "Remove reference ";
 				break;
-				case "underlying_type":
+				case 'underlying_type':
 				comment += "Underlying type of enum ";
 				break;
-				case "aligned_storage":
+				case 'aligned_storage':
 				comment += "Aligned storage ";
 				break;
-				case "aligned_union":
+				case 'aligned_union':
 				comment += "Aligned union ";
 				break;
-				case "common_type":
+				case 'common_type':
 				comment += "Common type ";
 				break;
-				case "conditional":
+				case 'conditional':
 				comment += "Conditional type ";
 				break;
-				case "enable_if":
+				case 'enable_if':
 				comment += "Enable type if condition is met ";
 				break;
-				case "result_of":
+				case 'result_of':
 				comment += "Result of call ";
 				break;
-		/*
-				case "Generic":
-				comment += "relational"
-				break;
-				case "operators":
-				comment += "Exchange values of two objects ";
-				break;
-				case "Rvalue":
-				comment += "casts"
-				break;
-				case "(C++11)":
-				comment += "Construct pair object ";
-				break;
-				case "Generic":
-				comment += "swap"
-				break;
-				case "function":
-				comment += "Forward argument ";
-				break;
-				case "swap":
-				comment += "Move as rvalue ";
-				break;
-				case "make_pair":
-				comment += "Move if noexcept ";
-				break;
-				case "forward":
-				comment += "Declaration value ";
-				break;
-				case "move":
-				comment += "Pair of values ";
-				break;
-				case "move_if_noexcept":
-				comment += "Piecewise construct type ";
-				break;
-				case "declval":
-				comment += "Piecewise construct constant ";
-				break;
-				case "pair":
-				comment += "Relational Operators ";
-				break;
-				case "piecewise_construct_t":
-				comment += ""
-				break;
-				case "piecewise_construct":
-				comment += ""
-				break;
-				case "rel_ops":
-				comment += ""
-				break;
-		*/
-				case "valarray":
+				/*comment block 2*/
+				case 'valarray':
 				comment += "Valarray class ";
 				break;
-				case "slice":
+				case 'slice':
 				comment += "Valarray slice selector ";
 				break;
-				case "gslice":
+				case 'gslice':
 				comment += "Valarray generalized slice selector ";
 				break;
-				case "slice_array":
+				case 'slice_array':
 				comment += "Valarray slice selection ";
 				break;
-				case "gslice_array":
+				case 'gslice_array':
 				comment += "Valarray gslice selection ";
 				break;
-				case "mask_array":
+				case 'mask_array':
 				comment += "Valarray mask selection ";
 				break;
-				case "indirect_array":
+				case 'indirect_array':
 				comment += "Valarray indirect selection ";
 				break;
-				case "Valarray operators ";:
-				comment += ""
+				case 'Valarray operators ':
+				comment += "";
 				break;
 			}
-			return comment;
 		}
+		return comment;
+	}
 }cppdict;
