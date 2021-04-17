@@ -8,10 +8,6 @@ class CppDictionary{
 				case "assert":
 				comment += "Evaluate assertion ";
 				break;
-
-				case "isalnum":
-				comment += "Check if character is alphanumeric ";
-				break;
 				case "isalpha":
 				comment += "Check if character is alphabetic ";
 				break;
@@ -438,10 +434,8 @@ class CppDictionary{
 				case "NULL":
 				comment += "Null pointer ";
 				break;
-
-
 				case "remove":
-				comment += "Remove file ";
+				comment += "Remove value or file ";
 				break;
 				case "rename":
 				comment += "Rename file ";
@@ -593,9 +587,6 @@ class CppDictionary{
 				case "L_tmpnam":
 				comment += "Minimum length for temporary file name ";
 				break;
-				case "NULL":
-				comment += "Null pointer ";
-				break;
 				case "TMP_MAX":
 				comment += "Number of temporary files ";
 				break;
@@ -605,10 +596,6 @@ class CppDictionary{
 				case "fpos_t":
 				comment += "Object containing information to specify a position within a file ";
 				break;
-				case "size_t":
-				comment += "Unsigned integral type ";
-				break;
-
 				case "atof":
 				comment += "Convert string to double ";
 				break;
@@ -690,9 +677,6 @@ class CppDictionary{
 				case "qsort":
 				comment += "Sort elements of array ";
 				break;
-				case "abs":
-				comment += "Absolute value ";
-				break;
 				case "div":
 				comment += "Integral division ";
 				break;
@@ -732,9 +716,6 @@ class CppDictionary{
 				case "MB_CUR_MAX":
 				comment += "Maximum size of multibyte characters ";
 				break;
-				case "NULL":
-				comment += "Null pointer ";
-				break;
 				case "RAND_MAX":
 				comment += "Maximum value returned by rand ";
 				break;
@@ -747,10 +728,6 @@ class CppDictionary{
 				case "lldiv_t":
 				comment += "Structure returned by lldiv ";
 				break;
-				case "size_t":
-				comment += "Unsigned integral type ";
-				break;
-
 				case "memcpy":
 				comment += "Copy block of memory ";
 				break;
@@ -817,13 +794,6 @@ class CppDictionary{
 				case "strlen":
 				comment += "Get string length ";
 				break;
-				case "NULL":
-				comment += "Null pointer ";
-				break;
-				case "size_t":
-				comment += "Unsigned integral type ";
-				break;
-
 				case "clock":
 				comment += "Clock program ";
 				break;
@@ -854,14 +824,8 @@ class CppDictionary{
 				case "CLOCKS_PER_SEC":
 				comment += "Clock ticks per second ";
 				break;
-				case "NULL":
-				comment += "Null pointer ";
-				break;
 				case "clock_t":
 				comment += "Clock type ";
-				break;
-				case "size_t":
-				comment += "Unsigned integral type ";
 				break;
 				case "time_t":
 				comment += "Time type ";
@@ -1063,20 +1027,11 @@ class CppDictionary{
 				case "mbstate_t":
 				comment += "Multibyte conversion state ";
 				break;
-				case "size_t":
-				comment += "Unsigned integral type ";
-				break;
-				case "struct tm":
-				comment += "Time structure "
-				break;
 				case "wchar_t":
 				comment += "Wide character ";
 				break;
 				case "wint_t":
-				comment += "Wide int type ";
-				break;
-				case "NULL":
-				comment += "Null pointer ";
+				comment += "Wide int type (header/type)";
 				break;
 				case "WCHAR_MAX":
 				comment += "Maximum value of wchar_t ";
@@ -1148,23 +1103,12 @@ class CppDictionary{
 				case "wctype_t":
 				comment += "Wide character type ";
 				break;
-				case "wint_t":
-				comment += "Wide character integral type ";
-				break;
-				case "WEOF":
-				comment += "Wide End-of-File ";
-				break;
-
 				case "array":
 				comment += "Array class ";
-				break;
-				case "begin":
-				comment += "Iterator to beginning ";
 				break;
 				case "end":
 				comment += "Iterator to end ";
 				break;
-
 				case "bitset":
 				comment += "Bitset ";
 				break;
@@ -1172,46 +1116,18 @@ class CppDictionary{
 				case "deque":
 				comment += "Double ended queue ";
 				break;
-				case "begin":
-				comment += "Iterator to beginning ";
-				break;
-				case "end":
-				comment += "Iterator to end ";
-				break;
-
 				case "forward_list":
 				comment += "Forward list ";
 				break;
-				case "begin":
-				comment += "Iterator to beginning ";
-				break;
-				case "end":
-				comment += "Iterator to end ";
-				break;
-
 				case "list":
 				comment += "List ";
 				break;
-				case "begin":
-				comment += "Iterator to beginning ";
-				break;
-				case "end":
-				comment += "Iterator to end ";
-				break;
-
 				case "map":
 				comment += "Map ";
 				break;
 				case "multimap":
 				comment += "Multiple-key map ";
 				break;
-				case "begin":
-				comment += "Iterator to beginning ";
-				break;
-				case "end":
-				comment += "Iterator to end ";
-				break;
-
 				case "queue":
 				comment += "FIFO queue ";
 				break;
@@ -1225,56 +1141,27 @@ class CppDictionary{
 				case "multiset":
 				comment += "Multiple-key set ";
 				break;
-				case "begin":
-				comment += "Iterator to beginning ";
-				break;
-				case "end":
-				comment += "Iterator to end ";
-				break;
-
 				case "stack":
 				comment += "LIFO stack ";
 				break;
-
 				case "unordered_map":
 				comment += "Unordered Map ";
 				break;
 				case "unordered_multimap":
 				comment += "Unordered Multimap ";
 				break;
-				case "begin":
-				comment += "Iterator to beginning ";
-				break;
-				case "end":
-				comment += "Iterator to end ";
-				break;
-
 				case "unordered_set":
 				comment += "Unordered Set ";
 				break;
 				case "unordered_multiset":
 				comment += "Unordered Multiset ";
 				break;
-				case "begin":
-				comment += "Iterator to beginning ";
-				break;
-				case "end":
-				comment += "Iterator to end ";
-				break;
-
 				case "vector":
 				comment += "Vector ";
 				break;
 				case "vector<;bool>;":
 				comment += "Vector of bool ";
 				break;
-				case "begin":
-				comment += "Iterator to beginning ";
-				break;
-				case "end":
-				comment += "Iterator to end ";
-				break;
-
 				case "atomic":
 				comment += "Atomic ";
 				break;
@@ -1573,9 +1460,6 @@ class CppDictionary{
 				case "generate_n":
 				comment += "Generate values for sequence with function ";
 				break;
-				case "remove":
-				comment += "Remove value from range ";
-				break;
 				case "remove_if":
 				comment += "Remove elements from range ";
 				break;
@@ -1795,9 +1679,6 @@ class CppDictionary{
 				case "imag":
 				comment += "Imaginary part of complex ";
 				break;
-				case "abs":
-				comment += "Absolute value of complex ";
-				break;
 				case "arg":
 				comment += "Phase angle of complex ";
 				break;
@@ -1812,57 +1693,6 @@ class CppDictionary{
 				break;
 				case "proj":
 				comment += "Complex projection. ";
-				break;
-				case "cos":
-				comment += "Cosine of complex ";
-				break;
-				case "cosh":
-				comment += "Hyperbolic cosine of complex ";
-				break;
-				case "exp":
-				comment += "Exponential of complex ";
-				break;
-				case "log":
-				comment += "Natural logarithm of complex ";
-				break;
-				case "log10":
-				comment += "Common logarithm of complex ";
-				break;
-				case "pow":
-				comment += "Power of complex ";
-				break;
-				case "sin":
-				comment += "Sine of complex ";
-				break;
-				case "sinh":
-				comment += "Hyperbolic sine of complex ";
-				break;
-				case "sqrt":
-				comment += "Square root of complex ";
-				break;
-				case "tan":
-				comment += "Tangent of complex ";
-				break;
-				case "tanh":
-				comment += "Hyperbolic tangent of complex ";
-				break;
-				case "acos":
-				comment += "Arc cosine of complex ";
-				break;
-				case "acosh":
-				comment += "Arc hyperbolic cosine of complex ";
-				break;
-				case "asin":
-				comment += "Arc sine of complex ";
-				break;
-				case "asinh":
-				comment += "Arc hyperbolic sine of complex ";
-				break;
-				case "atan":
-				comment += "Arc tangent of complex ";
-				break;
-				case "atanh":
-				comment += "Arc hyperbolic tangent of complex ";
 				break;
 				case "complex operators":
 				comment += "Complex number operators "
@@ -2157,12 +1987,6 @@ class CppDictionary{
 				case "distance":
 				comment += "Return distance between iterators ";
 				break;
-				case "begin":
-				comment += "Iterator to beginning ";
-				break;
-				case "end":
-				comment += "Iterator to end ";
-				break;
 				case "prev":
 				comment += "Get iterator to previous element ";
 				break;
@@ -2246,41 +2070,8 @@ class CppDictionary{
 				case "has_facet":
 				comment += "Check if locale has facet ";
 				break;
-				case "isspace":
-				comment += "Check if character is a white-space ";
-				break;
-				case "isprint":
-				comment += "Check if character is printable ";
-				break;
-				case "iscntrl":
-				comment += "Check if character is a control character ";
-				break;
-				case "isupper":
-				comment += "Check if character is uppercaseletter ";
-				break;
-				case "islower":
-				comment += "Check if character is lowercaseletter ";
-				break;
-				case "isalpha":
-				comment += "Check if character is alphabetic ";
-				break;
-				case "isdigit":
-				comment += "Check if character is decimal digit ";
-				break;
-				case "ispunct":
-				comment += "Check if character is a punctuation character ";
-				break;
-				case "isxdigit":
-				comment += "Check if character is hexadecimal digit ";
-				break;
 				case "isalnum":
 				comment += "Check if character is alphanumeric ";
-				break;
-				case "isgraph":
-				comment += "Check if character has graphical representation ";
-				break;
-				case "isblank":
-				comment += "Check if character is blank ";
 				break;
 				case "locale":
 				comment += "Locale class ";
@@ -2733,10 +2524,6 @@ class CppDictionary{
 				case "begin":
 				comment += "Iterator to beginning ";
 				break;
-				case "end":
-				comment += "Iterator to end ";
-				break;
-
 				case "logic_error":
 				comment += "Logic error exception ";
 				break;
@@ -2764,7 +2551,6 @@ class CppDictionary{
 				case "underflow_error":
 				comment += "Underflow error exception ";
 				break;
-
 				case "basic_string":
 				comment += "Generic string class ";
 				break;
@@ -2813,13 +2599,6 @@ class CppDictionary{
 				case "to_wstring":
 				comment += "Convert numerical value to wide string ";
 				break;
-				case "begin":
-				comment += "Iterator to beginning ";
-				break;
-				case "end":
-				comment += "Iterator to end ";
-				break;
-
 				case "error_category":
 				comment += "Error category ";
 				break;
@@ -3236,54 +3015,6 @@ class CppDictionary{
 				break;
 				case "indirect_array":
 				comment += "Valarray indirect selection ";
-				break;
-				case "abs":
-				comment += "Compute absolute value of valarray elements ";
-				break;
-				case "acos":
-				comment += "Compute arc cosine of valarray elements ";
-				break;
-				case "asin":
-				comment += "Compute arc sine of valarray elements ";
-				break;
-				case "atan":
-				comment += "Compute arc tangent of valarray elements ";
-				break;
-				case "atan2":
-				comment += "Compute atan2 of valarray elements ";
-				break;
-				case "cos":
-				comment += "Compute cosine of valarray elements ";
-				break;
-				case "cosh":
-				comment += "Compute hyperbolic cosine of valarray elements ";
-				break;
-				case "exp":
-				comment += "Compute exponential of valarray elements ";
-				break;
-				case "log":
-				comment += "Compute natural logarithm of valarray elements ";
-				break;
-				case "log10":
-				comment += "Compute common logarithm of valarray elements ";
-				break;
-				case "pow":
-				comment += "Compute power of valarray elements ";
-				break;
-				case "sin":
-				comment += "Compute sine of valarray elements ";
-				break;
-				case "sinh":
-				comment += "Compute hyperbolic sine of valarray elements ";
-				break;
-				case "sqrt":
-				comment += "Compute square root of valarray elements ";
-				break;
-				case "tan":
-				comment += "Compute tangent of valarray elements ";
-				break;
-				case "tanh":
-				comment += "Compute hyperbolic tangent of valarray elements ";
 				break;
 				case "Valarray operators ";:
 				comment += ""
