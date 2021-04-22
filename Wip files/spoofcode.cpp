@@ -1,3 +1,4 @@
+#include <iostream>
 #include <string>
 #include <map>
 #include <algorithm>
@@ -13,8 +14,8 @@ namespace kwd { //define namespace
         //etc...
         };
 //later
-Options resolveOptions(std::string input){ //find enum values
-        static const std::map<std::string, Options> optionStrings { //inputmap
+Options resolveOptions(string input){ //find enum values
+        static const map < string, Options> optionStrings { //inputmap
             { "assert", assert },
             { "isalpha", isalpha },
             { "isblank", isblank },
@@ -23,23 +24,21 @@ Options resolveOptions(std::string input){ //find enum values
             //etc...
             };
 //finally closing with
-        auto itr = optionStrings.find(input); //search for hit
-        if( itr != optionStrings.end() ) {
-            return *itr;
-        }
+    auto itr = optionStrings.find(input);
+    if( itr != optionStrings.end() ) {
+        return itr->second;
+    }
     return Option_Invalid;
     }
 }
 
 
-string commentMake(string commentarray[]) {
-        int commentarraylen =sizeof(commentarray)/sizeof(commentarray[0]);
-        kwd::Options resolveOption(string input);
+string commentMake(string commentarray) {
         string comment = "";
-        for(int i =0; i < commentarraylen; i++){
-            switch (resolveOption(commentarray[i])){
+        for(int i =0; i < 1; i++){
+            switch (kwd::resolveOptions(commentarray)){
             case kwd::Option_Invalid:
-            comment += commentarray[i] + " ";
+            comment += commentarray + " ";
             break;
             case kwd::assert:
             comment += "Evaluate assertion ";
@@ -58,4 +57,8 @@ string commentMake(string commentarray[]) {
             break;
             }
       }
+}
+int main(){
+	string inp[]={"assert"};
+	cout << commentMake(inp[0]);
 }
