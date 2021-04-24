@@ -9,4 +9,4 @@ An automatic commentor for code
 |-----------|---------|
 | c++ | .cpp |
 
-Disclaimer: version 1.0 is not complete
+Disclaimer: version 1.0 is not complete and will result in messy comments
