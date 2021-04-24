@@ -3618,82 +3618,107 @@ string cppcommentMake(string commentarg) {
 		break;
 		case kwd::opt904:
 		//Valarray_operators
-		comment += "";
+		comment += " ";
 		break;
 		case kwd::opt905: 
-
+		//+
+			comment += "added to ";
 		break;
 		case kwd::opt906: 
-
+		//-
+			comment += "subtracted from ";
 		break;
 		case kwd::opt907: 
-
+		//'/'
+			comment += "divided by ";
 		break;
 		case kwd::opt908: 
-
+		//*
+			comment += "multiplied with ";
 		break;
 		case kwd::opt909: 
-
+		//%
+			comment += "modulus of ";
 		break;
 		case kwd::opt910: 
-
+		//<
+			comment += "lesser than ";
 		break;
 		case kwd::opt911: 
-
+		//>
+			comment += "greater than ";
 		break;
 		case kwd::opt912: 
-
+		//&
+			comment += "and ";
 		break;
 		case kwd::opt913: 
-
+		//|
+			comment += "or ";
 		break;
 		case kwd::opt914: 
-
+		//!
+			comment += "not ";
 		break;
 		case kwd::opt915: 
-
+		//?
+			comment += "conditional not ";
 		break;
 		case kwd::opt916: 
-
+		//^
+			comment += "xor ";
 		break;
 		case kwd::opt917: 
-
+		//~
+			comment += "bitwise not ";
 		break;
 		case kwd::opt918: 
-
+		// =
+			comment += "assigned as ";
 		break;
 		case kwd::opt919: 
-
+		//.
+			comment += "access member ";
 		break;
 		case kwd::opt920: 
-
+		//,
+			comment += ", ";
 		break;
 		case kwd::opt921: 
-
+		//(
+			comment += "using( ";
 		break;
 		case kwd::opt922: 
-
+		//)
+			comment += ") ";
 		break;
 		case kwd::opt923: 
-
+		//[
+			comment += "open subscript ";
 		break;
 		case kwd::opt924: 
-
+		//]
+			comment += "close subscript ";
 		break;
 		case kwd::opt925: 
-
+		//{
+			comment += "opens loop/function ";
 		break;
 		case kwd::opt926: 
-
+		//}
+			comment += "closes loop/function ";
 		break;
 		case kwd::opt927: 
-
+		//:
+			comment += " ";
 		break;
 		case kwd::opt928: 
-
+		//;
+			comment += " ";
 		break;
 		case kwd::opt929: 
-
+		//"\\"
+			comment += "escapes ";
 		break;
 
 	}

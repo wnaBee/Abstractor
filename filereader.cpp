@@ -66,7 +66,6 @@ string commentor(string CodeLine, int filetype){
 							lineArray.back() += "+";
 						}else{
 							lineArray.push_back(nextcmd);
-							lineArray.push_back("+");
 						}
 						nextcmd = "";
 						break;
@@ -75,7 +74,6 @@ string commentor(string CodeLine, int filetype){
 							lineArray.back() += "-";
 						}else{
 							lineArray.push_back(nextcmd);
-							lineArray.push_back("-");
 						}
 						nextcmd = "";
 						break;
@@ -84,7 +82,6 @@ string commentor(string CodeLine, int filetype){
 							lineArray.back() += "/";
 						}else{
 							lineArray.push_back(nextcmd);
-							lineArray.push_back("/");
 						}
 						nextcmd = "";
 						break;
@@ -93,13 +90,11 @@ string commentor(string CodeLine, int filetype){
 							lineArray.back() += "*";
 						}else{
 							lineArray.push_back(nextcmd);
-							lineArray.push_back("*");
 						}
 						nextcmd = "";
 						break;
 					case '%':
 						lineArray.push_back(nextcmd);
-						lineArray.push_back("%");
 						
 						nextcmd = "";
 						break;
@@ -108,7 +103,6 @@ string commentor(string CodeLine, int filetype){
 							lineArray.back() += "<";
 						}else{
 							lineArray.push_back(nextcmd);
-							lineArray.push_back("<");
 						}
 						nextcmd = "";
 						break;
@@ -117,7 +111,6 @@ string commentor(string CodeLine, int filetype){
 							lineArray.back() += ">";
 						}else{
 							lineArray.push_back(nextcmd);
-							lineArray.push_back(">");
 						}
 						nextcmd = "";
 						break;
@@ -126,7 +119,6 @@ string commentor(string CodeLine, int filetype){
 							lineArray.back() += "&";
 						}else{
 							lineArray.push_back(nextcmd);
-							lineArray.push_back("&");
 						}
 						nextcmd = "";
 						break;
@@ -135,28 +127,23 @@ string commentor(string CodeLine, int filetype){
 							lineArray.back() += "|";
 						}else{
 							lineArray.push_back(nextcmd);
-							lineArray.push_back("|");
 						}
 						nextcmd = "";
 						break;
 					case '!':
 						lineArray.push_back(nextcmd);
-						lineArray.push_back("!");
 						nextcmd = "";
 						break;
 					case '?':
 						lineArray.push_back(nextcmd);
-						lineArray.push_back("?");
 						nextcmd = "";
 						break;
 					case '^':
 						lineArray.push_back(nextcmd);
-						lineArray.push_back("^");
 						nextcmd = "";
 						break;
 					case '~':
 						lineArray.push_back(nextcmd);
-						lineArray.push_back("~");
 						nextcmd = "";
 						break;
 					case '=':
@@ -164,48 +151,39 @@ string commentor(string CodeLine, int filetype){
 							lineArray.back() += "=";
 						}else{
 							lineArray.push_back(nextcmd);
-							lineArray.push_back("=");
 						}
 						nextcmd = "";
 						break;
 					case '.':
 						lineArray.push_back(nextcmd);
-						lineArray.push_back(".");
 						nextcmd = "";
 						break;
 					case ',':
 						lineArray.push_back(nextcmd);
-						lineArray.push_back(",");
 						nextcmd = "";
 						break;
 					case '(':
 						lineArray.push_back(nextcmd);
-						lineArray.push_back("(");
 						nextcmd = "";
 						break;
 					case ')':
 						lineArray.push_back(nextcmd);
-						lineArray.push_back(")");
 						nextcmd = "";
 						break;
 					case '[':
 						lineArray.push_back(nextcmd);
-						lineArray.push_back("[");
 						nextcmd = "";
 						break;
 					case ']':
 						lineArray.push_back(nextcmd);
-						lineArray.push_back("]");
 						nextcmd = "";
 						break;
 					case '{':
 						lineArray.push_back(nextcmd);
-						lineArray.push_back("{");
 						nextcmd = "";
 						break;
 					case '}':
 						lineArray.push_back(nextcmd);
-						lineArray.push_back("}");
 						nextcmd = "";
 						break;
 					case ':':
@@ -213,18 +191,15 @@ string commentor(string CodeLine, int filetype){
 							lineArray.back() += ":";
 						}else{
 							lineArray.push_back(nextcmd);
-							lineArray.push_back(":");
 						}
 						nextcmd = "";
 						break;
 					case ';':
 						lineArray.push_back(nextcmd);
-						lineArray.push_back(";");
 						nextcmd = "";
 						break;
 					case '\\':
 						lineArray.push_back(nextcmd);
-						lineArray.push_back("\\");
 						nextcmd = "";
 						break;
 				}
@@ -232,6 +207,9 @@ string commentor(string CodeLine, int filetype){
 				doubleprev = prevchar;
 				prevchar = CodeLine[i];
 				
+			}
+			for(int i = 0; i < lineArray.size(); i++){
+				lineArray[i].erase(remove(lineArray[i].begin(), lineArray[i].end(), ' '), lineArray[i].end());
 			}
 			lineArray.push_back(nextcmd);
 			
@@ -242,6 +220,7 @@ string commentor(string CodeLine, int filetype){
 		case 1:
 			comment = " //";
 			for(int i = 0; i < lineArray.size(); i++){
+				cout << lineArray[i] << "\n";
 				comment += cppcommentMake(lineArray[i]);
 			}
 			comment.erase(remove(comment.begin(), comment.end(), '\t'), comment.end());
@@ -254,7 +233,7 @@ string commentor(string CodeLine, int filetype){
 			break;
 		case 4:
 			comment = " //";
-			for(int i = 0; i < lineArray.size(); i++){
+			for(int i = 0; i < lineArray.size(); i++){ lineArray[i].erase(remove(lineArray[i].begin(), lineArray[i].end(), ' '), lineArray[i].end());
 				comment += cppcommentMake(lineArray[i]);
 			}
 			comment.erase(remove(comment.begin(), comment.end(), '\t'), comment.end());
