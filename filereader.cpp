@@ -60,7 +60,7 @@ string commentor(string CodeLine, int filetype){
 	vector <string> lineArray;
 	
 	for(int i = 0; i < CodeLine.length(); i++){
-				switch(CodeLine[i]){
+				switch(CodeLine[i]){ //fix case to not include last char and to remove unnecessary spaces
 					case '+':
 						if(prevchar == "+"){
 							lineArray.back() += "+";
