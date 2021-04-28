@@ -931,7 +931,152 @@ namespace kwd {
 		opt926,
 		opt927,
 		opt928,
-		opt929
+		opt929,
+		opt930, 
+		opt931, 
+		opt932, 
+		opt933, 
+		opt934, 
+		opt935, 
+		opt936, 
+		opt937, 
+		opt938, 
+		opt939, 
+		opt940, 
+		opt941, 
+		opt942, 
+		opt943, 
+		opt944, 
+		opt945, 
+		opt946, 
+		opt947, 
+		opt948, 
+		opt949, 
+		opt950, 
+		opt951, 
+		opt952, 
+		opt953, 
+		opt954, 
+		opt955, 
+		opt956, 
+		opt957, 
+		opt958, 
+		opt959, 
+		opt960, 
+		opt961, 
+		opt962, 
+		opt963, 
+		opt964, 
+		opt965, 
+		opt966, 
+		opt967, 
+		opt968, 
+		opt969, 
+		opt970, 
+		opt971, 
+		opt972, 
+		opt973, 
+		opt974, 
+		opt975, 
+		opt976, 
+		opt977, 
+		opt978, 
+		opt979, 
+		opt980, 
+		opt981, 
+		opt982, 
+		opt983, 
+		opt984, 
+		opt985, 
+		opt986, 
+		opt987, 
+		opt988, 
+		opt989, 
+		opt990, 
+		opt991, 
+		opt992, 
+		opt993, 
+		opt994, 
+		opt995, 
+		opt996, 
+		opt997, 
+		opt998, 
+		opt999, 
+		opt1000, 
+		opt1001, 
+		opt1002, 
+		opt1003, 
+		opt1004, 
+		opt1005, 
+		opt1006, 
+		opt1007, 
+		opt1008, 
+		opt1009, 
+		opt1010, 
+		opt1011, 
+		opt1012, 
+		opt1013, 
+		opt1014, 
+		opt1015, 
+		opt1016, 
+		opt1017, 
+		opt1018, 
+		opt1019, 
+		opt1020, 
+		opt1021, 
+		opt1022, 
+		opt1023, 
+		opt1024, 
+		opt1025, 
+		opt1026, 
+		opt1027, 
+		opt1028, 
+		opt1029, 
+		opt1030, 
+		opt1031, 
+		opt1032, 
+		opt1033, 
+		opt1034, 
+		opt1035, 
+		opt1036, 
+		opt1037, 
+		opt1038, 
+		opt1039, 
+		opt1040, 
+		opt1041, 
+		opt1042, 
+		opt1043, 
+		opt1044, 
+		opt1045, 
+		opt1046, 
+		opt1047, 
+		opt1048, 
+		opt1049, 
+		opt1050, 
+		opt1051, 
+		opt1052, 
+		opt1053, 
+		opt1054, 
+		opt1055, 
+		opt1056, 
+		opt1057, 
+		opt1058, 
+		opt1059, 
+		opt1060, 
+		opt1061, 
+		opt1062, 
+		opt1063, 
+		opt1064, 
+		opt1065, 
+		opt1066, 
+		opt1067, 
+		opt1068, 
+		opt1069, 
+		opt1070, 
+		opt1071, 
+		opt1072, 
+		opt1073, 
+		opt1074
 	};
 	
 	int resolveOption(string commentarg){
@@ -1866,7 +2011,151 @@ namespace kwd {
 			optionStrings[":"] = opt927;
 			optionStrings[";"] = opt928;
 			optionStrings["\\"] = opt929;
-
+			optionStrings["ios_base"] = opt930;
+			optionStrings["ios"] = opt931;
+			optionStrings["istream"] = opt932;
+			optionStrings["ostream"] = opt933;
+			optionStrings["iostream"] = opt934;
+			optionStrings["ifstream"] = opt935;
+			optionStrings["ofstream"] = opt936;
+			optionStrings["fstream"] = opt937;
+			optionStrings["istringstream"] = opt938;
+			optionStrings["ostringstream"] = opt939;
+			optionStrings["stringstream"] = opt940;
+			optionStrings["streambuf"] = opt941;
+			optionStrings["filebuf"] = opt942;
+			optionStrings["stringbuf"] = opt943;
+			optionStrings["cin"] = opt944;
+			optionStrings["cout"] = opt945;
+			optionStrings["cerr"] = opt946;
+			optionStrings["clog"] = opt947;
+			optionStrings["fpos"] = opt948;
+			optionStrings["streamoff"] = opt949;
+			optionStrings["streampos"] = opt950;
+			optionStrings["streamsize"] = opt951;
+			optionStrings["boolalpha"] = opt952;
+			optionStrings["dec"] = opt953;
+			optionStrings["endl"] = opt954;
+			optionStrings["ends"] = opt955;
+			optionStrings["fixed"] = opt956;
+			optionStrings["flush"] = opt957;
+			optionStrings["hex"] = opt958;
+			optionStrings["internal"] = opt959;
+			optionStrings["left"] = opt960;
+			optionStrings["noboolalpha"] = opt961;
+			optionStrings["noshowbase"] = opt962;
+			optionStrings["noshowpoint"] = opt963;
+			optionStrings["noshowpos"] = opt964;
+			optionStrings["noskipws"] = opt965;
+			optionStrings["nounitbuf"] = opt966;
+			optionStrings["nouppercase"] = opt967;
+			optionStrings["oct"] = opt968;
+			optionStrings["resetiosflags"] = opt969;
+			optionStrings["right"] = opt970;
+			optionStrings["scientific"] = opt971;
+			optionStrings["setbase"] = opt972;
+			optionStrings["setfill"] = opt973;
+			optionStrings["setiosflags"] = opt974;
+			optionStrings["setprecision"] = opt975;
+			optionStrings["setw"] = opt976;
+			optionStrings["showbase"] = opt977;
+			optionStrings["showpoint"] = opt978;
+			optionStrings["showpos"] = opt979;
+			optionStrings["skipws"] = opt980;
+			optionStrings["unitbuf"] = opt981;
+			optionStrings["uppercase"] = opt982;
+			optionStrings["ws"] = opt983;
+			optionStrings["basic_ifstream"] = opt984;
+			optionStrings["basic_ofstream"] = opt985;
+			optionStrings["basic_fstream"] = opt986;
+			optionStrings["basic_filebuf"] = opt987;
+			optionStrings["ifstream"] = opt988;
+			optionStrings["ofstream"] = opt989;
+			optionStrings["fstream"] = opt990;
+			optionStrings["filebuf"] = opt991;
+			optionStrings["wifstream"] = opt992;
+			optionStrings["wofstream"] = opt993;
+			optionStrings["wfstream"] = opt994;
+			optionStrings["wfilebuf"] = opt995;
+			optionStrings["setiosflags"] = opt996;
+			optionStrings["resetiosflags"] = opt997;
+			optionStrings["setbase"] = opt998;
+			optionStrings["setfill"] = opt999;
+			optionStrings["setprecision"] = opt1000;
+			optionStrings["setw"] = opt1001;
+			optionStrings["get_money"] = opt1002;
+			optionStrings["put_money"] = opt1003;
+			optionStrings["get_time"] = opt1004;
+			optionStrings["put_time"] = opt1005;
+			optionStrings["basic_ios"] = opt1006;
+			optionStrings["fpos"] = opt1007;
+			optionStrings["ios"] = opt1008;
+			optionStrings["ios_base"] = opt1009;
+			optionStrings["wios"] = opt1010;
+			optionStrings["io_errc"] = opt1011;
+			optionStrings["streamoff"] = opt1012;
+			optionStrings["streampos"] = opt1013;
+			optionStrings["streamsize"] = opt1014;
+			optionStrings["wstreampos"] = opt1015;
+			optionStrings["boolalpha"] = opt1016;
+			optionStrings["showbase"] = opt1017;
+			optionStrings["showpoint"] = opt1018;
+			optionStrings["showpos"] = opt1019;
+			optionStrings["skipws"] = opt1020;
+			optionStrings["unitbuf"] = opt1021;
+			optionStrings["uppercase"] = opt1022;
+			optionStrings["noboolalpha"] = opt1023;
+			optionStrings["noshowbase"] = opt1024;
+			optionStrings["noshowpoint"] = opt1025;
+			optionStrings["noshowpos"] = opt1026;
+			optionStrings["noskipws"] = opt1027;
+			optionStrings["nounitbuf"] = opt1028;
+			optionStrings["nouppercase"] = opt1029;
+			optionStrings["dec"] = opt1030;
+			optionStrings["hex"] = opt1031;
+			optionStrings["oct"] = opt1032;
+			optionStrings["fixed"] = opt1033;
+			optionStrings["scientific"] = opt1034;
+			optionStrings["internal"] = opt1035;
+			optionStrings["left"] = opt1036;
+			optionStrings["right"] = opt1037;
+			optionStrings["iostream_category"] = opt1038;
+			optionStrings["cin"] = opt1039;
+			optionStrings["cout"] = opt1040;
+			optionStrings["cerr"] = opt1041;
+			optionStrings["clog"] = opt1042;
+			optionStrings["wcin"] = opt1043;
+			optionStrings["wcout"] = opt1044;
+			optionStrings["wcerr"] = opt1045;
+			optionStrings["wclog"] = opt1046;
+			optionStrings["basic_istream"] = opt1047;
+			optionStrings["basic_iostream"] = opt1048;
+			optionStrings["istream"] = opt1049;
+			optionStrings["iostream"] = opt1050;
+			optionStrings["wistream"] = opt1051;
+			optionStrings["wiostream"] = opt1052;
+			optionStrings["ws"] = opt1053;
+			optionStrings["basic_ostream"] = opt1054;
+			optionStrings["ostream"] = opt1055;
+			optionStrings["wostream"] = opt1056;
+			optionStrings["endl"] = opt1057;
+			optionStrings["ends"] = opt1058;
+			optionStrings["flush"] = opt1059;
+			optionStrings["basic_istringstream"] = opt1060;
+			optionStrings["basic_ostringstream"] = opt1061;
+			optionStrings["basic_stringstream"] = opt1062;
+			optionStrings["basic_stringbuf"] = opt1063;
+			optionStrings["istringstream"] = opt1064;
+			optionStrings["ostringstream"] = opt1065;
+			optionStrings["stringstream"] = opt1066;
+			optionStrings["stringbuf"] = opt1067;
+			optionStrings["wistringstream"] = opt1068;
+			optionStrings["wostringstream"] = opt1069;
+			optionStrings["wstringstream"] = opt1070;
+			optionStrings["wstringbuf"] = opt1071;
+			optionStrings["basic_streambuf"] = opt1072;
+			optionStrings["streambuf"] = opt1073;
+			optionStrings["wstreambuf"] = opt1074;
 		
 		itr = optionStrings.find(commentarg);
 		if( itr != optionStrings.end() ) {

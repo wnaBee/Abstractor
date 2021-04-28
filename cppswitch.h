@@ -6,7 +6,7 @@ string cppcommentMake(string commentarg) {
 	switch (kwd::resolveOption(commentarg)){
 		case kwd::opt1:
 		//Option_invalid
-		comment += commentarg;
+		comment += commentarg + " ";
 		break;
 		case kwd::opt2:
 		//assert
@@ -1529,7 +1529,7 @@ string cppcommentMake(string commentarg) {
 		comment += "Vector ";
 		break;
 		case kwd::opt382:
-		//vector<;bool>;
+		//vector<bool>
 		comment += "Vector of bool ";
 		break;
 		case kwd::opt383:
@@ -3710,7 +3710,7 @@ string cppcommentMake(string commentarg) {
 		break;
 		case kwd::opt927: 
 		//:
-			comment += " ";
+			comment += ": ";
 		break;
 		case kwd::opt928: 
 		//;
@@ -3720,7 +3720,586 @@ string cppcommentMake(string commentarg) {
 		//"\\"
 			comment += "escapes ";
 		break;
-
+		case kwd::opt930:
+		//ios_base
+		comment += "Base class for streams ";
+		break;
+		case kwd::opt931:
+		//ios
+		comment += "Base class for streams (type-dependent components) ";
+		break;
+		case kwd::opt932:
+		//istream
+		comment += "Input stream ";
+		break;
+		case kwd::opt933:
+		//ostream
+		comment += "Output Stream ";
+		break;
+		case kwd::opt934:
+		//iostream
+		comment += "Input/output stream ";
+		break;
+		case kwd::opt935:
+		//ifstream
+		comment += "Input file stream class ";
+		break;
+		case kwd::opt936:
+		//ofstream
+		comment += "Output file stream ";
+		break;
+		case kwd::opt937:
+		//fstream
+		comment += "Input/output file stream class ";
+		break;
+		case kwd::opt938:
+		//istringstream
+		comment += "Input string stream ";
+		break;
+		case kwd::opt939:
+		//ostringstream
+		comment += "Output string stream ";
+		break;
+		case kwd::opt940:
+		//stringstream
+		comment += "Input/output string stream ";
+		break;
+		case kwd::opt941:
+		//streambuf
+		comment += "Base buffer class for streams ";
+		break;
+		case kwd::opt942:
+		//filebuf
+		comment += "File stream buffer ";
+		break;
+		case kwd::opt943:
+		//stringbuf
+		comment += "String stream buffer ";
+		break;
+		case kwd::opt944:
+		//cin
+		comment += "Standard input stream ";
+		break;
+		case kwd::opt945:
+		//cout
+		comment += "Standard output stream ";
+		break;
+		case kwd::opt946:
+		//cerr
+		comment += "Standard output stream for errors ";
+		break;
+		case kwd::opt947:
+		//clog
+		comment += "Standard output stream for logging ";
+		break;
+		case kwd::opt948:
+		//fpos
+		comment += "Stream position class template ";
+		break;
+		case kwd::opt949:
+		//streamoff
+		comment += "Stream offset type ";
+		break;
+		case kwd::opt950:
+		//streampos
+		comment += "Stream position type ";
+		break;
+		case kwd::opt951:
+		//streamsize
+		comment += "Stream size type ";
+		break;
+		case kwd::opt952:
+		//boolalpha
+		comment += "Alphanumerical bool values ";
+		break;
+		case kwd::opt953:
+		//dec
+		comment += "Use decimal base ";
+		break;
+		case kwd::opt954:
+		//endl
+		comment += "Insert newline and flush ";
+		break;
+		case kwd::opt955:
+		//ends
+		comment += "Insert null character ";
+		break;
+		case kwd::opt956:
+		//fixed
+		comment += "Use fixed floating-point notation ";
+		break;
+		case kwd::opt957:
+		//flush
+		comment += "Flush stream buffer ";
+		break;
+		case kwd::opt958:
+		//hex
+		comment += "Use hexadecimal base ";
+		break;
+		case kwd::opt959:
+		//internal
+		comment += "Adjust field by inserting characters at an internal position ";
+		break;
+		case kwd::opt960:
+		//left
+		comment += "Adjust output to the left ";
+		break;
+		case kwd::opt961:
+		//noboolalpha
+		comment += "No alphanumerical bool values ";
+		break;
+		case kwd::opt962:
+		//noshowbase
+		comment += "Do not show numerical base prefixes ";
+		break;
+		case kwd::opt963:
+		//noshowpoint
+		comment += "Do not show decimal point ";
+		break;
+		case kwd::opt964:
+		//noshowpos
+		comment += "Do not show positive signs ";
+		break;
+		case kwd::opt965:
+		//noskipws
+		comment += "Do not skip whitespaces ";
+		break;
+		case kwd::opt966:
+		//nounitbuf
+		comment += "Do not force flushes after insertions ";
+		break;
+		case kwd::opt967:
+		//nouppercase
+		comment += "Do not generate upper case letters ";
+		break;
+		case kwd::opt968:
+		//oct
+		comment += "Use octal base ";
+		break;
+		case kwd::opt969:
+		//resetiosflags
+		comment += "Reset format flags ";
+		break;
+		case kwd::opt970:
+		//right
+		comment += "Adjust output to the right ";
+		break;
+		case kwd::opt971:
+		//scientific
+		comment += "Use scientific floating-point notation ";
+		break;
+		case kwd::opt972:
+		//setbase
+		comment += "Set basefield flag ";
+		break;
+		case kwd::opt973:
+		//setfill
+		comment += "Set fill character ";
+		break;
+		case kwd::opt974:
+		//setiosflags
+		comment += "Set format flags ";
+		break;
+		case kwd::opt975:
+		//setprecision
+		comment += "Set decimal precision ";
+		break;
+		case kwd::opt976:
+		//setw
+		comment += "Set field width ";
+		break;
+		case kwd::opt977:
+		//showbase
+		comment += "Show numerical base prefixes ";
+		break;
+		case kwd::opt978:
+		//showpoint
+		comment += "Show decimal point ";
+		break;
+		case kwd::opt979:
+		//showpos
+		comment += "Show positive signs ";
+		break;
+		case kwd::opt980:
+		//skipws
+		comment += "Skip whitespaces ";
+		break;
+		case kwd::opt981:
+		//unitbuf
+		comment += "Flush buffer after insertions ";
+		break;
+		case kwd::opt982:
+		//uppercase
+		comment += "Generate upper-case letters ";
+		break;
+		case kwd::opt983:
+		//ws
+		comment += "Extract whitespaces ";
+		break;
+		case kwd::opt984:
+		//basic_ifstream
+		comment += "Input file stream ";
+		break;
+		case kwd::opt985:
+		//basic_ofstream
+		comment += "Output file stream ";
+		break;
+		case kwd::opt986:
+		//basic_fstream
+		comment += "File stream ";
+		break;
+		case kwd::opt987:
+		//basic_filebuf
+		comment += "File stream buffer ";
+		break;
+		case kwd::opt988:
+		//ifstream
+		comment += "Input file stream class ";
+		break;
+		case kwd::opt989:
+		//ofstream
+		comment += "Output file stream ";
+		break;
+		case kwd::opt990:
+		//fstream
+		comment += "Input/output file stream class ";
+		break;
+		case kwd::opt991:
+		//filebuf
+		comment += "File stream buffer ";
+		break;
+		case kwd::opt992:
+		//wifstream
+		comment += "Input file stream (wide) ";
+		break;
+		case kwd::opt993:
+		//wofstream
+		comment += "Output file stream (wide) ";
+		break;
+		case kwd::opt994:
+		//wfstream
+		comment += "File stream (wide) ";
+		break;
+		case kwd::opt995:
+		//wfilebuf
+		comment += "File stream buffer (wide) ";
+		break;
+		case kwd::opt996:
+		//setiosflags
+		comment += "Set format flags ";
+		break;
+		case kwd::opt997:
+		//resetiosflags
+		comment += "Reset format flags ";
+		break;
+		case kwd::opt998:
+		//setbase
+		comment += "Set basefield flag ";
+		break;
+		case kwd::opt999:
+		//setfill
+		comment += "Set fill character ";
+		break;
+		case kwd::opt1000:
+		//setprecision
+		comment += "Set decimal precision ";
+		break;
+		case kwd::opt1001:
+		//setw
+		comment += "Set field width ";
+		break;
+		case kwd::opt1002:
+		//get_money
+		comment += "Get monetary value ";
+		break;
+		case kwd::opt1003:
+		//put_money
+		comment += "Put monetary value ";
+		break;
+		case kwd::opt1004:
+		//get_time
+		comment += "Get date and time ";
+		break;
+		case kwd::opt1005:
+		//put_time
+		comment += "Put date and time ";
+		break;
+		case kwd::opt1006:
+		//basic_ios
+		comment += "Base class for streams (type-dependent components) ";
+		break;
+		case kwd::opt1007:
+		//fpos
+		comment += "Stream position class template ";
+		break;
+		case kwd::opt1008:
+		//ios
+		comment += "Base class for streams (type-dependent components) ";
+		break;
+		case kwd::opt1009:
+		//ios_base
+		comment += "Base class for streams ";
+		break;
+		case kwd::opt1010:
+		//wios
+		comment += "Base class for wide character streams ";
+		break;
+		case kwd::opt1011:
+		//io_errc
+		comment += "Input/output error conditions ";
+		break;
+		case kwd::opt1012:
+		//streamoff
+		comment += "Stream offset type ";
+		break;
+		case kwd::opt1013:
+		//streampos
+		comment += "Stream position type ";
+		break;
+		case kwd::opt1014:
+		//streamsize
+		comment += "Stream size type ";
+		break;
+		case kwd::opt1015:
+		//wstreampos
+		comment += "Wide stream position type ";
+		break;
+		case kwd::opt1016:
+		//boolalpha
+		comment += "Alphanumerical bool values ";
+		break;
+		case kwd::opt1017:
+		//showbase
+		comment += "Show numerical base prefixes ";
+		break;
+		case kwd::opt1018:
+		//showpoint
+		comment += "Show decimal point ";
+		break;
+		case kwd::opt1019:
+		//showpos
+		comment += "Show positive signs ";
+		break;
+		case kwd::opt1020:
+		//skipws
+		comment += "Skip whitespaces ";
+		break;
+		case kwd::opt1021:
+		//unitbuf
+		comment += "Flush buffer after insertions ";
+		break;
+		case kwd::opt1022:
+		//uppercase
+		comment += "Generate upper-case letters ";
+		break;
+		case kwd::opt1023:
+		//noboolalpha
+		comment += "No alphanumerical bool values ";
+		break;
+		case kwd::opt1024:
+		//noshowbase
+		comment += "Do not show numerical base prefixes ";
+		break;
+		case kwd::opt1025:
+		//noshowpoint
+		comment += "Do not show decimal point ";
+		break;
+		case kwd::opt1026:
+		//noshowpos
+		comment += "Do not show positive signs ";
+		break;
+		case kwd::opt1027:
+		//noskipws
+		comment += "Do not skip whitespaces ";
+		break;
+		case kwd::opt1028:
+		//nounitbuf
+		comment += "Do not force flushes after insertions ";
+		break;
+		case kwd::opt1029:
+		//nouppercase
+		comment += "Do not generate upper case letters ";
+		break;
+		case kwd::opt1030:
+		//dec
+		comment += "Use decimal base ";
+		break;
+		case kwd::opt1031:
+		//hex
+		comment += "Use hexadecimal base ";
+		break;
+		case kwd::opt1032:
+		//oct
+		comment += "Use octal base ";
+		break;
+		case kwd::opt1033:
+		//fixed
+		comment += "Use fixed floating-point notation ";
+		break;
+		case kwd::opt1034:
+		//scientific
+		comment += "Use scientific floating-point notation ";
+		break;
+		case kwd::opt1035:
+		//internal
+		comment += "Adjust field by inserting characters at an internal position ";
+		break;
+		case kwd::opt1036:
+		//left
+		comment += "Adjust output to the left ";
+		break;
+		case kwd::opt1037:
+		//right
+		comment += "Adjust output to the right ";
+		break;
+		case kwd::opt1038:
+		//iostream_category
+		comment += "Return iostream category ";
+		break;
+		case kwd::opt1039:
+		//cin
+		comment += "Standard input stream ";
+		break;
+		case kwd::opt1040:
+		//cout
+		comment += "Standard output stream ";
+		break;
+		case kwd::opt1041:
+		//cerr
+		comment += "Standard output stream for errors ";
+		break;
+		case kwd::opt1042:
+		//clog
+		comment += "Standard output stream for logging ";
+		break;
+		case kwd::opt1043:
+		//wcin
+		comment += "Standard input stream (wide) ";
+		break;
+		case kwd::opt1044:
+		//wcout
+		comment += "Standard output stream (wide) ";
+		break;
+		case kwd::opt1045:
+		//wcerr
+		comment += "Standard output stream for errors (wide-oriented) ";
+		break;
+		case kwd::opt1046:
+		//wclog
+		comment += "Standard output stream for logging (wide) ";
+		break;
+		case kwd::opt1047:
+		//basic_istream
+		comment += "Input stream ";
+		break;
+		case kwd::opt1048:
+		//basic_iostream
+		comment += "Input/output stream ";
+		break;
+		case kwd::opt1049:
+		//istream
+		comment += "Input stream ";
+		break;
+		case kwd::opt1050:
+		//iostream
+		comment += "Input/output stream ";
+		break;
+		case kwd::opt1051:
+		//wistream
+		comment += "Input stream (wide) ";
+		break;
+		case kwd::opt1052:
+		//wiostream
+		comment += "Input/output stream (wide) ";
+		break;
+		case kwd::opt1053:
+		//ws
+		comment += "Extract whitespaces ";
+		break;
+		case kwd::opt1054:
+		//basic_ostream
+		comment += "Output stream ";
+		break;
+		case kwd::opt1055:
+		//ostream
+		comment += "Output Stream ";
+		break;
+		case kwd::opt1056:
+		//wostream
+		comment += "Output stream (wide) ";
+		break;
+		case kwd::opt1057:
+		//endl
+		comment += "Insert newline and flush ";
+		break;
+		case kwd::opt1058:
+		//ends
+		comment += "Insert null character ";
+		break;
+		case kwd::opt1059:
+		//flush
+		comment += "Flush stream buffer ";
+		break;
+		case kwd::opt1060:
+		//basic_istringstream
+		comment += "Input string stream ";
+		break;
+		case kwd::opt1061:
+		//basic_ostringstream
+		comment += "Output string stream ";
+		break;
+		case kwd::opt1062:
+		//basic_stringstream
+		comment += "String stream ";
+		break;
+		case kwd::opt1063:
+		//basic_stringbuf
+		comment += "String stream buffer ";
+		break;
+		case kwd::opt1064:
+		//istringstream
+		comment += "Input string stream ";
+		break;
+		case kwd::opt1065:
+		//ostringstream
+		comment += "Output string stream ";
+		break;
+		case kwd::opt1066:
+		//stringstream
+		comment += "Input/output string stream ";
+		break;
+		case kwd::opt1067:
+		//stringbuf
+		comment += "String stream buffer ";
+		break;
+		case kwd::opt1068:
+		//wistringstream
+		comment += "Input string stream (wide) ";
+		break;
+		case kwd::opt1069:
+		//wostringstream
+		comment += "Output string stream (wide) ";
+		break;
+		case kwd::opt1070:
+		//wstringstream
+		comment += "Input/output string stream (wide) ";
+		break;
+		case kwd::opt1071:
+		//wstringbuf
+		comment += "String stream buffer (wide) ";
+		break;
+		case kwd::opt1072:
+		//basic_streambuf
+		comment += "Base buffer class for streams ";
+		break;
+		case kwd::opt1073:
+		//streambuf
+		comment += "Base buffer class for streams ";
+		break;
+		case kwd::opt1074:
+		//wstreambuf
+		comment += "Base buffer class for streams (wide) ";
+		break;
 	}
 	return comment;
 }

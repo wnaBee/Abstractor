@@ -8,6 +8,7 @@
 using namespace std;
 
 string commentor(string CodeLine, int filetype);
+string trim(const std::string& str, const std::string& whitespace);
 
 int main(int argc, char* argv[]){
 	fstream readfile;
@@ -60,159 +61,169 @@ string commentor(string CodeLine, int filetype){
 	vector <string> lineArray;
 	
 	for(int i = 0; i < CodeLine.length(); i++){
-				switch(CodeLine[i]){ //fix case to not include last char and to remove unnecessary spaces
-					case '+':
-						if(prevchar == "+"){
-							lineArray.back() += "+";
-						}else{
-							lineArray.push_back(nextcmd);
-						}
-						nextcmd = "";
-						break;
-					case '-':
-						if(prevchar == "-"){
-							lineArray.back() += "-";
-						}else{
-							lineArray.push_back(nextcmd);
-						}
-						nextcmd = "";
-						break;
-					case '/':
-						if(prevchar == "/" || prevchar == "*"){
-							lineArray.back() += "/";
-						}else{
-							lineArray.push_back(nextcmd);
-						}
-						nextcmd = "";
-						break;
-					case '*':
-						if(prevchar == "/" || prevchar == "." || (doubleprev == "-" && prevchar == ">")){
-							lineArray.back() += "*";
-						}else{
-							lineArray.push_back(nextcmd);
-						}
-						nextcmd = "";
-						break;
-					case '%':
-						lineArray.push_back(nextcmd);
-						
-						nextcmd = "";
-						break;
-					case '<':
-						if(prevchar == "<"){
-							lineArray.back() += "<";
-						}else{
-							lineArray.push_back(nextcmd);
-						}
-						nextcmd = "";
-						break;
-					case '>':
-						if(prevchar == ">" || prevchar == "-"){
-							lineArray.back() += ">";
-						}else{
-							lineArray.push_back(nextcmd);
-						}
-						nextcmd = "";
-						break;
-					case '&':
-						if(prevchar == "&"){
-							lineArray.back() += "&";
-						}else{
-							lineArray.push_back(nextcmd);
-						}
-						nextcmd = "";
-						break;
-					case '|':
-						if(prevchar == "|"){
-							lineArray.back() += "|";
-						}else{
-							lineArray.push_back(nextcmd);
-						}
-						nextcmd = "";
-						break;
-					case '!':
-						lineArray.push_back(nextcmd);
-						nextcmd = "";
-						break;
-					case '?':
-						lineArray.push_back(nextcmd);
-						nextcmd = "";
-						break;
-					case '^':
-						lineArray.push_back(nextcmd);
-						nextcmd = "";
-						break;
-					case '~':
-						lineArray.push_back(nextcmd);
-						nextcmd = "";
-						break;
-					case '=':
-						if(prevchar == "=" || prevchar == "!" || prevchar == "<" || prevchar == ">" || prevchar == "*" || prevchar == "/" || prevchar == "%" || prevchar == "+" || prevchar == "-" || (doubleprev == ">" && prevchar == ">") || (doubleprev == "<" && prevchar == "<") || prevchar == "&" || prevchar == "^" || prevchar == "|"){
-							lineArray.back() += "=";
-						}else{
-							lineArray.push_back(nextcmd);
-						}
-						nextcmd = "";
-						break;
-					case '.':
-						lineArray.push_back(nextcmd);
-						nextcmd = "";
-						break;
-					case ',':
-						lineArray.push_back(nextcmd);
-						nextcmd = "";
-						break;
-					case '(':
-						lineArray.push_back(nextcmd);
-						nextcmd = "";
-						break;
-					case ')':
-						lineArray.push_back(nextcmd);
-						nextcmd = "";
-						break;
-					case '[':
-						lineArray.push_back(nextcmd);
-						nextcmd = "";
-						break;
-					case ']':
-						lineArray.push_back(nextcmd);
-						nextcmd = "";
-						break;
-					case '{':
-						lineArray.push_back(nextcmd);
-						nextcmd = "";
-						break;
-					case '}':
-						lineArray.push_back(nextcmd);
-						nextcmd = "";
-						break;
-					case ':':
-						if(prevchar == ":" || prevchar == "?"){
-							lineArray.back() += ":";
-						}else{
-							lineArray.push_back(nextcmd);
-						}
-						nextcmd = "";
-						break;
-					case ';':
-						lineArray.push_back(nextcmd);
-						nextcmd = "";
-						break;
-					case '\\':
-						lineArray.push_back(nextcmd);
-						nextcmd = "";
-						break;
+		switch(CodeLine[i]){ //fix case to not include last char and to remove unnecessary spaces
+			case '+':
+				if(prevchar == "+"){
+					lineArray.back() += "+";
+				}else{
+					lineArray.push_back(nextcmd);
 				}
-				nextcmd += CodeLine[i];
-				doubleprev = prevchar;
-				prevchar = CodeLine[i];
+				nextcmd = "";
+				break;
+			case '-':
+				if(prevchar == "-"){
+					lineArray.back() += "-";
+				}else{
+					lineArray.push_back(nextcmd);
+				}
+				nextcmd = "";
+				break;
+			case '/':
+				if(prevchar == "/" || prevchar == "*"){
+					lineArray.back() += "/";
+				}else{
+					lineArray.push_back(nextcmd);
+				}
+				nextcmd = "";
+				break;
+			case '*':
+				if(prevchar == "/" || prevchar == "." || (doubleprev == "-" && prevchar == ">")){
+					lineArray.back() += "*";
+				}else{
+					lineArray.push_back(nextcmd);
+				}
+				nextcmd = "";
+				break;
+			case '%':
+				lineArray.push_back(nextcmd);
 				
-			}
-			for(int i = 0; i < lineArray.size(); i++){
-				lineArray[i].erase(remove(lineArray[i].begin(), lineArray[i].end(), ' '), lineArray[i].end());
-			}
-			lineArray.push_back(nextcmd);
-			
+				nextcmd = "";
+				break;
+			case '<':
+				if(prevchar == "<"){
+					lineArray.back() += "<";
+				}else{
+					lineArray.push_back(nextcmd);
+				}
+				nextcmd = "";
+				break;
+			case '>':
+				if(prevchar == ">" || prevchar == "-"){
+					lineArray.back() += ">";
+				}else{
+					lineArray.push_back(nextcmd);
+				}
+				nextcmd = "";
+				break;
+			case '&':
+				if(prevchar == "&"){
+					lineArray.back() += "&";
+				}else{
+					lineArray.push_back(nextcmd);
+				}
+				nextcmd = "";
+				break;
+			case '|':
+				if(prevchar == "|"){
+					lineArray.back() += "|";
+				}else{
+					lineArray.push_back(nextcmd);
+				}
+				nextcmd = "";
+				break;
+			case '!':
+				lineArray.push_back(nextcmd);
+				nextcmd = "";
+				break;
+			case '?':
+				lineArray.push_back(nextcmd);
+				nextcmd = "";
+				break;
+			case '^':
+				lineArray.push_back(nextcmd);
+				nextcmd = "";
+				break;
+			case '~':
+				lineArray.push_back(nextcmd);
+				nextcmd = "";
+				break;
+			case '=':
+				if(prevchar == "=" || prevchar == "!" || prevchar == "<" || prevchar == ">" || prevchar == "*" || prevchar == "/" || prevchar == "%" || prevchar == "+" || prevchar == "-" || (doubleprev == ">" && prevchar == ">") || (doubleprev == "<" && prevchar == "<") || prevchar == "&" || prevchar == "^" || prevchar == "|"){
+					lineArray.back() += "=";
+				}else{
+					lineArray.push_back(nextcmd);
+				}
+				nextcmd = "";
+				break;
+			case '.':
+				lineArray.push_back(nextcmd);
+				nextcmd = "";
+				break;
+			case ',':
+				lineArray.push_back(nextcmd);
+				nextcmd = "";
+				break;
+			case '(':
+				lineArray.push_back(nextcmd);
+				nextcmd = "";
+				break;
+			case ')':
+				lineArray.push_back(nextcmd);
+				nextcmd = "";
+				break;
+			case '[':
+				lineArray.push_back(nextcmd);
+				nextcmd = "";
+				break;
+			case ']':
+				lineArray.push_back(nextcmd);
+				nextcmd = "";
+				break;
+			case '{':
+				lineArray.push_back(nextcmd);
+				nextcmd = "";
+				break;
+			case '}':
+				lineArray.push_back(nextcmd);
+				nextcmd = "";
+				break;
+			case ':':
+				if(prevchar == ":" || prevchar == "?"){
+					lineArray.back() += ":";
+				}else{
+					lineArray.push_back(nextcmd);
+				}
+				//cout << prevchar << "\n";
+				nextcmd = "";
+				break;
+			case ';':
+				lineArray.push_back(nextcmd);
+				nextcmd = "";
+				break;
+			case '\\':
+				lineArray.push_back(nextcmd);
+				nextcmd = "";
+				break;
+			default:
+				if(prevchar == ":" || prevchar == "+"|| prevchar == "-"|| prevchar == "("|| prevchar == ")"|| prevchar == "["|| prevchar == "]"|| prevchar == "."|| prevchar == ">"|| prevchar == "~"|| prevchar == "!"|| prevchar == "&"|| prevchar == "*"|| prevchar == "<"|| prevchar == "/"|| prevchar == "%"|| prevchar == "^"|| prevchar == "|"|| prevchar == "?"|| prevchar == ","){
+					lineArray.push_back(nextcmd); 
+					nextcmd = nextcmd.substr (1);
+				
+				}
+		}
+		nextcmd += CodeLine[i];
+		doubleprev = prevchar;
+		prevchar = CodeLine[i];
+		//cout << nextcmd << " | " << CodeLine[i] << " | " << prevchar << " | " << doubleprev << "\n";
+		
+		
+		
+	}
+	lineArray.push_back(nextcmd);
+	for(int i = 0; i < lineArray.size(); i++){
+		lineArray[i].erase(std::find_if(lineArray[i].rbegin(), lineArray[i].rend(), std::bind1st(std::not_equal_to<char>(), ' ')).base(), lineArray[i].end());
+	}
+		
 	switch(filetype){
 		case 0:
 			
@@ -220,10 +231,12 @@ string commentor(string CodeLine, int filetype){
 		case 1:
 			comment = " //";
 			for(int i = 0; i < lineArray.size(); i++){
-				cout << lineArray[i] << "\n";
+				//cout << lineArray[i] << "|";
 				comment += cppcommentMake(lineArray[i]);
 			}
 			comment.erase(remove(comment.begin(), comment.end(), '\t'), comment.end());
+			comment.erase(comment.begin(), std::find_if(comment.begin(), comment.end(), std::bind1st(std::not_equal_to<char>(), ' ')));
+			//cout <<"\n";
 			break;
 		case 2:
 			comment = " #";
@@ -233,7 +246,7 @@ string commentor(string CodeLine, int filetype){
 			break;
 		case 4:
 			comment = " //";
-			for(int i = 0; i < lineArray.size(); i++){ lineArray[i].erase(remove(lineArray[i].begin(), lineArray[i].end(), ' '), lineArray[i].end());
+			for(int i = 0; i < lineArray.size(); i++){
 				comment += cppcommentMake(lineArray[i]);
 			}
 			comment.erase(remove(comment.begin(), comment.end(), '\t'), comment.end());
@@ -256,3 +269,14 @@ string commentor(string CodeLine, int filetype){
  *list of deliniators:
  *['.',',','(',')','[',']','{','}',':',';','\'] 
  */
+
+string trim(const std::string& str, const std::string& whitespace = " \t"){
+    const auto strBegin = str.find_first_not_of(whitespace);
+    if (strBegin == std::string::npos)
+        return ""; // no content
+
+    const auto strEnd = str.find_last_not_of(whitespace);
+    const auto strRange = strEnd - strBegin + 1;
+
+    return str.substr(strBegin, strRange);
+}
