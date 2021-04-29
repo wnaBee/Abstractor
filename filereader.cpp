@@ -4,11 +4,10 @@
 #include <vector>
 #include <algorithm> 
 #include "cppswitch.h"
-
+#include "operatorswitch.h"
 using namespace std;
 
 string commentor(string CodeLine, int filetype);
-string trim(const std::string& str, const std::string& whitespace);
 
 int main(int argc, char* argv[]){
 	fstream readfile;
@@ -46,8 +45,9 @@ int main(int argc, char* argv[]){
 				putfile.close();
 				readfile.close();
 		}
+		cout << "created: " << output << "\n";
 	}
-	cout << "created: " << output << "\n";
+	
 	return 0;
 }
 
@@ -58,6 +58,7 @@ string commentor(string CodeLine, int filetype){
 	string nextcmd = "";
 	string prevchar = "";
 	string doubleprev = "";
+	string precomment = "";
 	vector <string> lineArray;
 	
 	for(int i = 0; i < CodeLine.length(); i++){
@@ -205,7 +206,7 @@ string commentor(string CodeLine, int filetype){
 				nextcmd = "";
 				break;
 			default:
-				if(prevchar == ":" || prevchar == "+"|| prevchar == "-"|| prevchar == "("|| prevchar == ")"|| prevchar == "["|| prevchar == "]"|| prevchar == "."|| prevchar == ">"|| prevchar == "~"|| prevchar == "!"|| prevchar == "&"|| prevchar == "*"|| prevchar == "<"|| prevchar == "/"|| prevchar == "%"|| prevchar == "^"|| prevchar == "|"|| prevchar == "?"|| prevchar == ","){
+				if(prevchar == ":" || prevchar == "+"|| prevchar == "-"|| prevchar == "("|| prevchar == ")"|| prevchar == "["|| prevchar == "]"|| prevchar == "."|| prevchar == ">"|| prevchar == "~"|| prevchar == "!"|| prevchar == "&"|| prevchar == "*"|| prevchar == "<"|| prevchar == "/"|| prevchar == "%"|| prevchar == "^"|| prevchar == "|"|| prevchar == "?"|| prevchar == ","|| prevchar == "="){
 					lineArray.push_back(nextcmd); 
 					nextcmd = nextcmd.substr (1);
 				
@@ -232,11 +233,12 @@ string commentor(string CodeLine, int filetype){
 			comment = " //";
 			for(int i = 0; i < lineArray.size(); i++){
 				//cout << lineArray[i] << "|";
-				comment += cppcommentMake(lineArray[i]);
+				precomment += cppcommentMake(lineArray[i]);
 			}
-			comment.erase(remove(comment.begin(), comment.end(), '\t'), comment.end());
-			comment.erase(comment.begin(), std::find_if(comment.begin(), comment.end(), std::bind1st(std::not_equal_to<char>(), ' ')));
+			precomment.erase(remove(precomment.begin(), precomment.end(), '\t'), precomment.end());
+			precomment.erase(precomment.begin(), std::find_if(precomment.begin(), precomment.end(), std::bind1st(std::not_equal_to<char>(), ' ')));
 			//cout <<"\n";
+			comment += precomment;
 			break;
 		case 2:
 			comment = " #";
@@ -247,9 +249,13 @@ string commentor(string CodeLine, int filetype){
 		case 4:
 			comment = " //";
 			for(int i = 0; i < lineArray.size(); i++){
-				comment += cppcommentMake(lineArray[i]);
+				precomment += operatorcommentMake(lineArray[i]);
+				
+				if(operatorcommentMake(lineArray[i]) == "notanoperator"){precomment += cppcommentMake(lineArray[i]);}
 			}
-			comment.erase(remove(comment.begin(), comment.end(), '\t'), comment.end());
+			precomment.erase(remove(precomment.begin(), precomment.end(), '\t'), precomment.end());
+			precomment.erase(precomment.begin(), std::find_if(precomment.begin(), precomment.end(), std::bind1st(std::not_equal_to<char>(), ' ')));
+			comment += precomment;
 			break;
 		case 5:
 			comment = " #";
@@ -270,13 +276,3 @@ string commentor(string CodeLine, int filetype){
  *['.',',','(',')','[',']','{','}',':',';','\'] 
  */
 
-string trim(const std::string& str, const std::string& whitespace = " \t"){
-    const auto strBegin = str.find_first_not_of(whitespace);
-    if (strBegin == std::string::npos)
-        return ""; // no content
-
-    const auto strEnd = str.find_last_not_of(whitespace);
-    const auto strRange = strEnd - strBegin + 1;
-
-    return str.substr(strBegin, strRange);
-}
