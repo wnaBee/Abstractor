@@ -13,7 +13,7 @@ int main(int argc, char* argv[]){
 	fstream readfile;
 	fstream putfile;
 	string output = "";
-	string Extensions[] = {".txt", ".cpp", ".py", ".c", ".h", ".sh", ".cs", ".vb"};
+	string Extensions[] = {"txt", "c++", "python", "C", ".h", "bash", "C#", "Vb"};
 	int filetype = 0;
 	if(argc < 3){
 		cout << "./filereader [file] [output file extension]";
@@ -71,7 +71,7 @@ string commentor(string CodeLine, int filetype){
 						case '+':
 							if(prevchar == "+"){
 								lineArray.push_back(prevchar + "+");
-								IF = 1;
+								//don't put this [i] into comment
 							}else{
 								lineArray.push_back(nextcmd);
 							}
@@ -80,7 +80,7 @@ string commentor(string CodeLine, int filetype){
 						case '-':
 							if(prevchar == "-"){
 								lineArray.push_back(prevchar + "-");
-								IF = 1;
+								//don't put this [i] into comment
 							}else{
 								lineArray.push_back(nextcmd);
 							}
@@ -99,10 +99,10 @@ string commentor(string CodeLine, int filetype){
 						case '*':
 							if(prevchar == "/" || prevchar == "."){
 								lineArray.push_back(prevchar + "*");
-								IF = 1;
+								//don't put this [i] into comment
 							}else if(doubleprev == "-" && prevchar == ">"){
 								lineArray.push_back(doubleprev + prevchar + "*");
-								IF = 1;
+								//don't put this [i] into comment
 							}else{
 								lineArray.push_back(nextcmd);
 							}
@@ -115,7 +115,7 @@ string commentor(string CodeLine, int filetype){
 						case '<':
 							if(prevchar == "<"){
 								lineArray.push_back(prevchar + "<");
-								IF = 1;
+								//don't put this [i] into comment
 							}else{
 								lineArray.push_back(nextcmd);
 							}
@@ -124,7 +124,7 @@ string commentor(string CodeLine, int filetype){
 						case '>':
 							if(prevchar == ">" || prevchar == "-"){
 								lineArray.push_back(prevchar + ">");
-								IF = 1;
+								//don't put this [i] into comment
 							}else{
 								lineArray.push_back(nextcmd);
 							}
@@ -133,7 +133,7 @@ string commentor(string CodeLine, int filetype){
 						case '&':
 							if(prevchar == "&"){
 								lineArray.push_back(prevchar + "&");
-								IF = 1;
+								//don't put this [i] into comment
 							}else{
 								lineArray.push_back(nextcmd);
 							}
@@ -142,7 +142,7 @@ string commentor(string CodeLine, int filetype){
 						case '|':
 							if(prevchar == "|"){
 								lineArray.push_back(prevchar + "|");
-								IF = 1;
+								//don't put this [i] into comment
 							}else{
 								lineArray.push_back(nextcmd);
 							}
@@ -167,10 +167,10 @@ string commentor(string CodeLine, int filetype){
 						case '=':
 							if(prevchar == "=" || prevchar == "!" || prevchar == "<" || prevchar == ">" || prevchar == "*" || prevchar == "/" || prevchar == "%" || prevchar == "+" || prevchar == "-" || prevchar == "&" || prevchar == "^" || prevchar == "|"){
 								lineArray.push_back(prevchar + "=");
-								IF = 1;
+								//don't put this [i] into comment
 							}else if((doubleprev == ">" && prevchar == ">") || (doubleprev == "<" && prevchar == "<")){
 								lineArray.push_back(doubleprev + prevchar + "=");
-								IF = 1;
+								//don't put this [i] into comment
 							}else{
 								lineArray.push_back(nextcmd);
 							}
@@ -211,7 +211,7 @@ string commentor(string CodeLine, int filetype){
 						case ':':
 							if(prevchar == ":" || prevchar == "?"){
 								lineArray.push_back(prevchar + ":");
-								IF = 1;
+								//don't put this [i] into comment
 							}else{
 								lineArray.push_back(nextcmd);
 							}
@@ -248,11 +248,9 @@ string commentor(string CodeLine, int filetype){
 			
 		}
 			cout << nextcmd << " | " << CodeLine[i] << " | " << prevchar << "\n"; //<< " | " << doubleprev 
-			if(IF == 0){
-				nextcmd += CodeLine[i];
-				doubleprev = prevchar;
-				prevchar = CodeLine[i];
-			}
+			nextcmd += CodeLine[i];
+			doubleprev = prevchar;
+			prevchar = CodeLine[i];
 	}
 	
 	lineArray.push_back(nextcmd);
