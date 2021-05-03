@@ -2,7 +2,7 @@
 #include <fstream>
 #include <string>
 #include <vector>
-#include <algorithm> 
+#include <algorithm>
 #include "cppswitch.h"
 #include "operatorswitch.h"
 using namespace std;
@@ -40,7 +40,7 @@ int main(int argc, char* argv[]){
 				//check the new file
 				putfile.open(output, ios::in);
 				while(getline(putfile, line)){
-					cout << line << "\n";
+//					cout << line << "\n";
 				}
 				putfile.close();
 				readfile.close();
@@ -54,6 +54,8 @@ int main(int argc, char* argv[]){
 string commentor(string CodeLine, int filetype){
 	int fulline = 0;
 	int lineSeg = 0;
+	int CF = 0;
+	int IF = 0;
 	string comment = "";
 	string nextcmd = "";
 	string prevchar = "";
@@ -62,164 +64,197 @@ string commentor(string CodeLine, int filetype){
 	vector <string> lineArray;
 	
 	for(int i = 0; i < CodeLine.length(); i++){
-		switch(CodeLine[i]){ //fix case to not include last char and to remove unnecessary spaces
-			case '+':
-				if(prevchar == "+"){
-					lineArray.back() += "+";
-				}else{
-					lineArray.push_back(nextcmd);
-				}
-				nextcmd = "";
+		IF = 0;
+		switch(CF){
+				case 0:
+					switch(CodeLine[i]){ //fix case to not include last char and to remove unnecessary spaces
+						case '+':
+							if(prevchar == "+"){
+								lineArray.push_back(prevchar + "+");
+								IF = 1;
+							}else{
+								lineArray.push_back(nextcmd);
+							}
+							nextcmd = "";
+							break;
+						case '-':
+							if(prevchar == "-"){
+								lineArray.push_back(prevchar + "-");
+								IF = 1;
+							}else{
+								lineArray.push_back(nextcmd);
+							}
+							nextcmd = "";
+							break;
+						case '/':
+							if(prevchar == "*"){
+								CF = 0;
+							}else if(prevchar == "/"){
+								CF = 2;
+							}else{
+								lineArray.push_back(nextcmd);
+							}
+							nextcmd = "";
+							break;
+						case '*':
+							if(prevchar == "/" || prevchar == "."){
+								lineArray.push_back(prevchar + "*");
+								IF = 1;
+							}else if(doubleprev == "-" && prevchar == ">"){
+								lineArray.push_back(doubleprev + prevchar + "*");
+								IF = 1;
+							}else{
+								lineArray.push_back(nextcmd);
+							}
+							nextcmd = "";
+							break;
+						case '%':
+							lineArray.push_back(nextcmd);
+							nextcmd = "";
+							break;
+						case '<':
+							if(prevchar == "<"){
+								lineArray.push_back(prevchar + "<");
+								IF = 1;
+							}else{
+								lineArray.push_back(nextcmd);
+							}
+							nextcmd = "";
+							break;
+						case '>':
+							if(prevchar == ">" || prevchar == "-"){
+								lineArray.push_back(prevchar + ">");
+								IF = 1;
+							}else{
+								lineArray.push_back(nextcmd);
+							}
+							nextcmd = "";
+							break;
+						case '&':
+							if(prevchar == "&"){
+								lineArray.push_back(prevchar + "&");
+								IF = 1;
+							}else{
+								lineArray.push_back(nextcmd);
+							}
+							nextcmd = "";
+							break;
+						case '|':
+							if(prevchar == "|"){
+								lineArray.push_back(prevchar + "|");
+								IF = 1;
+							}else{
+								lineArray.push_back(nextcmd);
+							}
+							nextcmd = "";
+							break;
+						case '!':
+							lineArray.push_back(nextcmd);
+							nextcmd = "";
+							break;
+						case '?':
+							lineArray.push_back(nextcmd);
+							nextcmd = "";
+							break;
+						case '^':
+							lineArray.push_back(nextcmd);
+							nextcmd = "";
+							break;
+						case '~':
+							lineArray.push_back(nextcmd);
+							nextcmd = "";
+							break;
+						case '=':
+							if(prevchar == "=" || prevchar == "!" || prevchar == "<" || prevchar == ">" || prevchar == "*" || prevchar == "/" || prevchar == "%" || prevchar == "+" || prevchar == "-" || prevchar == "&" || prevchar == "^" || prevchar == "|"){
+								lineArray.push_back(prevchar + "=");
+								IF = 1;
+							}else if((doubleprev == ">" && prevchar == ">") || (doubleprev == "<" && prevchar == "<")){
+								lineArray.push_back(doubleprev + prevchar + "=");
+								IF = 1;
+							}else{
+								lineArray.push_back(nextcmd);
+							}
+							nextcmd = "";
+							break;
+						case '.':
+							lineArray.push_back(nextcmd);
+							nextcmd = "";
+							break;
+						case ',':
+							lineArray.push_back(nextcmd);
+							nextcmd = "";
+							break;
+						case '(':
+							lineArray.push_back(nextcmd);
+							nextcmd = "";
+							break;
+						case ')':
+							lineArray.push_back(nextcmd);
+							nextcmd = "";
+							break;
+						case '[':
+							lineArray.push_back(nextcmd);
+							nextcmd = "";
+							break;
+						case ']':
+							lineArray.push_back(nextcmd);
+							nextcmd = "";
+							break;
+						case '{':
+							lineArray.push_back(nextcmd);
+							nextcmd = "";
+							break;
+						case '}':
+							lineArray.push_back(nextcmd);
+							nextcmd = "";
+							break;
+						case ':':
+							if(prevchar == ":" || prevchar == "?"){
+								lineArray.push_back(prevchar + ":");
+								IF = 1;
+							}else{
+								lineArray.push_back(nextcmd);
+							}
+							//cout << prevchar << "\n";
+							nextcmd = "";
+							break;
+						case ';':
+							lineArray.push_back(nextcmd);
+							nextcmd = "";
+							break;
+						case '\\':
+							lineArray.push_back(nextcmd);
+							nextcmd = "";
+							break;
+						case '"':
+							lineArray.push_back(nextcmd);
+							CF = 1;
+							nextcmd = "";
+							break;
+						default:
+							if(prevchar == ":" || prevchar == "+"|| prevchar == "-"|| prevchar == "("|| prevchar == ")"|| prevchar == "["|| prevchar == "]"|| prevchar == "."|| prevchar == ">"|| prevchar == "~"|| prevchar == "!"|| prevchar == "&"|| prevchar == "*"|| prevchar == "<"|| prevchar == "/"|| prevchar == "%"|| prevchar == "^"|| prevchar == "|"|| prevchar == "?"|| prevchar == ","|| prevchar == "="){
+								lineArray.push_back(nextcmd); 
+								nextcmd = nextcmd.substr (1);
+							
+							}
+					}
 				break;
-			case '-':
-				if(prevchar == "-"){
-					lineArray.back() += "-";
-				}else{
-					lineArray.push_back(nextcmd);
-				}
-				nextcmd = "";
+			case 1:
+				if(CodeLine[i] == '"'){CF = 0;}
 				break;
-			case '/':
-				if(prevchar == "/" || prevchar == "*"){
-					lineArray.back() += "/";
-				}else{
-					lineArray.push_back(nextcmd);
-				}
-				nextcmd = "";
+			case 2:
+				if(i = CodeLine.length()){CF = 0;}
 				break;
-			case '*':
-				if(prevchar == "/" || prevchar == "." || (doubleprev == "-" && prevchar == ">")){
-					lineArray.back() += "*";
-				}else{
-					lineArray.push_back(nextcmd);
-				}
-				nextcmd = "";
-				break;
-			case '%':
-				lineArray.push_back(nextcmd);
-				
-				nextcmd = "";
-				break;
-			case '<':
-				if(prevchar == "<"){
-					lineArray.back() += "<";
-				}else{
-					lineArray.push_back(nextcmd);
-				}
-				nextcmd = "";
-				break;
-			case '>':
-				if(prevchar == ">" || prevchar == "-"){
-					lineArray.back() += ">";
-				}else{
-					lineArray.push_back(nextcmd);
-				}
-				nextcmd = "";
-				break;
-			case '&':
-				if(prevchar == "&"){
-					lineArray.back() += "&";
-				}else{
-					lineArray.push_back(nextcmd);
-				}
-				nextcmd = "";
-				break;
-			case '|':
-				if(prevchar == "|"){
-					lineArray.back() += "|";
-				}else{
-					lineArray.push_back(nextcmd);
-				}
-				nextcmd = "";
-				break;
-			case '!':
-				lineArray.push_back(nextcmd);
-				nextcmd = "";
-				break;
-			case '?':
-				lineArray.push_back(nextcmd);
-				nextcmd = "";
-				break;
-			case '^':
-				lineArray.push_back(nextcmd);
-				nextcmd = "";
-				break;
-			case '~':
-				lineArray.push_back(nextcmd);
-				nextcmd = "";
-				break;
-			case '=':
-				if(prevchar == "=" || prevchar == "!" || prevchar == "<" || prevchar == ">" || prevchar == "*" || prevchar == "/" || prevchar == "%" || prevchar == "+" || prevchar == "-" || (doubleprev == ">" && prevchar == ">") || (doubleprev == "<" && prevchar == "<") || prevchar == "&" || prevchar == "^" || prevchar == "|"){
-					lineArray.back() += "=";
-				}else{
-					lineArray.push_back(nextcmd);
-				}
-				nextcmd = "";
-				break;
-			case '.':
-				lineArray.push_back(nextcmd);
-				nextcmd = "";
-				break;
-			case ',':
-				lineArray.push_back(nextcmd);
-				nextcmd = "";
-				break;
-			case '(':
-				lineArray.push_back(nextcmd);
-				nextcmd = "";
-				break;
-			case ')':
-				lineArray.push_back(nextcmd);
-				nextcmd = "";
-				break;
-			case '[':
-				lineArray.push_back(nextcmd);
-				nextcmd = "";
-				break;
-			case ']':
-				lineArray.push_back(nextcmd);
-				nextcmd = "";
-				break;
-			case '{':
-				lineArray.push_back(nextcmd);
-				nextcmd = "";
-				break;
-			case '}':
-				lineArray.push_back(nextcmd);
-				nextcmd = "";
-				break;
-			case ':':
-				if(prevchar == ":" || prevchar == "?"){
-					lineArray.back() += ":";
-				}else{
-					lineArray.push_back(nextcmd);
-				}
-				//cout << prevchar << "\n";
-				nextcmd = "";
-				break;
-			case ';':
-				lineArray.push_back(nextcmd);
-				nextcmd = "";
-				break;
-			case '\\':
-				lineArray.push_back(nextcmd);
-				nextcmd = "";
-				break;
-			default:
-				if(prevchar == ":" || prevchar == "+"|| prevchar == "-"|| prevchar == "("|| prevchar == ")"|| prevchar == "["|| prevchar == "]"|| prevchar == "."|| prevchar == ">"|| prevchar == "~"|| prevchar == "!"|| prevchar == "&"|| prevchar == "*"|| prevchar == "<"|| prevchar == "/"|| prevchar == "%"|| prevchar == "^"|| prevchar == "|"|| prevchar == "?"|| prevchar == ","|| prevchar == "="){
-					lineArray.push_back(nextcmd); 
-					nextcmd = nextcmd.substr (1);
-				
-				}
+			
 		}
-		nextcmd += CodeLine[i];
-		doubleprev = prevchar;
-		prevchar = CodeLine[i];
-		//cout << nextcmd << " | " << CodeLine[i] << " | " << prevchar << " | " << doubleprev << "\n";
-		
-		
-		
+			cout << nextcmd << " | " << CodeLine[i] << " | " << prevchar << "\n"; //<< " | " << doubleprev 
+			if(IF == 0){
+				nextcmd += CodeLine[i];
+				doubleprev = prevchar;
+				prevchar = CodeLine[i];
+			}
 	}
+	
 	lineArray.push_back(nextcmd);
 	for(int i = 0; i < lineArray.size(); i++){
 		lineArray[i].erase(std::find_if(lineArray[i].rbegin(), lineArray[i].rend(), std::bind1st(std::not_equal_to<char>(), ' ')).base(), lineArray[i].end());
@@ -233,7 +268,11 @@ string commentor(string CodeLine, int filetype){
 			comment = " //";
 			for(int i = 0; i < lineArray.size(); i++){
 				//cout << lineArray[i] << "|";
-				precomment += cppcommentMake(lineArray[i]);
+				if(operatorcommentMake(lineArray[i]) == "notanoperator"){
+					precomment += cppcommentMake(lineArray[i]);
+				}else{
+					precomment += operatorcommentMake(lineArray[i]);
+				}
 			}
 			precomment.erase(remove(precomment.begin(), precomment.end(), '\t'), precomment.end());
 			precomment.erase(precomment.begin(), std::find_if(precomment.begin(), precomment.end(), std::bind1st(std::not_equal_to<char>(), ' ')));
@@ -249,9 +288,11 @@ string commentor(string CodeLine, int filetype){
 		case 4:
 			comment = " //";
 			for(int i = 0; i < lineArray.size(); i++){
-				precomment += operatorcommentMake(lineArray[i]);
-				
-				if(operatorcommentMake(lineArray[i]) == "notanoperator"){precomment += cppcommentMake(lineArray[i]);}
+				if(operatorcommentMake(lineArray[i]) == "notanoperator"){
+					precomment += cppcommentMake(lineArray[i]);
+				}else{
+					precomment += operatorcommentMake(lineArray[i]);
+				}
 			}
 			precomment.erase(remove(precomment.begin(), precomment.end(), '\t'), precomment.end());
 			precomment.erase(precomment.begin(), std::find_if(precomment.begin(), precomment.end(), std::bind1st(std::not_equal_to<char>(), ' ')));
@@ -269,6 +310,7 @@ string commentor(string CodeLine, int filetype){
 	}
 	return comment;
 }
+
 
 /*list of operators:
  * ['+','-','/','*','%','<','>','&','|','!','?','^','~','=']
