@@ -13,7 +13,7 @@
 #i'm getting stupid close figure this shit out m8
 lastl=""
 
-for i in {1..66}
+for i in {67..76}
 do
 	touch temp.txt
 	touch tempdec.txt
@@ -37,10 +37,10 @@ done
 
 sleep 3
 
-#for i in {1..66}
-#do
-#	paste -d ": " ./cppg/cppc/cppcommands${i}.txt ./cppg/cppd/cppdescriptions${i}.txt > ./cppg/cppm/cppmerge${i}.txt
-#	wait
-#done
+for i in {67..76}
+do
+	paste -d ": " ./cppg/cppc/cppcommands${i}.txt ./cppg/cppd/cppdescriptions${i}.txt > ./cppg/cppm/cppmerge${i}.txt
+	wait
+done
 
 cd ./cppg/cppm

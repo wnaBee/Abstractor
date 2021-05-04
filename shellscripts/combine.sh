@@ -16,14 +16,14 @@
 #	wait
 #	cppc=$(cat ./cppg/cppc/cppcommands${i}.txt)
 #	wait
-	j=1
-	cat ../codetemplates/combinedfile.txt | while IFS=":" read cppc cppd
+	j=27
+	cat ./operators.txt | while IFS=";" read cppc cppd
 	do
 		echo ${cppc}
 		echo $j
 		echo ${cppd}
 		printf "\n"
-		printf 'case %s:\n//%s\n%s\nbreak;\n' "opt${j}" "${cppc}" "${cppd}" >> ../codetemplates/cppswitchcommands.txt
+		printf 'case kwd::%s:\n//%s\ncomment += "%s";\nbreak;\n' "opt${j}" "${cppc}" "${cppd}" >> ./codetemplates/operatorswitchcmd.txt
 		wait
 		((j=j+1))
 		wait
