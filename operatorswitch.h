@@ -109,7 +109,7 @@ string operatorcommentMake(string commentarg) {
 		break;
 		case kwd::opt27:
 		//::
-		comment += "as namespace do";
+		comment += "as namespace do ";
 		break;
 		case kwd::opt28:
 		//++
@@ -117,7 +117,7 @@ string operatorcommentMake(string commentarg) {
 		break;
 		case kwd::opt29:
 		//--
-		comment += "- 1";
+		comment += "- 1 ";
 		break;
 		case kwd::opt30:
 		//->
@@ -125,87 +125,87 @@ string operatorcommentMake(string commentarg) {
 		break;
 		case kwd::opt31:
 		//.*
-		comment += "member pointer";
+		comment += "member pointer ";
 		break;
 		case kwd::opt32:
 		//->*
-		comment += "access member pointer";
+		comment += "access member pointer ";
 		break;
 		case kwd::opt33:
 		//<<
-		comment += "shift left";
+		comment += "shift left ";
 		break;
 		case kwd::opt34:
 		//>>
-		comment += "shift right";
+		comment += "shift right ";
 		break;
 		case kwd::opt35:
 		//<=
-		comment += "equals or less than";
+		comment += "equals or less than ";
 		break;
 		case kwd::opt36:
 		//>=
-		comment += "equals or greater than";
+		comment += "equals or greater than ";
 		break;
 		case kwd::opt37:
 		//==
-		comment += "is";
+		comment += "is ";
 		break;
 		case kwd::opt38:
 		//!=
-		comment += "is not";
+		comment += "is not ";
 		break;
 		case kwd::opt39:
 		//&&
-		comment += "and";
+		comment += "and ";
 		break;
 		case kwd::opt40:
 		//||
-		comment += "or";
+		comment += "or ";
 		break;
 		case kwd::opt41:
 		//*=
-		comment += "equals multiplied by";
+		comment += "equals multiplied by ";
 		break;
 		case kwd::opt42:
 		///=
-		comment += "equals divided by";
+		comment += "equals divided by ";
 		break;
 		case kwd::opt43:
 		//%=
-		comment += "equals modulus by";
+		comment += "equals modulus by ";
 		break;
 		case kwd::opt44:
 		//+=
-		comment += "equals plus";
+		comment += "equals plus ";
 		break;
 		case kwd::opt45:
 		//-=
-		comment += "equals minus";
+		comment += "equals minus ";
 		break;
 		case kwd::opt46:
 		//>>=
-		comment += "bitshift right assign";
+		comment += "bitshift right assign ";
 		break;
 		case kwd::opt47:
 		//<<=
-		comment += "bitshift left assign";
+		comment += "bitshift left assign ";
 		break;
 		case kwd::opt48:
 		//&=
-		comment += "bitwise and assgn";
+		comment += "bitwise and assgn ";
 		break;
 		case kwd::opt49:
 		//^=
-		comment += " bitwise xor assign";
+		comment += " bitwise xor assign ";
 		break;
 		case kwd::opt50:
 		//|=
-		comment += "bitwise 'or' assign";
+		comment += "bitwise 'or' assign ";
 		break;
 		case kwd::opt51:
 		//?:
-		comment += "terniary conditional";
+		comment += "terniary conditional ";
 		break;
 	}
 	return comment;

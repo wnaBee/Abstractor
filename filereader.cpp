@@ -14,6 +14,7 @@ int main(int argc, char* argv[]){
 	fstream putfile;
 	string output = "";
 	string Extensions[] = {"txt", "c++", "python", "C", ".h", "bash", "C#", "Vb"};
+	string FilExt[] = {".txt", ".cpp", ".py", ".c", ".h", ".sh", ".cs", ".vb"};
 	int filetype = 0;
 	if(argc < 3){
 		cout << "./filereader [file] [output file extension]";
@@ -22,7 +23,7 @@ int main(int argc, char* argv[]){
 		//define output file
 		for(int i = 0; i < 8; i++){ //iterate through file types
 			if(argv[2] == Extensions[i]){
-				output = "output" + Extensions[i];
+				output = "output" + FilExt[i];
 				filetype = i;
 			}
 		}
@@ -64,14 +65,15 @@ string commentor(string CodeLine, int filetype){
 	vector <string> lineArray;
 	
 	for(int i = 0; i < CodeLine.length(); i++){
-		IF = 0;
 		switch(CF){
 				case 0:
+					//IF = 0;
 					switch(CodeLine[i]){ //fix case to not include last char and to remove unnecessary spaces
 						case '+':
 							if(prevchar == "+"){
 								lineArray.push_back(prevchar + "+");
-								//don't put this [i] into comment
+								nextcmd.pop_back();
+								i += 1;
 							}else{
 								lineArray.push_back(nextcmd);
 							}
@@ -80,7 +82,8 @@ string commentor(string CodeLine, int filetype){
 						case '-':
 							if(prevchar == "-"){
 								lineArray.push_back(prevchar + "-");
-								//don't put this [i] into comment
+								nextcmd.pop_back();
+								i += 1;
 							}else{
 								lineArray.push_back(nextcmd);
 							}
@@ -99,10 +102,12 @@ string commentor(string CodeLine, int filetype){
 						case '*':
 							if(prevchar == "/" || prevchar == "."){
 								lineArray.push_back(prevchar + "*");
-								//don't put this [i] into comment
+								nextcmd.pop_back();
+								i += 1;
 							}else if(doubleprev == "-" && prevchar == ">"){
-								lineArray.push_back(doubleprev + prevchar + "*");
-								//don't put this [i] into comment
+								lineArray.push_back(doubleprev + prevchar + "*"); //TODO: remove previous vector entry
+								nextcmd.pop_back();
+								i += 1;
 							}else{
 								lineArray.push_back(nextcmd);
 							}
@@ -115,7 +120,9 @@ string commentor(string CodeLine, int filetype){
 						case '<':
 							if(prevchar == "<"){
 								lineArray.push_back(prevchar + "<");
-								//don't put this [i] into comment
+								//cout << "\n|________________________|\n" << nextcmd << "\n"; //<< CodeLine[i]; 
+								nextcmd.pop_back();
+								i += 1;
 							}else{
 								lineArray.push_back(nextcmd);
 							}
@@ -123,8 +130,9 @@ string commentor(string CodeLine, int filetype){
 							break;
 						case '>':
 							if(prevchar == ">" || prevchar == "-"){
-								lineArray.push_back(prevchar + ">");
-								//don't put this [i] into comment
+								lineArray.push_back(prevchar + ">"); 
+								nextcmd.pop_back();
+								i += 1;
 							}else{
 								lineArray.push_back(nextcmd);
 							}
@@ -133,7 +141,8 @@ string commentor(string CodeLine, int filetype){
 						case '&':
 							if(prevchar == "&"){
 								lineArray.push_back(prevchar + "&");
-								//don't put this [i] into comment
+								nextcmd.pop_back();
+								i += 1;
 							}else{
 								lineArray.push_back(nextcmd);
 							}
@@ -142,7 +151,8 @@ string commentor(string CodeLine, int filetype){
 						case '|':
 							if(prevchar == "|"){
 								lineArray.push_back(prevchar + "|");
-								//don't put this [i] into comment
+								nextcmd.pop_back();
+								i += 1;
 							}else{
 								lineArray.push_back(nextcmd);
 							}
@@ -167,10 +177,12 @@ string commentor(string CodeLine, int filetype){
 						case '=':
 							if(prevchar == "=" || prevchar == "!" || prevchar == "<" || prevchar == ">" || prevchar == "*" || prevchar == "/" || prevchar == "%" || prevchar == "+" || prevchar == "-" || prevchar == "&" || prevchar == "^" || prevchar == "|"){
 								lineArray.push_back(prevchar + "=");
-								//don't put this [i] into comment
+								nextcmd.pop_back();
+								i += 1;
 							}else if((doubleprev == ">" && prevchar == ">") || (doubleprev == "<" && prevchar == "<")){
 								lineArray.push_back(doubleprev + prevchar + "=");
-								//don't put this [i] into comment
+								nextcmd.pop_back();
+								i += 1;
 							}else{
 								lineArray.push_back(nextcmd);
 							}
@@ -211,7 +223,8 @@ string commentor(string CodeLine, int filetype){
 						case ':':
 							if(prevchar == ":" || prevchar == "?"){
 								lineArray.push_back(prevchar + ":");
-								//don't put this [i] into comment
+								nextcmd.pop_back();
+								i += 1;
 							}else{
 								lineArray.push_back(nextcmd);
 							}
@@ -247,7 +260,8 @@ string commentor(string CodeLine, int filetype){
 				break;
 			
 		}
-			cout << nextcmd << " | " << CodeLine[i] << " | " << prevchar << "\n"; //<< " | " << doubleprev 
+			//cout << nextcmd << " | " << CodeLine[i] << " | " << prevchar << "\n"; //<< " | " << doubleprev 
+			//cout << IF << "\n";
 			nextcmd += CodeLine[i];
 			doubleprev = prevchar;
 			prevchar = CodeLine[i];
