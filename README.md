@@ -1,4 +1,4 @@
-# abstractor V.1.0
+# abstractor V. 1.0
 An automatic commentor for code. Generates comments for every line of code in a given file by splitting the string into its components and comparing them to a major library of c++ commands/operators/Keywords. 
 
 ### Installation
