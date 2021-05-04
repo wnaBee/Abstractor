@@ -14,4 +14,4 @@ An automatic commentor for code. Generates comments for every line of code in a 
 | c++ | c++ |
 |c++ header | .h |
 
-Disclaimer: version 1.0 is complete however due to the many edgecases present within c++ some code may return messy comments, however it should somewhat work. Some spacing and certain keywords still need some fixing and/or adding.
+Disclaimer: version 1.0 is complete however due to the many edgecases present within c++ some code may return messy comments, however it should somewhat work. Some spacing and certain keywords still need some fixing and/or adding. Future versions may add support for further languages.
