@@ -2,7 +2,13 @@
 An automatic commentor for code. Generates comments for every line of code in a given file by splitting the string into its components and comparing them to a major library of c++ commands/operators/Keywords. 
 
 ### Installation
-`git clone https://github.com/wnaBee/abstractor.git` (requires recompilation, installer script comming soon along with auto alias)
+clone directory:\
+`git clone https://github.com/wnaBee/abstractor.git` (auto alias script comming soon)\
+install the program:
+```
+chmod a+x installer.sh
+bash installer.sh
+```
 
 ### Use
 `./filereader [file] [fileformat]`
