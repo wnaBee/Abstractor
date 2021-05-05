@@ -9,7 +9,7 @@ bash installer.sh
 ```
 
 ### Use
-`./filereader [file] [fileformat]`
+`abstract [file] [fileformat]`
 
 ##### (currently) supported formats:
 
