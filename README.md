@@ -9,7 +9,21 @@ bash installer.sh
 ```
 
 ### Use
-`abstract [file] [fileformat] //outdated, update coming soon`
+```
+abstract [file] [language] [-options]
+
+Options:
+--comment     Generates automatic comments
+ -c           for every line of code
+
+--format      Formats code to simplify reading
+ -f
+
+ -cf          Does both
+
+--help        Displays this message
+ -h
+```
 
 ##### (currently) supported formats:
 
