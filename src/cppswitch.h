@@ -1586,7 +1586,7 @@ string cppcommentMake(string commentarg) {
 		break;
 		case kwd::opt396:
 		//atomic_exchange_explicit
-		comment += "Read  and modify contained value (explicit memory order) ";
+		comment += "Read and modify contained value (explicit memory order) ";
 		break;
 		case kwd::opt397:
 		//atomic_compare_exchange_weak
@@ -2522,7 +2522,7 @@ string cppcommentMake(string commentarg) {
 		break;
 		case kwd::opt630:
 		//messages_byname
-		comment += "Facet to access message catalogs  ";
+		comment += "Facet to access message catalogs ";
 		break;
 		case kwd::opt631:
 		//ctype_base
@@ -3446,7 +3446,7 @@ string cppcommentMake(string commentarg) {
 		break;
 		case kwd::opt861:
 		//is_nothrow_constructible
-		comment += "Is constructible  throwing no exceptions ";
+		comment += "Is constructible throwing no exceptions ";
 		break;
 		case kwd::opt862:
 		//is_nothrow_copy_assignable

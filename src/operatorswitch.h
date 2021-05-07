@@ -107,106 +107,112 @@ string operatorcommentMake(string commentarg) {
 		//"\\"
 			comment += "escapes ";
 		break;
-		case kwd::opt27:
+		case opr::opt27:
 		//::
 		comment += "as namespace do ";
 		break;
-		case kwd::opt28:
+		case opr::opt28:
 		//++
 		comment += "+ 1 ";
 		break;
-		case kwd::opt29:
+		case opr::opt29:
 		//--
 		comment += "- 1 ";
 		break;
-		case kwd::opt30:
+		case opr::opt30:
 		//->
 		comment += "access ";
 		break;
-		case kwd::opt31:
+		case opr::opt31:
 		//.*
 		comment += "member pointer ";
 		break;
-		case kwd::opt32:
+		case opr::opt32:
 		//->*
 		comment += "access member pointer ";
 		break;
-		case kwd::opt33:
+		case opr::opt33:
 		//<<
 		comment += "shift left ";
 		break;
-		case kwd::opt34:
+		case opr::opt34:
 		//>>
 		comment += "shift right ";
 		break;
-		case kwd::opt35:
+		case opr::opt35:
 		//<=
 		comment += "equals or less than ";
 		break;
-		case kwd::opt36:
+		case opr::opt36:
 		//>=
 		comment += "equals or greater than ";
 		break;
-		case kwd::opt37:
+		case opr::opt37:
 		//==
 		comment += "is ";
 		break;
-		case kwd::opt38:
+		case opr::opt38:
 		//!=
 		comment += "is not ";
 		break;
-		case kwd::opt39:
+		case opr::opt39:
 		//&&
 		comment += "and ";
 		break;
-		case kwd::opt40:
+		case opr::opt40:
 		//||
 		comment += "or ";
 		break;
-		case kwd::opt41:
+		case opr::opt41:
 		//*=
 		comment += "equals multiplied by ";
 		break;
-		case kwd::opt42:
+		case opr::opt42:
 		///=
 		comment += "equals divided by ";
 		break;
-		case kwd::opt43:
+		case opr::opt43:
 		//%=
 		comment += "equals modulus by ";
 		break;
-		case kwd::opt44:
+		case opr::opt44:
 		//+=
 		comment += "equals plus ";
 		break;
-		case kwd::opt45:
+		case opr::opt45:
 		//-=
 		comment += "equals minus ";
 		break;
-		case kwd::opt46:
+		case opr::opt46:
 		//>>=
 		comment += "bitshift right assign ";
 		break;
-		case kwd::opt47:
+		case opr::opt47:
 		//<<=
 		comment += "bitshift left assign ";
 		break;
-		case kwd::opt48:
+		case opr::opt48:
 		//&=
 		comment += "bitwise and assgn ";
 		break;
-		case kwd::opt49:
+		case opr::opt49:
 		//^=
 		comment += " bitwise xor assign ";
 		break;
-		case kwd::opt50:
+		case opr::opt50:
 		//|=
 		comment += "bitwise 'or' assign ";
 		break;
-		case kwd::opt51:
+		case opr::opt51:
 		//?:
 		comment += "terniary conditional ";
 		break;
+		case opr::opt52:
+			comment += "< ";
+			break;
+		case opr::opt53:
+			comment += "> ";
+			break;
 	}
 	return comment;
 }
