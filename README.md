@@ -1,5 +1,9 @@
 # abstractor V. 1.1
-An automatic commentor for code. Generates comments for every line of code in a given file by splitting the string into its components and comparing them to a major library of c++ commands/operators/Keywords. 
+An automatic commentor and prettyfier for code.
+
+Generates comments for every line of code in a given file by splitting the string into its components and comparing them to a major library of c++ commands/operators/Keywords. 
+
+Prettyfies code by adding newlines after certain characters to increase readability.
 
 ### Installation
 ```
@@ -27,7 +31,7 @@ Options:
 
 ##### (currently) supported formats:
 
-|file format| command |
+| languages | command |
 |-----------|---------|
 | c++ | c++ |
 |c++ header | .h |
