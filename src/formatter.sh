@@ -24,6 +24,5 @@ else
 	then
 		sed $1 -e "s/{/{\n/g" | sed $1 -e "s/}/}\n/g" | sed $1 -e "s/;/;\n/g" >> n0Em3ejdS
 		/usr/local/bin/filereader n0Em3ejdS $2
-		mv n0Em3ejdS "Output_${1}"
 	fi
 fi
