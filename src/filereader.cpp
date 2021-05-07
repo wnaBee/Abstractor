@@ -9,6 +9,8 @@ using namespace std;
 
 string commentor(string CodeLine, int filetype);
 
+int CF = 0;
+
 int main(int argc, char* argv[]){
 	fstream readfile;
 	fstream putfile;
@@ -55,8 +57,8 @@ int main(int argc, char* argv[]){
 string commentor(string CodeLine, int filetype){
 	int fulline = 0;
 	int lineSeg = 0;
-	int CF = 0;
 	int IF = 0;
+	int LF = 0;
 	string comment = "";
 	string nextcmd = "";
 	string prevchar = "";
@@ -65,6 +67,7 @@ string commentor(string CodeLine, int filetype){
 	vector <string> lineArray;
 	
 	for(int i = 0; i < CodeLine.length(); i++){
+		if(CodeLine[i] == ' ' && LF != 0){ LF = 0;}
 		switch(CF){
 				case 0:
 					//IF = 0;
@@ -90,9 +93,7 @@ string commentor(string CodeLine, int filetype){
 							nextcmd = "";
 							break;
 						case '/':
-							if(prevchar == "*"){
-								CF = 0;
-							}else if(prevchar == "/"){
+							if(prevchar == "/"){
 								CF = 2;
 							}else{
 								lineArray.push_back(nextcmd);
@@ -100,12 +101,18 @@ string commentor(string CodeLine, int filetype){
 							nextcmd = "";
 							break;
 						case '*':
-							if(prevchar == "/" || prevchar == "."){
+							if(prevchar == "/"){
+								lineArray.push_back(prevchar + "*");
+								nextcmd.pop_back();
+								i += 1;
+								CF = 3;
+							}else if(prevchar == "."){
 								lineArray.push_back(prevchar + "*");
 								nextcmd.pop_back();
 								i += 1;
 							}else if(doubleprev == "-" && prevchar == ">"){
-								lineArray.push_back(doubleprev + prevchar + "*"); //TODO: remove previous vector entry
+								lineArray.erase(lineArray.end());
+								lineArray.push_back(doubleprev + prevchar + "*"); 
 								nextcmd.pop_back();
 								i += 1;
 							}else{
@@ -120,11 +127,11 @@ string commentor(string CodeLine, int filetype){
 						case '<':
 							if(prevchar == "<"){
 								lineArray.push_back(prevchar + "<");
-								//cout << "\n|________________________|\n" << nextcmd << "\n"; //<< CodeLine[i]; 
 								nextcmd.pop_back();
 								i += 1;
 							}else{
 								lineArray.push_back(nextcmd);
+								LF = lineArray.size();
 							}
 							nextcmd = "";
 							break;
@@ -133,6 +140,14 @@ string commentor(string CodeLine, int filetype){
 								lineArray.push_back(prevchar + ">"); 
 								nextcmd.pop_back();
 								i += 1;
+								//">`" "<`"
+							}else if(LF != 0){
+								lineArray.push_back(nextcmd);
+								lineArray.push_back(">`");
+								lineArray.at(LF) = "<`";
+								nextcmd.pop_back();
+								i += 1;
+								LF = 0;
 							}else{
 								lineArray.push_back(nextcmd);
 							}
@@ -258,6 +273,10 @@ string commentor(string CodeLine, int filetype){
 			case 2:
 				if(i = CodeLine.length()){CF = 0;}
 				break;
+			case 3:
+				//cout << CodeLine[i-3] << CodeLine[i-2] << endl;
+				if(CodeLine[i] == '/' && prevchar == "*"){CF = 0;}
+				break;
 			
 		}
 			//cout << nextcmd << " | " << CodeLine[i] << " | " << prevchar << "\n"; //<< " | " << doubleprev 
@@ -300,6 +319,7 @@ string commentor(string CodeLine, int filetype){
 		case 4:
 			comment = " //";
 			for(int i = 0; i < lineArray.size(); i++){
+				//cout << lineArray[i] << "|";
 				if(operatorcommentMake(lineArray[i]) == "notanoperator"){
 					precomment += cppcommentMake(lineArray[i]);
 				}else{
@@ -308,6 +328,7 @@ string commentor(string CodeLine, int filetype){
 			}
 			precomment.erase(remove(precomment.begin(), precomment.end(), '\t'), precomment.end());
 			precomment.erase(precomment.begin(), std::find_if(precomment.begin(), precomment.end(), std::bind1st(std::not_equal_to<char>(), ' ')));
+			//cout <<"\n";
 			comment += precomment;
 			break;
 		case 5:
