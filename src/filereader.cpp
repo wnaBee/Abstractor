@@ -19,14 +19,19 @@ int main(int argc, char* argv[]){
 	string FilExt[] = {".txt", ".cpp", ".py", ".c", ".h", ".sh", ".cs", ".vb"};
 	int filetype = 0;
 	if(argc < 3){
-		cout << "./filereader [file] [output file extension]";
+		cout << "abstract [file] [output file extension] -c";
 	}else{
 		readfile.open(argv[1], ios::in);
 		//define output file
 		for(int i = 0; i < 8; i++){ //iterate through file types
 			if(argv[2] == Extensions[i]){
-				output = "output" + FilExt[i];
-				filetype = i;
+				if(string(argv[3]) == "FRMT"){
+					output = string(argv[1]);
+					filetype = i;
+				}else{
+					output = "Output_" + string(argv[1]);
+					filetype = i;
+				}
 			}
 		}
 		if(readfile.is_open()){
@@ -43,7 +48,7 @@ int main(int argc, char* argv[]){
 				//check the new file
 				putfile.open(output, ios::in);
 				while(getline(putfile, line)){
-//					cout << line << "\n";
+					cout << line << "\n";
 				}
 				putfile.close();
 				readfile.close();
@@ -76,7 +81,7 @@ string commentor(string CodeLine, int filetype){
 							if(prevchar == "+"){
 								lineArray.push_back(prevchar + "+");
 								nextcmd.pop_back();
-								i += 1;
+								i++;
 							}else{
 								lineArray.push_back(nextcmd);
 							}
@@ -86,7 +91,7 @@ string commentor(string CodeLine, int filetype){
 							if(prevchar == "-"){
 								lineArray.push_back(prevchar + "-");
 								nextcmd.pop_back();
-								i += 1;
+								i++;
 							}else{
 								lineArray.push_back(nextcmd);
 							}
@@ -95,6 +100,7 @@ string commentor(string CodeLine, int filetype){
 						case '/':
 							if(prevchar == "/"){
 								CF = 2;
+								nextcmd.pop_back();
 							}else{
 								lineArray.push_back(nextcmd);
 							}
@@ -104,17 +110,17 @@ string commentor(string CodeLine, int filetype){
 							if(prevchar == "/"){
 								lineArray.push_back(prevchar + "*");
 								nextcmd.pop_back();
-								i += 1;
+								i++;
 								CF = 3;
 							}else if(prevchar == "."){
 								lineArray.push_back(prevchar + "*");
 								nextcmd.pop_back();
-								i += 1;
+								i++;
 							}else if(doubleprev == "-" && prevchar == ">"){
 								lineArray.erase(lineArray.end());
 								lineArray.push_back(doubleprev + prevchar + "*"); 
 								nextcmd.pop_back();
-								i += 1;
+								i++;
 							}else{
 								lineArray.push_back(nextcmd);
 							}
@@ -128,7 +134,7 @@ string commentor(string CodeLine, int filetype){
 							if(prevchar == "<"){
 								lineArray.push_back(prevchar + "<");
 								nextcmd.pop_back();
-								i += 1;
+								i++;
 							}else{
 								lineArray.push_back(nextcmd);
 								LF = lineArray.size();
@@ -139,14 +145,13 @@ string commentor(string CodeLine, int filetype){
 							if(prevchar == ">" || prevchar == "-"){
 								lineArray.push_back(prevchar + ">"); 
 								nextcmd.pop_back();
-								i += 1;
-								//">`" "<`"
+								i++;
 							}else if(LF != 0){
 								lineArray.push_back(nextcmd);
 								lineArray.push_back(">`");
 								lineArray.at(LF) = "<`";
 								nextcmd.pop_back();
-								i += 1;
+								i++;
 								LF = 0;
 							}else{
 								lineArray.push_back(nextcmd);
@@ -157,7 +162,7 @@ string commentor(string CodeLine, int filetype){
 							if(prevchar == "&"){
 								lineArray.push_back(prevchar + "&");
 								nextcmd.pop_back();
-								i += 1;
+								i++;
 							}else{
 								lineArray.push_back(nextcmd);
 							}
@@ -167,7 +172,7 @@ string commentor(string CodeLine, int filetype){
 							if(prevchar == "|"){
 								lineArray.push_back(prevchar + "|");
 								nextcmd.pop_back();
-								i += 1;
+								i++;
 							}else{
 								lineArray.push_back(nextcmd);
 							}
@@ -193,11 +198,11 @@ string commentor(string CodeLine, int filetype){
 							if(prevchar == "=" || prevchar == "!" || prevchar == "<" || prevchar == ">" || prevchar == "*" || prevchar == "/" || prevchar == "%" || prevchar == "+" || prevchar == "-" || prevchar == "&" || prevchar == "^" || prevchar == "|"){
 								lineArray.push_back(prevchar + "=");
 								nextcmd.pop_back();
-								i += 1;
+								i++;
 							}else if((doubleprev == ">" && prevchar == ">") || (doubleprev == "<" && prevchar == "<")){
 								lineArray.push_back(doubleprev + prevchar + "=");
 								nextcmd.pop_back();
-								i += 1;
+								i++;
 							}else{
 								lineArray.push_back(nextcmd);
 							}
@@ -239,7 +244,7 @@ string commentor(string CodeLine, int filetype){
 							if(prevchar == ":" || prevchar == "?"){
 								lineArray.push_back(prevchar + ":");
 								nextcmd.pop_back();
-								i += 1;
+								i++;
 							}else{
 								lineArray.push_back(nextcmd);
 							}
@@ -281,9 +286,11 @@ string commentor(string CodeLine, int filetype){
 		}
 			//cout << nextcmd << " | " << CodeLine[i] << " | " << prevchar << "\n"; //<< " | " << doubleprev 
 			//cout << IF << "\n";
-			nextcmd += CodeLine[i];
-			doubleprev = prevchar;
-			prevchar = CodeLine[i];
+			if(CF == 3 || CF == 2){}else{
+				nextcmd += CodeLine[i];
+				doubleprev = prevchar;
+				prevchar = CodeLine[i];
+			}
 	}
 	
 	lineArray.push_back(nextcmd);
@@ -296,7 +303,9 @@ string commentor(string CodeLine, int filetype){
 			
 			break;
 		case 1:
+			if (lineArray.size() < 2){}else{
 			comment = " //";
+			}
 			for(int i = 0; i < lineArray.size(); i++){
 				//cout << lineArray[i] << "|";
 				if(operatorcommentMake(lineArray[i]) == "notanoperator"){

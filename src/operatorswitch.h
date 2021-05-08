@@ -61,11 +61,11 @@ string operatorcommentMake(string commentarg) {
 		break;
 		case opr::opt15: 
 		// =
-			comment += "assigned as ";
+			comment += "is assigned as";
 		break;
 		case opr::opt16: 
 		//.
-			comment += "access member ";
+			comment += "access ";
 		break;
 		case opr::opt17: 
 		//,
@@ -73,19 +73,19 @@ string operatorcommentMake(string commentarg) {
 		break;
 		case opr::opt18: 
 		//(
-			comment += "using( ";
+			comment += "using ";
 		break;
 		case opr::opt19: 
 		//)
-			comment += ") ";
+			comment += ". ";
 		break;
 		case opr::opt20: 
 		//[
-			comment += "open subscript ";
+			comment += "on ";
 		break;
 		case opr::opt21: 
 		//]
-			comment += "close subscript ";
+			comment += ". ";
 		break;
 		case opr::opt22: 
 		//{

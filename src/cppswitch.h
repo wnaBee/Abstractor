@@ -3674,11 +3674,11 @@ string cppcommentMake(string commentarg) {
 		break;
 		case kwd::opt918: 
 		// =
-			comment += "assigned as ";
+			comment += "is assigned as";
 		break;
 		case kwd::opt919: 
 		//.
-			comment += "access member ";
+			comment += "access ";
 		break;
 		case kwd::opt920: 
 		//,
@@ -3686,19 +3686,19 @@ string cppcommentMake(string commentarg) {
 		break;
 		case kwd::opt921: 
 		//(
-			comment += "using( ";
+			comment += "using ";
 		break;
 		case kwd::opt922: 
 		//)
-			comment += ") ";
+			comment += ". ";
 		break;
 		case kwd::opt923: 
 		//[
-			comment += "open subscript ";
+			comment += "on ";
 		break;
 		case kwd::opt924: 
 		//]
-			comment += "close subscript ";
+			comment += ". ";
 		break;
 		case kwd::opt925: 
 		//{
