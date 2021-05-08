@@ -23,8 +23,6 @@ Options:
 --format      Formats code to simplify reading
  -f
 
- -cf          Does both
-
 --help        Displays this message
  -h
 ```
