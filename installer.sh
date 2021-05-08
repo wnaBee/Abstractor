@@ -10,6 +10,7 @@ else
 	sudo g++ src/filereader.cpp -o /usr/local/bin/filereader
 	cp src/formatter.sh /usr/local/bin/formatter.sh
 	echo "alias abstract='/usr/local/bin/formatter.sh'" >> ~/.bash_aliases
+	sudo chmod a+x /usr/local/bin/formatter.sh
 	source ~/.bash_aliases
 fi
 
