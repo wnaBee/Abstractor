@@ -1,28 +1,64 @@
 #!/bin/bash
 
-if [[ $1 == "--help" || $1 == "-h" ]]
-then
+FF=0
+CF=0
+A3=NONE
+FI=$1
+LA=$2
+
+helpMSG() {
 	printf "abstract [filename] [language] [-options]\n\n"
-	printf "options:\n--comment	creates automated comments for every line\n -c		of code in the program"
-	printf "\n\n--format	deobfuscates code and makes it look nice\n -f"
-else
+        printf "options:\n--comment     	creates automated comments for every line\n -c		of code in the program"
+        printf "\n\n--format    	deobfuscates code and makes it look nice\n -f"
+	printf "\n\n--help		displays this message\n -h"
+        printf "\n\nlanguages:\nc++\n.h (c++ header)"
 
+}
+
+prettify() {
 	touch n0Em3ejdS
-	if [[ $3 == "--format" || $3 == "-f" ]]
-	then
-		echo $1 $3
-		sed $1 -e "s/{/{\n/g" | sed $1 -e "s/}/}\n/g" | sed $1 -e "s/;/;\n/g" > n0Em3ejdS
-		mv n0Em3ejdS "Output_${1}"
-	fi
+	sed $FI -e "s/{/{\n/g" | sed -e "s/}/}\n/g" | sed -e "s/;/;\n/g" > n0Em3ejdS
+	mv n0Em3ejdS "Output_${FI}"
+	A3="FRMT"
+}
 
-	if [[ $3 == "--comment" || $3 == "-c" ]]
+fileread() {
+	if [[ $A3 == "NONE" ]]
 	then
-		/usr/local/bin/filereader $1 $2
+		/usr/local/bin/filereader $FI $LA $A3
+	elif [[ $A3 == "FRMT" ]]
+	then
+		/usr/local/bin/filereader "Output_${FI}" $LA $A3
+		mv "Temp_Output_${FI}" "Output_${FI}"
 	fi
+}
 
-	if [[ $3 == "-fc" || $3 == "-cf" ]]
+if [[ $# -eq 0 ]]
+then
+	helpMSG
+else
+	for i in $@; do
+
+		if [[ $i == "--help" || $i == "-h" ]]
+		then
+			helpMSG
+		else
+			if [[ $i == "--format" || $i == "-f" ]]; then
+				FF=1
+				A3="FRMT"
+			fi
+
+			if [[ $i == "--comment" || $i == "-c" ]]; then
+				CF=1
+			fi
+		fi
+	done
+	if [[ $FF == 1 ]]
 	then
-		sed $1 -e "s/{/{\n/g" | sed $1 -e "s/}/}\n/g" | sed $1 -e "s/;/;\n/g" >> n0Em3ejdS
-		/usr/local/bin/filereader n0Em3ejdS $2
+		prettify
+	fi
+	if [[ $CF == 1 ]]
+	then
+		fileread
 	fi
 fi

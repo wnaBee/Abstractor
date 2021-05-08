@@ -25,8 +25,8 @@ int main(int argc, char* argv[]){
 		//define output file
 		for(int i = 0; i < 8; i++){ //iterate through file types
 			if(argv[2] == Extensions[i]){
-				if(string(argv[3]) == "FRMT"){
-					output = string(argv[1]);
+				if(string(argv[3]) == "FRMT"){ // calling as FRMT returns empty file at end of execution???"?!?!?"?!?"?!?!?!??!?!?!?!??!?!?!?!?!?!?!?!?§+§+§+§+§+§+
+					output = "Temp_" + string(argv[1]);
 					filetype = i;
 				}else{
 					output = "Output_" + string(argv[1]);
@@ -48,12 +48,13 @@ int main(int argc, char* argv[]){
 				//check the new file
 				putfile.open(output, ios::in);
 				while(getline(putfile, line)){
-					cout << line << "\n";
+//					cout << line << "\n";
 				}
 				putfile.close();
 				readfile.close();
 		}
-		cout << "created: " << output << "\n";
+		if(string(argv[3]) == "FRMT"){cout << "created: " << string(argv[1]) << "\n";
+		}else{cout << "created: " << output << "\n";}
 	}
 	
 	return 0;
