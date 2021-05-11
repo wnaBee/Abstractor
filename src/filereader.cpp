@@ -8,6 +8,8 @@
 using namespace std;
 
 string commentor(string CodeLine, int filetype);
+string CPPcombiner(vector <string> lineArr);
+string FileIDer(int FLTP, vector <string> lineArr);
 
 int CF = 0;
 
@@ -23,9 +25,10 @@ int main(int argc, char* argv[]){
 	}else{
 		readfile.open(argv[1], ios::in);
 		//define output file
+		//TODO: refactor into new function returning 2 values 1 string 1 int
 		for(int i = 0; i < 8; i++){ //iterate through file types
 			if(argv[2] == Extensions[i]){
-				if(string(argv[3]) == "FRMT"){ // calling as FRMT returns empty file at end of execution???"?!?!?"?!?"?!?!?!??!?!?!?!??!?!?!?!?!?!?!?!?§+§+§+§+§+§+
+				if(string(argv[3]) == "FRMT"){
 					output = "Temp_" + string(argv[1]);
 					filetype = i;
 				}else{
@@ -34,6 +37,7 @@ int main(int argc, char* argv[]){
 				}
 			}
 		}
+		//TODO: end of above function
 		if(readfile.is_open()){
 			//write to a new file
 			putfile.open(output, ios::out);
@@ -65,18 +69,15 @@ string commentor(string CodeLine, int filetype){
 	int lineSeg = 0;
 	int IF = 0;
 	int LF = 0;
-	string comment = "";
 	string nextcmd = "";
 	string prevchar = "";
 	string doubleprev = "";
-	string precomment = "";
 	vector <string> lineArray;
 	
 	for(int i = 0; i < CodeLine.length(); i++){
 		if(CodeLine[i] == ' ' && LF != 0){ LF = 0;}
 		switch(CF){
 				case 0:
-					//IF = 0;
 					switch(CodeLine[i]){ //fix case to not include last char and to remove unnecessary spaces
 						case '+':
 							if(prevchar == "+"){
@@ -298,62 +299,61 @@ string commentor(string CodeLine, int filetype){
 	for(int i = 0; i < lineArray.size(); i++){
 		lineArray[i].erase(std::find_if(lineArray[i].rbegin(), lineArray[i].rend(), std::bind1st(std::not_equal_to<char>(), ' ')).base(), lineArray[i].end());
 	}
-		
-	switch(filetype){
+	
+	return FileIDer(filetype, lineArray);
+}
+
+string FileIDer(int FLTP, vector <string> lineArr){
+	switch(FLTP){
 		case 0:
 			
 			break;
 		case 1:
-			if (lineArray.size() < 2){}else{
-			comment = " //";
-			}
-			for(int i = 0; i < lineArray.size(); i++){
-				//cout << lineArray[i] << "|";
-				if(operatorcommentMake(lineArray[i]) == "notanoperator"){
-					precomment += cppcommentMake(lineArray[i]);
-				}else{
-					precomment += operatorcommentMake(lineArray[i]);
-				}
-			}
-			precomment.erase(remove(precomment.begin(), precomment.end(), '\t'), precomment.end());
-			precomment.erase(precomment.begin(), std::find_if(precomment.begin(), precomment.end(), std::bind1st(std::not_equal_to<char>(), ' ')));
-			//cout <<"\n";
-			comment += precomment;
+			return CPPcombiner(lineArr);
 			break;
 		case 2:
-			comment = " #";
+			//comment = " #";
 			break;
 		case 3:
-			comment = " //";
+			//comment = " //";
 			break;
 		case 4:
-			comment = " //";
-			for(int i = 0; i < lineArray.size(); i++){
-				//cout << lineArray[i] << "|";
-				if(operatorcommentMake(lineArray[i]) == "notanoperator"){
-					precomment += cppcommentMake(lineArray[i]);
-				}else{
-					precomment += operatorcommentMake(lineArray[i]);
-				}
-			}
-			precomment.erase(remove(precomment.begin(), precomment.end(), '\t'), precomment.end());
-			precomment.erase(precomment.begin(), std::find_if(precomment.begin(), precomment.end(), std::bind1st(std::not_equal_to<char>(), ' ')));
-			//cout <<"\n";
-			comment += precomment;
+			return CPPcombiner(lineArr);
 			break;
 		case 5:
-			comment = " #";
+			//comment = " #";
 			break;
 		case 6:
-			comment = " //";
+			//comment = " //";
 			break;
 		case 7:
-			comment = " '";
+			//comment = " '";
 			break;
 	}
-	return comment;
+	return 0;
 }
 
+string CPPcombiner(vector <string> lineArr){
+	string precomment = "";
+	string comment = "";
+	
+	if (lineArr.size() < 2 || CF == 3 || CF == 2){}else{
+		comment = " //";
+	}
+	for(int i = 0; i < lineArr.size(); i++){
+		//cout << lineArray[i] << "|";
+		if(operatorcommentMake(lineArr[i]) == "notanoperator"){
+			precomment += cppcommentMake(lineArr[i]);
+		}else{
+			precomment += operatorcommentMake(lineArr[i]);
+		}
+	}
+	precomment.erase(remove(precomment.begin(), precomment.end(), '\t'), precomment.end());
+	precomment.erase(precomment.begin(), std::find_if(precomment.begin(), precomment.end(), std::bind1st(std::not_equal_to<char>(), ' ')));
+	
+	comment += precomment;
+	return comment;
+}
 
 /*list of operators:
  * ['+','-','/','*','%','<','>','&','|','!','?','^','~','=']
