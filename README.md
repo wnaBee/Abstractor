@@ -1,4 +1,4 @@
-# abstractor V. 1.2.1
+# abstractor V. 1.3
 An automatic commentor and prettyfier for code.
 
 Generates comments for every line of code in a given file by splitting the string into its components and comparing them to a major library of c++ commands/operators/Keywords. 
@@ -35,6 +35,10 @@ Options:
 |c++ header | .h |
 
 Disclaimer: version 1.0 is complete however due to the many edgecases present within c++ some code may return messy comments, however it should somewhat work. Some spacing and certain keywords still need some fixing and/or adding. Future versions may add support for further languages.
+
+## Patchnotes V. 1.3
+* Completed code refactor
+* added modularity for future language additions
 
 ## Patchnotes V. 1.2.1
 * Refactoring progress
