@@ -167,7 +167,13 @@ vector<string> CPPcommentor(string CodeLine){
 							nextcmd = "";
 							break;
 						case ')':
-							lineArray.push_back(nextcmd);
+							if(prevchar == "("){
+								lineArray.push_back(prevchar + ")");
+								nextcmd.pop_back();
+								i++;
+							}else{
+								lineArray.push_back(nextcmd);
+							}
 							nextcmd = "";
 							break;
 						case '[':
@@ -175,7 +181,13 @@ vector<string> CPPcommentor(string CodeLine){
 							nextcmd = "";
 							break;
 						case ']':
-							lineArray.push_back(nextcmd);
+							if(prevchar == "["){
+								lineArray.push_back(prevchar+"]");
+								nextcmd.pop_back();
+								i++;
+							}else{
+								lineArray.push_back(nextcmd);
+							}
 							nextcmd = "";
 							break;
 						case '{':
@@ -194,7 +206,6 @@ vector<string> CPPcommentor(string CodeLine){
 							}else{
 								lineArray.push_back(nextcmd);
 							}
-							//cout << prevchar << "\n";
 							nextcmd = "";
 							break;
 						case ';':
@@ -225,13 +236,10 @@ vector<string> CPPcommentor(string CodeLine){
 				if(i = CodeLine.length()){CF = 0;}
 				break;
 			case 3:
-				//cout << CodeLine[i-3] << CodeLine[i-2] << endl;
 				if(CodeLine[i] == '/' && prevchar == "*"){CF = 0;}
 				break;
 			
 		}
-			//cout << nextcmd << " | " << CodeLine[i] << " | " << prevchar << "\n"; //<< " | " << doubleprev 
-			//cout << IF << "\n";
 			if(CF == 3 || CF == 2){}else{
 				nextcmd += CodeLine[i];
 				doubleprev = prevchar;
@@ -241,7 +249,7 @@ vector<string> CPPcommentor(string CodeLine){
 	
 	lineArray.push_back(nextcmd);
 	for(int i = 0; i < lineArray.size(); i++){
-		lineArray[i].erase(std::find_if(lineArray[i].rbegin(), lineArray[i].rend(), std::bind1st(std::not_equal_to<char>(), ' ')).base(), lineArray[i].end());
+		lineArray[i].erase(lineArray[i].begin(), std::find_if(lineArray[i].begin(), lineArray[i].end(), std::bind1st(std::not_equal_to<char>(), ' ')));
 	}
 	
 	return lineArray;

@@ -55,7 +55,9 @@ namespace opr {
 		opt50,
 		opt51,
 		opt52,
-		opt53
+		opt53,
+		opt54,
+		opt55
 		
 	};
 	int resolveOption(string commentarg){
@@ -113,6 +115,8 @@ namespace opr {
 			optionStrings["?:"] = opt51;
 			optionStrings["<`"] = opt52;
 			optionStrings[">`"] = opt53;
+			optionStrings["()"] = opt54;
+			optionStrings["[]"] = opt55;
 		
 		itr = optionStrings.find(commentarg);
 		if( itr != optionStrings.end() ) {
