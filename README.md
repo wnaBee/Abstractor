@@ -36,6 +36,11 @@ Options:
 
 Disclaimer: version 1.0 is complete however due to the many edgecases present within c++ some code may return messy comments, however it should somewhat work. Some spacing and certain keywords still need some fixing and/or adding. Future versions may add support for further languages.
 
+## Patchnotes V. 1.4
+* added identifiers for empty parentheses('()') and square brackets('[]')
+* removed trailing spaces in comments
+* removed extra spaces prior to punctuation
+
 ## Patchnotes V. 1.3
 * Completed code refactor
 * added modularity for future language additions
