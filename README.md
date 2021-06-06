@@ -35,7 +35,7 @@ Options:
 | c++ header | .h |
 | python | python |
 
-Disclaimer: version 1.0 is complete however due to the many edgecases present within c++ some code may return messy comments, however it should somewhat work. Some spacing and certain keywords still need some fixing and/or adding. Future versions may add support for further languages.
+Disclaimer: version 1.0 is complete however due to the many edgecases present within c++ some code may return messy comments, however it should somewhat work. Some spacing and certain keywords still need some fixing and/or adding. The recent addition of python currently only splits by operators and doesn't contain descriptions for the many functions present in python.
 
 ## Patchnotes V. 1.4
 #### python
