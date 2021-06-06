@@ -1,7 +1,7 @@
-# abstractor V. 1.3
+# abstractor V. 1.4
 An automatic commentor and prettyfier for code.
 
-Generates comments for every line of code in a given file by splitting the string into its components and comparing them to a major library of c++ commands/operators/Keywords. 
+Generates comments for every line of code in a given file by splitting the string into its components and comparing them to a major library of commands/operators/Keywords for the corresponding language. 
 
 Prettyfies code by adding newlines after certain characters to increase readability.
 
@@ -32,11 +32,17 @@ Options:
 | languages | command |
 |-----------|---------|
 | c++ | c++ |
-|c++ header | .h |
+| c++ header | .h |
+| python | python |
 
 Disclaimer: version 1.0 is complete however due to the many edgecases present within c++ some code may return messy comments, however it should somewhat work. Some spacing and certain keywords still need some fixing and/or adding. Future versions may add support for further languages.
 
 ## Patchnotes V. 1.4
+#### python
+* Introducing python! (WIP)
+* added support for python linesplittling by operators
+* added support for comment creation
+#### c++
 * added identifiers for empty parentheses('()') and square brackets('[]')
 * removed trailing spaces in comments
 * removed extra spaces prior to punctuation
