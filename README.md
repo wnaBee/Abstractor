@@ -39,12 +39,12 @@ Disclaimer: version 1.5 is complete however due to the many edgecases present wi
 
 ## Patchnotes V. 1.5
 ### python
-*added descriptions for 211 new python functions
-*implemented recognition for single (#) and multiline (""") comments
-*started work on word insertions in descriptions for more natural outputs in functions with multiple/complex parameters (WIP)
+* added descriptions for 211 new python functions
+* implemented recognition for single (#) and multiline (""") comments
+* started work on word insertions in descriptions for more natural outputs in functions with multiple/complex parameters (WIP)
 ### general
-*fixed python parsing
-*identified several bugs and issues with shellscripts (new installer comming soon, options in abstract command will be made less janky)
+* fixed python parsing
+* identified several bugs and issues with shellscripts (new installer comming soon, options in abstract command will be made less janky)
 
 ## Patchnotes V. 1.4
 #### python
