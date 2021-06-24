@@ -1,4 +1,4 @@
-# abstractor V. 1.4
+# abstractor V. 1.5
 An automatic commentor and prettyfier for code.
 
 Generates comments for every line of code in a given file by splitting the string into its components and comparing them to a major library of commands/operators/Keywords for the corresponding language. 
@@ -27,15 +27,24 @@ Options:
  -h
 ```
 
-##### (currently) supported formats:
+##### supported formats:
 
 | languages | command |
 |-----------|---------|
 | c++ | c++ |
 | c++ header | .h |
-| python | python |
+| Python | python |
 
-Disclaimer: version 1.0 is complete however due to the many edgecases present within c++ some code may return messy comments, however it should somewhat work. Some spacing and certain keywords still need some fixing and/or adding. The recent addition of python currently only splits by operators and doesn't contain descriptions for the many functions present in python.
+Disclaimer: version 1.5 is complete however due to the many edgecases present within programming languages some code may return messy comments, however it should somewhat work. Some spacing and certain keywords still need some fixing and/or adding.
+
+## Patchnotes V. 1.5
+### python
+*added descriptions for 211 new python functions
+*implemented recognition for single (#) and multiline (""") comments
+*started work on word insertions in descriptions for more natural outputs in functions with multiple/complex parameters (WIP)
+### general
+*fixed python parsing
+*identified several bugs and issues with shellscripts (new installer comming soon, options in abstract command will be made less janky)
 
 ## Patchnotes V. 1.4
 #### python
