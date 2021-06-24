@@ -5,6 +5,8 @@
 #include <algorithm>
 #include "cppswitch.h"
 #include "cppcommentor.h"
+#include "pyswitch.h"
+#include "pycommentor.h"
 using namespace std;
 
 string CPPcombiner(vector <string> lineArr);
@@ -73,7 +75,7 @@ string FileIDer(string CodeLine, int FLTP){
 			return CPPcombiner(CPPcommentor(CodeLine));
 			break;
 		case 2:
-			//comment = " #";
+            return pycombiner(pycommentor(CodeLine));
 			break;
 		case 3:
 			//comment = " //";
