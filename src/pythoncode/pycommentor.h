@@ -114,8 +114,10 @@ vector<string> pycommentor(string CodeLine){
 							nextcmd = "";
 							break;
 						case '(':
-							lineArray.push_back(nextcmd);
-							nextcmd = "";
+							lineArray.push_back(nextcmd + "(");
+							nextcmd.pop_back();
+                            i++;
+                            nextcmd = "";
 							break;
 						case ')':
 							if(prevchar == "("){
@@ -150,27 +152,46 @@ vector<string> pycommentor(string CodeLine){
 							nextcmd = "";
 							break;
 						case '"':
-							lineArray.push_back(nextcmd);
-							PCF = 1;
+                            if(doubleprev == "\"" && prevchar == "\""){
+                                lineArray.push_back("");
+								nextcmd.pop_back();
+								i++;
+                                PCF = 3;
+                            }else{
+                                lineArray.push_back(nextcmd);
+                                PCF = 1;
+                            }
 							nextcmd = "";
 							break;
+                        case '#':
+                            lineArray.push_back(nextcmd);
+							PCF = 2;
+                            i++;
+							nextcmd = "";
 						default:
 							if(prevchar == ":" || prevchar == "+"|| prevchar == "-"|| prevchar == "("|| prevchar == ")"|| prevchar == "["|| prevchar == "]"|| prevchar == "."|| prevchar == ">"|| prevchar == "~"|| prevchar == "!"|| prevchar == "&"|| prevchar == "*"|| prevchar == "<"|| prevchar == "/"|| prevchar == "%"|| prevchar == "^"|| prevchar == "|"|| prevchar == "?"|| prevchar == ","|| prevchar == "="){
 								lineArray.push_back(nextcmd); 
-								nextcmd = nextcmd.substr (1);
-							
+								//nextcmd = nextcmd.substr(1);
+                                nextcmd = "";
 							}
 					}
 					break;
 				case 1:
 					if(CodeLine[i] == '"'){PCF = 0;}
 					break;
+                case 2:
+                    if(i = CodeLine.length()){PCF = 0;}
+                    break;
+                case 3:
+                    if(CodeLine[i] == '"' && CodeLine[i-1] == '"' && CodeLine[i-2] == '"'){PCF = 0; i++;}
+                    break; 
 			}
-			
-			nextcmd += CodeLine[i];
-			doubleprev = prevchar;
-			prevchar = CodeLine[i];
-	}
+			if(PCF == 3 || PCF == 2){}else{
+                nextcmd += CodeLine[i];
+                doubleprev = prevchar;
+                prevchar = CodeLine[i];
+            }
+    }
 		
 	lineArray.push_back(nextcmd);
 	for(int i = 0; i < lineArray.size(); i++){
@@ -190,8 +211,7 @@ string pycombiner(vector <string> lineArr){
 	for(int i = 0; i < lineArr.size(); i++){
 		//cout << lineArray[i] << "|";
 		if(pyoperatorcommentMake(lineArr[i]) == "notanoperator"){
-			//precomment += pycommentMake(lineArr[i]);
-			precomment += " " + lineArr[i];
+			precomment += pycommentMake(lineArr[i]);
 		}else{
 			precomment += pyoperatorcommentMake(lineArr[i]);
 		}
