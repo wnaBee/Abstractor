@@ -38,11 +38,11 @@ Options:
 Disclaimer: version 1.5 is complete however due to the many edgecases present within programming languages some code may return messy comments, however it should somewhat work. Some spacing and certain keywords still need some fixing and/or adding.
 
 ## Patchnotes V. 1.5
-### python
+#### python
 * added descriptions for 211 new python functions
 * implemented recognition for single (#) and multiline (""") comments
 * started work on word insertions in descriptions for more natural outputs in functions with multiple/complex parameters (WIP)
-### general
+#### general
 * fixed python parsing
 * identified several bugs and issues with shellscripts (new installer comming soon, options in abstract command will be made less janky)
 
