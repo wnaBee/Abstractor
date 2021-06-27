@@ -1,7 +1,7 @@
 #include <string>
 #include "pyenum.h"
 using namespace std;
-string pycommentMake(string commentarg) {
+string pycommentMake(string commentarg, string A1, string A2, string A3){
     string comment = "";
 	switch (pkwd::resolveOption(commentarg)){
 		case pkwd::opt1:

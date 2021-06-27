@@ -13,10 +13,12 @@ vector<string> pycommentor(string CodeLine){
 	int lineSeg = 0;
 	int IF = 0;
 	int LF = 0;
+    int NestCount = 1;
 	string nextcmd = "";
 	string prevchar = "";
 	string doubleprev = "";
 	vector <string> lineArray;
+	vector <string> ParamArray;
 	
 	for(int i = 0; i < CodeLine.length(); i++){
 		if(CodeLine[i] == ' ' && LF != 0){ LF = 0;}
@@ -115,18 +117,13 @@ vector<string> pycommentor(string CodeLine){
 							break;
 						case '(':
 							lineArray.push_back(nextcmd + "(");
+                            lineArr.push_back("`" + NestCount + "`");
 							nextcmd.pop_back();
+                            NestCount++; //check if vector entry = `[int]` if so, remove entry and set following entries as A[int] until `e[int]`
                             i++;
                             nextcmd = "";
-							break;
-						case ')':
-							if(prevchar == "("){
-								lineArray.push_back(prevchar + ")");
-								nextcmd.pop_back();
-								i++;
-							}else{
-								lineArray.push_back(nextcmd);
-							}
+                        case ')':
+                            lineArray.push_back(nextcmd);
 							nextcmd = "";
 							break;
 						case '[':
@@ -185,6 +182,16 @@ vector<string> pycommentor(string CodeLine){
                 case 3:
                     if(CodeLine[i] == '"' && CodeLine[i-1] == '"' && CodeLine[i-2] == '"'){PCF = 0; i++;}
                     break; 
+                /*case 4:
+                    switch(CodeLine[i]){
+                        case ',':
+                            CC += 1;
+                            ParamArray.push_back(nextcmd);
+                            nextcmd = "";
+                            break;
+                        case ')':
+                            PCF = 0;
+                        }*/
 			}
 			if(PCF == 3 || PCF == 2){}else{
                 nextcmd += CodeLine[i];
