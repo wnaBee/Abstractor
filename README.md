@@ -33,7 +33,7 @@ Options:
 |-----------|---------|
 | c++ | c++ |
 | c++ header | .h |
-| Python | python |
+| Python | py |
 
 Disclaimer: version 1.5 is complete however due to the many edgecases present within programming languages some code may return messy comments, however it should somewhat work. Some spacing and certain keywords still need some fixing and/or adding.
 
