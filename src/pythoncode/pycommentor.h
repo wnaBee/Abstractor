@@ -4,6 +4,7 @@
 #include <vector>
 #include <algorithm>
 #include "pyoperatorswitch.h"
+#include "pyswitch.h"
 using namespace std;
 
 int PCF = 0;
@@ -12,8 +13,7 @@ vector<string> pycommentor(string CodeLine){
 	int fulline = 0;
 	int lineSeg = 0;
 	int IF = 0;
-	int LF = 0;
-    int NestCount = 1;
+    int NestCount = 0;
 	string nextcmd = "";
 	string prevchar = "";
 	string doubleprev = "";
@@ -21,7 +21,7 @@ vector<string> pycommentor(string CodeLine){
 	vector <string> ParamArray;
 	
 	for(int i = 0; i < CodeLine.length(); i++){
-		if(CodeLine[i] == ' ' && LF != 0){ LF = 0;}
+		cout << CodeLine[i] << endl;
 		switch(PCF){
 				case 0:
 					switch(CodeLine[i]){ //fix case to not include last char and to remove unnecessary spaces
@@ -117,13 +117,18 @@ vector<string> pycommentor(string CodeLine){
 							break;
 						case '(':
 							lineArray.push_back(nextcmd + "(");
-                            lineArr.push_back("`" + NestCount + "`");
+							NestCount++;
+                            lineArray.push_back("`" + to_string(NestCount) + "`");
 							nextcmd.pop_back();
-                            NestCount++; //check if vector entry = `[int]` if so, remove entry and set following entries as A[int] until `e[int]`
-                            i++;
+							//check if vector entry = `[int]` if so, remove entry and set following entries as A[int] until `e[int]`
+                            //i++;
                             nextcmd = "";
                         case ')':
                             lineArray.push_back(nextcmd);
+							if(CodeLine[i] == ')'){ //code doesn't work without this extra condition, idk why but DO NOT REMOVE
+								lineArray.push_back("`" + to_string(NestCount) + "e`");
+								NestCount--;
+							}
 							nextcmd = "";
 							break;
 						case '[':
@@ -182,16 +187,6 @@ vector<string> pycommentor(string CodeLine){
                 case 3:
                     if(CodeLine[i] == '"' && CodeLine[i-1] == '"' && CodeLine[i-2] == '"'){PCF = 0; i++;}
                     break; 
-                /*case 4:
-                    switch(CodeLine[i]){
-                        case ',':
-                            CC += 1;
-                            ParamArray.push_back(nextcmd);
-                            nextcmd = "";
-                            break;
-                        case ')':
-                            PCF = 0;
-                        }*/
 			}
 			if(PCF == 3 || PCF == 2){}else{
                 nextcmd += CodeLine[i];
@@ -204,13 +199,14 @@ vector<string> pycommentor(string CodeLine){
 	for(int i = 0; i < lineArray.size(); i++){
 		lineArray[i].erase(lineArray[i].begin(), std::find_if(lineArray[i].begin(), lineArray[i].end(), std::bind1st(std::not_equal_to<char>(), ' ')));
 	}
-	
 	return lineArray;
 }
 	
 string pycombiner(vector <string> lineArr){
 	string precomment = "";
 	string comment = "";
+	int Nest = 0;
+	//vector <string> A1, A2, A3;
 	
 	if (lineArr[0].length() >= 2){
 		comment = " #";
@@ -226,6 +222,7 @@ string pycombiner(vector <string> lineArr){
 	precomment.erase(remove(precomment.begin(), precomment.end(), '\t'), precomment.end());
 	precomment.erase(precomment.begin(), std::find_if(precomment.begin(), precomment.end(), std::bind1st(std::not_equal_to<char>(), ' ')));
 	
+	// move and replace {}^
 	comment += precomment;
 	return comment;
 }

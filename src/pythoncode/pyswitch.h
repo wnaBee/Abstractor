@@ -1,7 +1,7 @@
 #include <string>
 #include "pyenum.h"
 using namespace std;
-string pycommentMake(string commentarg, string A1, string A2, string A3){
+string pycommentMake(string commentarg){ //, string A1, string A2, string A3
     string comment = "";
 	switch (pkwd::resolveOption(commentarg)){
 		case pkwd::opt1:
@@ -10,11 +10,11 @@ string pycommentMake(string commentarg, string A1, string A2, string A3){
 		break;
         case pkwd::opt2:
         //abs
-        comment += " function return the absolute (positive) value of {the specified number}^";
+        comment += " function return the absolute (positive) value of {the specified number}^1";
         break;
         case pkwd::opt3:
         //add
-        comment += " function sums the content of {}^ and {}^, and return the results in a new array";
+        comment += " function sums the content of {}^1 and {}^2, and return the results in a new array";
         break;
         case pkwd::opt4:
         //append
@@ -46,7 +46,7 @@ string pycommentMake(string commentarg, string A1, string A2, string A3){
         break;
         case pkwd::opt11:
         //around
-        comment += " rounds {}^ to whole number";
+        comment += " rounds {}^1 to whole number";
         break;
         case pkwd::opt12:
         //array
@@ -54,11 +54,11 @@ string pycommentMake(string commentarg, string A1, string A2, string A3){
         break;
         case pkwd::opt13:
         //array_split
-        comment += " for splitting arrays, we pass {it the array we want}^ to split and the number of splits {}^";
+        comment += " for splitting arrays, we pass {it the array we want}^1 to split and the number of splits {}^2";
         break;
         case pkwd::opt14:
         //astype
-        comment += " function creates a copy of {the array}^, and allows you to specifies {data type}^ as a parameter";
+        comment += " function creates a copy of {the array}^1, and allows you to specifies {data type}^2 as a parameter";
         break;
         case pkwd::opt15:
         //bar
@@ -74,7 +74,7 @@ string pycommentMake(string commentarg, string A1, string A2, string A3){
         break;
         case pkwd::opt18:
         //bool
-        comment += " return the boolean value of {a specified object}^";
+        comment += " return the boolean value of {a specified object}^1";
         break;
         case pkwd::opt19:
         //breadth_first_order
@@ -82,7 +82,7 @@ string pycommentMake(string commentarg, string A1, string A2, string A3){
         break;
         case pkwd::opt20:
         //choice
-        comment += " takes {an array}^ as a parameter and randomly return one of the values";
+        comment += " takes {an array}^1 as a parameter and randomly return one of the values";
         break;
         case pkwd::opt21:
         //clear
@@ -90,11 +90,11 @@ string pycommentMake(string commentarg, string A1, string A2, string A3){
         break;
         case pkwd::opt22:
         //complex
-        comment += " return a complex number by specifying {a real number}^ and {an imaginary number}^ i";
+        comment += " return a complex number by specifying {a real number}^1 and {an imaginary number}^2 i";
         break;
         case pkwd::opt23:
         //concatenate
-        comment += " concatenate {arrays}^";
+        comment += " concatenate {arrays}^1";
         break;
         case pkwd::opt24:
         //connected_components
@@ -106,7 +106,7 @@ string pycommentMake(string commentarg, string A1, string A2, string A3){
         break;
         case pkwd::opt26:
         //copy
-        comment += " copy {the set}^";
+        comment += " copy {the set}^1";
         break;
         case pkwd::opt27:
         //corr
@@ -150,7 +150,7 @@ string pycommentMake(string commentarg, string A1, string A2, string A3){
         break;
         case pkwd::opt37:
         //depth_first_order
-        comment += " return a depth first traversal from {a node}^";
+        comment += " return a depth first traversal from {a node}^1";
         break;
         case pkwd::opt38:
         //describe
@@ -170,11 +170,11 @@ string pycommentMake(string commentarg, string A1, string A2, string A3){
         break;
         case pkwd::opt42:
         //discard
-        comment += " removes {the specified item}^ from the set";
+        comment += " removes {the specified item}^1 from the set";
         break;
         case pkwd::opt43:
         //divide
-        comment += " divide the values from {one array}^ with the values from {another array}^,and return the results in a new array";
+        comment += " divide the values from {one array}^1 with the values from {another array}^2,and return the results in a new array";
         break;
         case pkwd::opt44:
         //divmod
@@ -226,11 +226,11 @@ string pycommentMake(string commentarg, string A1, string A2, string A3){
         break;
         case pkwd::opt56:
         //fillna
-        comment += " replace the NULL values with {a specified value}^";
+        comment += " replace the NULL values with {a specified value}^1";
         break;
         case pkwd::opt57:
         //find
-        comment += " return all occurrences in {the selection}^";
+        comment += " return all occurrences in {the selection}^1";
         break;
         case pkwd::opt58:
         //findall
@@ -250,11 +250,11 @@ string pycommentMake(string commentarg, string A1, string A2, string A3){
         break;
         case pkwd::opt62:
         //float
-        comment += " convert {}^ to float ";
+        comment += " convert {}^1 to float ";
         break;
         case pkwd::opt63:
         //floor
-        comment += " round {}^ downward";
+        comment += " round {}^1 downward";
         break;
         case pkwd::opt64:
         //floyd_warshall
@@ -266,7 +266,7 @@ string pycommentMake(string commentarg, string A1, string A2, string A3){
         break;
         case pkwd::opt66:
         //frompyfunc
-        comment += " create ufunc called {}^ using {}^ inputs and {}^ outputs";
+        comment += " create ufunc called {}^1 using {}^2 inputs and {}^3 outputs";
         break;
         case pkwd::opt67:
         //gcd
@@ -274,7 +274,7 @@ string pycommentMake(string commentarg, string A1, string A2, string A3){
         break;
         case pkwd::opt68:
         //get
-        comment += " return the {value}^2 of the item with {the specified key}^";
+        comment += " return the {value}^2 of the item with {the specified key}^1";
         break;
         case pkwd::opt69:
         //grid
@@ -286,7 +286,7 @@ string pycommentMake(string commentarg, string A1, string A2, string A3){
         break;
         case pkwd::opt71:
         //head
-        comment += " return the headers and {a specified number of}^ rows, starting from the top";
+        comment += " return the headers and {a specified number of}^1 rows, starting from the top";
         break;
         case pkwd::opt72:
         //hist
@@ -318,7 +318,7 @@ string pycommentMake(string commentarg, string A1, string A2, string A3){
         break;
         case pkwd::opt79:
         //insert
-        comment += " insert {the specified value}^ at {the specified position}^";
+        comment += " insert {the specified value}^1 at {the specified position}^2";
         break;
         case pkwd::opt80:
         //insert_many
@@ -474,11 +474,11 @@ string pycommentMake(string commentarg, string A1, string A2, string A3){
         break;
         case pkwd::opt118:
         //mod
-        comment += " return the remainder of the values in {the first array}^ corresponding to the values in {the second array}^, and return the results in a new array";
+        comment += " return the remainder of the values in {the first array}^1 corresponding to the values in {the second array}^2, and return the results in a new array";
         break;
         case pkwd::opt119:
         //remainder
-        comment += " return the remainder of the values in {the first array}^ corresponding to the values in {the second array}^, and return the results in a new array";
+        comment += " return the remainder of the values in {the first array}^1 corresponding to the values in {the second array}^2, and return the results in a new array";
         break;
         case pkwd::opt120:
         //mode
@@ -486,11 +486,11 @@ string pycommentMake(string commentarg, string A1, string A2, string A3){
         break;
         case pkwd::opt121:
         //multiply
-        comment += " function multiplies the values from {one array}^ with the values from {another array}^,and return the results in a new array";
+        comment += " function multiplies the values from {one array}^1 with the values from {another array}^2,and return the results in a new array";
         break;
         case pkwd::opt122:
         //commit
-        comment += " commit {}^ to database";
+        comment += " commit {}^1 to database";
         break;
         case pkwd::opt123:
         //ndenumerate
@@ -514,7 +514,7 @@ string pycommentMake(string commentarg, string A1, string A2, string A3){
         break;
         case pkwd::opt128:
         //rmdir
-        comment += " remove {a directory}^";
+        comment += " remove {a directory}^1";
         break;
         case pkwd::opt129:
         //percentile
@@ -554,7 +554,7 @@ string pycommentMake(string commentarg, string A1, string A2, string A3){
         break;
         case pkwd::opt138:
         //prod
-        comment += " return the product of the elements from {the given iterable}^";
+        comment += " return the product of the elements from {the given iterable}^1";
         break;
         case pkwd::opt139:
         //query
@@ -590,7 +590,7 @@ string pycommentMake(string commentarg, string A1, string A2, string A3){
         break;
         case pkwd::opt147:
         //Rbf
-        comment += " takes {xs}^ and {ys}^ as arguments and produces a callable function that can be called with {new xs}^";
+        comment += " takes {xs}^1 and {ys}^2 as arguments and produces a callable function that can be called with {new xs}^3";
         break;
         case pkwd::opt148:
         //read
@@ -714,11 +714,11 @@ string pycommentMake(string commentarg, string A1, string A2, string A3){
         break;
         case pkwd::opt178:
         //symmetric_difference
-        comment += " returns a set that contains all items from {both sets}^, but not the items that are present in both sets";
+        comment += " returns a set that contains all items from {both sets}^1, but not the items that are present in both sets";
         break;
         case pkwd::opt179:
         //symmetric_difference_update
-        comment += " update the original set by removing items that are present in {both sets}^, and inserting the other items";
+        comment += " update the original set by removing items that are present in {both sets}^1, and inserting the other items";
         break;
         case pkwd::opt180:
         //tail
@@ -762,11 +762,11 @@ string pycommentMake(string commentarg, string A1, string A2, string A3){
         break;
         case pkwd::opt190:
         //union
-        comment += " return a set that contains all items from the {original set}^, and all items from {the specified set(s)}^";
+        comment += " return a set that contains all items from the {original set}^1, and all items from {the specified set(s)}^2";
         break;
         case pkwd::opt191:
         //union1d
-        comment += " find the unique values of {two arrays}^";
+        comment += " find the unique values of {two arrays}^1";
         break;
         case pkwd::opt192:
         //unique
@@ -774,7 +774,7 @@ string pycommentMake(string commentarg, string A1, string A2, string A3){
         break;
         case pkwd::opt193:
         //UnivariateSpline
-        comment += " interpolates through {a piecewise polynomial}^";
+        comment += " interpolates through {a piecewise polynomial}^1";
         break;
         case pkwd::opt194:
         //update
