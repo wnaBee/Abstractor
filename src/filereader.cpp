@@ -5,7 +5,6 @@
 #include <algorithm>
 #include "cppswitch.h"
 #include "cppcommentor.h"
-#include "pyswitch.h"
 #include "pycommentor.h"
 using namespace std;
 
@@ -16,7 +15,7 @@ int main(int argc, char* argv[]){
 	fstream readfile;
 	fstream putfile;
 	string output = "";
-	string Extensions[] = {"txt", "c++", "python", "C", ".h", "bash", "C#", "Vb"};
+	string Extensions[] = {"txt", "c++", "py", "C", ".h", "bash", "C#", "Vb"};
 	string FilExt[] = {".txt", ".cpp", ".py", ".c", ".h", ".sh", ".cs", ".vb"};
 	int filetype = 0;
 	if(argc < 3){
@@ -31,16 +30,18 @@ int main(int argc, char* argv[]){
 					output = "Temp_" + string(argv[1]);
 					filetype = i;
 				}else{
+					cout << "hoho";
 					output = "Output_" + string(argv[1]);
 					filetype = i;
 				}
+				break;
 			}
 		}
 		//TODO: end of above function
 		if(readfile.is_open()){
 			//write to a new file
 			putfile.open(output, ios::out);
-			string line;
+			string line = "";
 				while(getline(readfile, line)){
 
 //					cout <<"oldlines "<< line << "\n";
