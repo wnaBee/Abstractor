@@ -1081,7 +1081,7 @@ namespace kwd {
 	
 	int resolveOption(string commentarg){
 		std::map<string, int>optionStrings;
-        std::map<string, int>::iterator itr;
+	        std::map<string, int>::iterator itr;
 			optionStrings["Option_invalid"] = opt1;
 			optionStrings["assert"] = opt2;
 			optionStrings["isalpha"] = opt3;
