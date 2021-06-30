@@ -3,11 +3,14 @@
 #include <string>
 #include <vector>
 #include <algorithm>
+#include <boost/regex.hpp>
 #include "pyoperatorswitch.h"
 #include "pyswitch.h"
 using namespace std;
 
 int PCF = 0;
+
+string SliceNDice(string input);
 
 vector<string> pycommentor(string CodeLine){
 	int fulline = 0;
@@ -21,7 +24,7 @@ vector<string> pycommentor(string CodeLine){
 	vector <string> ParamArray;
 	
 	for(int i = 0; i < CodeLine.length(); i++){
-		cout << CodeLine[i] << endl;
+		//cout << CodeLine[i] << endl;
 		switch(PCF){
 				case 0:
 					switch(CodeLine[i]){ //fix case to not include last char and to remove unnecessary spaces
@@ -120,8 +123,7 @@ vector<string> pycommentor(string CodeLine){
 							NestCount++;
                             lineArray.push_back("`" + to_string(NestCount) + "`");
 							nextcmd.pop_back();
-							//check if vector entry = `[int]` if so, remove entry and set following entries as A[int] until `e[int]`
-                            //i++;
+                           // i++;
                             nextcmd = "";
                         case ')':
                             lineArray.push_back(nextcmd);
@@ -222,7 +224,52 @@ string pycombiner(vector <string> lineArr){
 	precomment.erase(remove(precomment.begin(), precomment.end(), '\t'), precomment.end());
 	precomment.erase(precomment.begin(), std::find_if(precomment.begin(), precomment.end(), std::bind1st(std::not_equal_to<char>(), ' ')));
 	
-	// move and replace {}^
-	comment += precomment;
+	comment += SliceNDice(precomment);
 	return comment;
+}
+
+string SliceNDice(string input){
+	 
+	string Sliced;							//relevant regex patterns
+	string InsertID = "[0-9]\\^{.*?}";
+	string CutDelimiter = "`[0-9]`.*?`[0-9]e`";
+
+	int wipes = distance(boost::sregex_iterator(input.begin(), input.end(), boost::regex(InsertID)), boost::sregex_iterator());
+	cout << wipes << endl;
+	boost::sregex_iterator Inserters(input.begin(), input.end(), boost::regex(CutDelimiter)); //extract patterns
+	boost::sregex_iterator end;
+
+	vector<string> matches;
+
+	for(; Inserters != end; ++Inserters){ //convert matches to vector format
+		matches.push_back(Inserters->str());
+	}
+	string Iclean = CutDelimiter;
+	Iclean.replace(4,1, to_string(matches.size())); 
+	Iclean.replace(Iclean.end()-4,Iclean.end()-3, to_string(matches.size()));
+	cout << Iclean << endl;
+	input = boost::regex_replace(input, boost::regex(Iclean), "");
+	cout << input << endl; 
+	
+	Sliced = input;
+	for(int i = 0; i < matches.size(); i++){ //insert pattern at correct position
+		string tempID = InsertID;
+		tempID = tempID.replace(0,5,to_string(i+1));
+		boost::regex rID(tempID);
+		
+		Sliced = boost::regex_replace(Sliced, rID, matches[i]);
+	}
+	if(!matches.empty()){
+		matches.erase(matches.begin(),matches.begin()+wipes); //this shit throws SIGSEGV
+	}
+	for(int i = 0; i < matches.size(); i++){
+		Sliced += matches[i];
+	}
+	Sliced = boost::regex_replace(Sliced, boost::regex("`[0-9]`"), "");
+	Sliced = boost::regex_replace(Sliced, boost::regex("`[0-9]e`"), "");
+	Sliced = boost::regex_replace(Sliced, boost::regex("[0-9]^{"), "");
+	Sliced = boost::regex_replace(Sliced, boost::regex("}"), "");
+
+	
+	return Sliced;
 }
