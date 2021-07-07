@@ -11,7 +11,7 @@ helpMSG() {
         printf "options:\n--comment     	creates automated comments for every line\n -c		of code in the program"
         printf "\n\n--format    	deobfuscates code and makes it look nice\n -f"
 	printf "\n\n--help		displays this message\n -h"
-        printf "\n\nlanguages:\nc++\n.h (c++ header)"
+        printf "\n\nlanguages:\nc++\n.h (c++ header)\npy | python"
 
 }
 
@@ -25,34 +25,34 @@ prettify() {
 fileread() {
 	if [[ $A3 == "NONE" ]]
 	then
-		/usr/local/bin/filereader $FI $LA $A3
+		~/.filereader $FI $LA $A3
 	elif [[ $A3 == "FRMT" ]]
 	then
-		/usr/local/bin/filereader "Output_${FI}" $LA $A3
+		~/.filereader "Output_${FI}" $LA $A3
 		mv "Temp_Output_${FI}" "Output_${FI}"
 	fi
 }
 
-if [[ $# -eq 0 ]]
+if [[ $# < 3 ]]
 then
 	helpMSG
 else
-	for i in $@; do
 
-		if [[ $i == "--help" || $i == "-h" ]]
-		then
-			helpMSG
-		else
-			if [[ $i == "--format" || $i == "-f" ]]; then
-				FF=1
-				A3="FRMT"
-			fi
+	while [[ "$3" =~ ^- && ! "$3" == "--" ]]
+	do case $3 in
+		-h | --help )
+	    	helpMSG
+	    	;;
+	  	-c | --comment )
+		CF=1
+	  	;;
+	  	-f | --format )
+	   	FF=1
+		;;
+	esac; shift; done
+	if [[ "$3" == '--' ]]; then shift; fi
 
-			if [[ $i == "--comment" || $i == "-c" ]]; then
-				CF=1
-			fi
-		fi
-	done
+
 	if [[ $FF == 1 ]]
 	then
 		prettify

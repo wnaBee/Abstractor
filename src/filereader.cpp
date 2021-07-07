@@ -30,7 +30,6 @@ int main(int argc, char* argv[]){
 					output = "Temp_" + string(argv[1]);
 					filetype = i;
 				}else{
-					cout << "hoho";
 					output = "Output_" + string(argv[1]);
 					filetype = i;
 				}
@@ -47,12 +46,6 @@ int main(int argc, char* argv[]){
 //					cout <<"oldlines "<< line << "\n";
 					line = line + FileIDer(line, filetype) + "\n";
 					putfile << line;
-				}
-				putfile.close();
-				//check the new file
-				putfile.open(output, ios::in);
-				while(getline(putfile, line)){
-//					cout << line << "\n";
 				}
 				putfile.close();
 				readfile.close();
