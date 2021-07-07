@@ -115,15 +115,23 @@ vector<string> pycommentor(string CodeLine){
 							nextcmd = "";
 							break;
 						case ',':
-							lineArray.push_back(nextcmd);
-							nextcmd = "";
+
+                            lineArray.push_back(nextcmd);
+							if(NestCount >= 0){
+                                lineArray.push_back("`" + to_string(NestCount) + "e`");
+                                NestCount ++;
+                                lineArray.push_back("`" + to_string(NestCount) + "`");
+                            }
+
+                            nextcmd = "";
 							break;
 						case '(':
+//                            if(NestCount < 0)
 							lineArray.push_back(nextcmd + "(");
 							NestCount++;
                             lineArray.push_back("`" + to_string(NestCount) + "`");
 							nextcmd.pop_back();
-                           // i++;
+                            i++;
                             nextcmd = "";
                         case ')':
                             lineArray.push_back(nextcmd);
@@ -131,6 +139,7 @@ vector<string> pycommentor(string CodeLine){
 								lineArray.push_back("`" + to_string(NestCount) + "e`");
 								NestCount--;
 							}
+							//i++;
 							nextcmd = "";
 							break;
 						case '[':
@@ -223,19 +232,18 @@ string pycombiner(vector <string> lineArr){
 	}
 	precomment.erase(remove(precomment.begin(), precomment.end(), '\t'), precomment.end());
 	precomment.erase(precomment.begin(), std::find_if(precomment.begin(), precomment.end(), std::bind1st(std::not_equal_to<char>(), ' ')));
-	
+
 	comment += SliceNDice(precomment);
 	return comment;
 }
 
 string SliceNDice(string input){
-	 
+
 	string Sliced;							//relevant regex patterns
 	string InsertID = "[0-9]\\^{.*?}";
 	string CutDelimiter = "`[0-9]`.*?`[0-9]e`";
 
 	int wipes = distance(boost::sregex_iterator(input.begin(), input.end(), boost::regex(InsertID)), boost::sregex_iterator());
-	cout << wipes << endl;
 	boost::sregex_iterator Inserters(input.begin(), input.end(), boost::regex(CutDelimiter)); //extract patterns
 	boost::sregex_iterator end;
 
@@ -244,30 +252,29 @@ string SliceNDice(string input){
 	for(; Inserters != end; ++Inserters){ //convert matches to vector format
 		matches.push_back(Inserters->str());
 	}
-	string Iclean = CutDelimiter;
-	Iclean.replace(4,1, to_string(matches.size())); 
-	Iclean.replace(Iclean.end()-4,Iclean.end()-3, to_string(matches.size()));
-	cout << Iclean << endl;
-	input = boost::regex_replace(input, boost::regex(Iclean), "");
-	cout << input << endl; 
-	
-	Sliced = input;
-	for(int i = 0; i < matches.size(); i++){ //insert pattern at correct position
-		string tempID = InsertID;
-		tempID = tempID.replace(0,5,to_string(i+1));
-		boost::regex rID(tempID);
-		
-		Sliced = boost::regex_replace(Sliced, rID, matches[i]);
+	///*
+	if(!matches.empty() && wipes > 0){
+        string Iclean = CutDelimiter;
+        Iclean.replace(4,1, to_string(wipes));
+        Iclean.replace(Iclean.end()-4,Iclean.end()-3, to_string(wipes));
+        input = boost::regex_replace(input, boost::regex(Iclean), "");
+
+    }
+
+    Sliced = input;
+    for(int i = 0; i < matches.size(); i++){ //insert pattern at correct position
+        string tempID = InsertID;
+        tempID = tempID.replace(0,5,to_string(i+1));
+        Sliced = boost::regex_replace(Sliced, boost::regex(tempID), matches[i]);
+    }
+
+    if(!matches.empty() && wipes > 0){ //erase to be inserted values from code
+    	matches.erase(matches.begin(),matches.begin()+wipes-1);
 	}
-	if(!matches.empty()){
-		matches.erase(matches.begin(),matches.begin()+wipes); //this shit throws SIGSEGV
-	}
-	for(int i = 0; i < matches.size(); i++){
-		Sliced += matches[i];
-	}
+
 	Sliced = boost::regex_replace(Sliced, boost::regex("`[0-9]`"), "");
 	Sliced = boost::regex_replace(Sliced, boost::regex("`[0-9]e`"), "");
-	Sliced = boost::regex_replace(Sliced, boost::regex("[0-9]^{"), "");
+	Sliced = boost::regex_replace(Sliced, boost::regex("[0-9]\\^{"), "");
 	Sliced = boost::regex_replace(Sliced, boost::regex("}"), "");
 
 	

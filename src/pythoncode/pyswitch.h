@@ -14,7 +14,7 @@ string pycommentMake(string commentarg){ //, string A1, string A2, string A3
         break;
         case pkwd::opt3:
         //add
-        comment += " function sums the content of 1^{} and 2^{}, and return the results in a new array";
+        comment += " function sums the content of 1^{} 2^{}, and return the results in a new array";
         break;
         case pkwd::opt4:
         //append
@@ -90,7 +90,7 @@ string pycommentMake(string commentarg){ //, string A1, string A2, string A3
         break;
         case pkwd::opt22:
         //complex
-        comment += " return a complex number by specifying 1^{a real number} and 2^{an imaginary number} i";
+        comment += " return a complex number by specifying 1^{a real number} 2^{and an imaginary number} i";
         break;
         case pkwd::opt23:
         //concatenate
@@ -590,7 +590,7 @@ string pycommentMake(string commentarg){ //, string A1, string A2, string A3
         break;
         case pkwd::opt147:
         //Rbf
-        comment += " takes 1^{xs} and 2^{ys} as arguments and produces a callable function that can be called with 3^{new xs}";
+        comment += " takes 1^{xs} 2^{and ys} as arguments and produces a callable function that can be called with 3^{new xs}";
         break;
         case pkwd::opt148:
         //read
@@ -823,6 +823,10 @@ string pycommentMake(string commentarg){ //, string A1, string A2, string A3
         case pkwd::opt205:
         //zip
         comment += " return a zip object";
+        break;
+        case pkwd::opt206:
+        //str
+        comment += " convert to string";
         break;
     }
     return comment;

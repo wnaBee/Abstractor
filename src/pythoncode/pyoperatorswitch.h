@@ -120,7 +120,7 @@ string pyoperatorcommentMake(string commentarg) {
 					break;
 				case kwd::opt30:
 				//.
-					comment += ".";
+					comment += "";
 					break;
 				case kwd::opt31:
 				//,
@@ -132,7 +132,7 @@ string pyoperatorcommentMake(string commentarg) {
 					break;
 				case kwd::opt33:
 				//)
-					comment += ".";
+					comment += " endfunc";
 					break;
 				case kwd::opt34:
 				//[
@@ -140,7 +140,7 @@ string pyoperatorcommentMake(string commentarg) {
 					break;
 				case kwd::opt35:
 				//]
-					comment += ".";
+					comment += "";
 					break;
 				case kwd::opt36:
 				//{
@@ -148,7 +148,7 @@ string pyoperatorcommentMake(string commentarg) {
 					break;
 				case kwd::opt37:
 				//}
-					comment += ".";
+					comment += "";
 					break;
 				case kwd::opt38:
 				//*=

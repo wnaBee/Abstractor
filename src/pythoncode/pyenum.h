@@ -207,7 +207,8 @@ namespace pkwd {
         opt202, 
         opt203, 
         opt204, 
-        opt205
+        opt205,
+        opt206
     };
 	int resolveOption(string commentarg){
 		std::map<string, int>optionStrings;
@@ -417,6 +418,7 @@ namespace pkwd {
             optionStrings["xlabel("] = opt203;
             optionStrings["ylabel("] = opt204;
             optionStrings["zip("] = opt205;
+            optionStrings["str("] = opt206;
 
         itr = optionStrings.find(commentarg);
 		if( itr != optionStrings.end() ) {
