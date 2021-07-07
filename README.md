@@ -1,4 +1,4 @@
-# abstractor V. 1.5
+# abstractor V. 1.6
 An automatic commentor and prettyfier for code.
 
 Generates comments for every line of code in a given file by splitting the string into its components and comparing them to a major library of commands/operators/Keywords for the corresponding language. 
@@ -8,13 +8,33 @@ Prettyfies code by adding newlines after certain characters to increase readabil
 ### Installation
 ```
 git clone https://github.com/wnaBee/abstractor.git
-chmod a+x installer.sh
-bash installer.sh
+bash installer.sh [ options ]
 ```
+
+#### installation options
+| option | extended | descriptions |
+|--------|---------|--------------|
+| -d | --directory | define installation directory of abstractor script (defaults to current directory) |
+| -b | --bash | install for bash environment (alias location) |
+| -z | --zsh | install for zsh environment (alias location) |
+| -A | --Arch | resolve dependencies with `pacman` (arch, manjaro, etc.) |
+| -D | --Debian | resolve dependencies with `dpkg` (debian, ubuntu, kali, etc.) |
+| -M | --Other | assume all dependencies are present, force installatiom |
+
+#### example
+```
+bash installer.sh -b -M
+```
+#### dependencies
+dependency | purpose
+-----------|----------
+g++ | compiling
+boost.regex | for insertions
+bash/bash emulation | script execution
 
 ### Use
 ```
-abstract [file] [language] [-options]
+abstract [file] [language] [ options ]
 
 Options:
 --comment     Generates automatic comments
@@ -26,8 +46,14 @@ Options:
 --help        Displays this message
  -h
 ```
+#### use options
+| option | extended | description |
+|--------|----------|-------------|
+| -c | --comment | generates line by line |
+| -f | --format | formats the code to be more readable |
+| -h | --help | displays a help message |
 
-##### supported formats:
+#### supported formats:
 
 | languages | command |
 |-----------|---------|
@@ -35,7 +61,19 @@ Options:
 | c++ header | .h |
 | Python | py |
 
-Disclaimer: version 1.5 is complete however due to the many edgecases present within programming languages some code may return messy comments, however it should somewhat work. Some spacing and certain keywords still need some fixing and/or adding.
+Disclaimer: version 1.6 is complete however due to the many edgecases present within programming languages some code may return messy comments, however it should somewhat work. Some spacing and certain keywords still need some fixing and/or adding. The current version of the python commentor cannot handle nested functions with comment insertions e.g. `add((5+6),3)` will be processed correctly but `add(add(5,6),3)` will create something messy.
+
+## Patchnotes V. 1.6
+#### python
+* added command insertions (functions like `complex(6,7)` will now be evaluated as `return a complex number 6 and 7i` instead of `return a complex number using a real number and an imaginary number i 6,7`) which will help create more sohisticated comment structures
+#### general
+* overhauled installer script
+* installer no longer requires sudo/root
+* installer now more dynamic
+* installer now compiles binary as hidden file in home directory
+* fixed artifacts being left behind if installer was aborted
+* fixed alias creation
+* fixed formatter script options
 
 ## Patchnotes V. 1.5
 #### python
