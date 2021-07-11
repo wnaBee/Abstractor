@@ -219,7 +219,7 @@ string pycombiner(vector <string> lineArr){
 	int Nest = 0;
 	//vector <string> A1, A2, A3;
 	
-	if (lineArr[0].length() >= 2){
+	if (lineArr[0].length() > 1 || lineArr.size() > 1){
 		comment = " #";
 	}
 	for(int i = 0; i < lineArr.size(); i++){
