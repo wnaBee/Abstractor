@@ -43,10 +43,11 @@ int main(int argc, char* argv[]){
 			string line = "";
 				while(getline(readfile, line)){
 
-//					cout <<"oldlines "<< line << "\n";
+					cout <<"oldlines " << line << endl;
 					line = line + FileIDer(line, filetype) + "\n";
 					putfile << line;
-				}
+                    cout << "newlines " << line << endl;
+                }
 				putfile.close();
 				readfile.close();
 		}
