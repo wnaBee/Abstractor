@@ -25,10 +25,10 @@ prettify() {
 fileread() {
 	if [[ $A3 == "NONE" ]]
 	then
-		~/.filereader $FI2 $LA $A3
+		~/.filereader $FI $LA $A3
 	elif [[ $A3 == "FRMT" ]]
 	then
-		~/.filereader "Output_${FI2}" $LA $A3
+		~/.filereader "Output_${FI}" $LA $A3
 	fi
 }
 

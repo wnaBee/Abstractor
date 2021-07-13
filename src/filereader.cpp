@@ -13,7 +13,7 @@ string FileIDer(string CodeLine, int FLTP);
 
 int main(int argc, char* argv[]){
 	fstream readfile;
-	fstream putfile;
+	ofstream putfile;
 	string output = "";
 	string Extensions[] = {"txt", "c++", "py", "C", ".h", "bash", "C#", "Vb"};
 	string FilExt[] = {".txt", ".cpp", ".py", ".c", ".h", ".sh", ".cs", ".vb"};
@@ -42,7 +42,7 @@ int main(int argc, char* argv[]){
 
         if(readfile.is_open()){
 			//write to a new file
-			putfile.open(output, ios::out);
+			putfile.open(output, ios_base::binary | ios_base::out);
 			string line = "";
 				while(getline(readfile, line)){
 
