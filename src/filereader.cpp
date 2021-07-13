@@ -22,7 +22,8 @@ int main(int argc, char* argv[]){
 		cout << "abstract [file] [output file extension] -c";
 	}else{
 		readfile.open(argv[1], ios::in);
-		//define output file
+
+        //define output file
 		//TODO: refactor into new function returning 2 values 1 string 1 int
 		for(int i = 0; i < 8; i++){ //iterate through file types
 			if(argv[2] == Extensions[i]){
@@ -37,16 +38,18 @@ int main(int argc, char* argv[]){
 			}
 		}
 		//TODO: end of above function
-		if(readfile.is_open()){
+
+
+        if(readfile.is_open()){
 			//write to a new file
 			putfile.open(output, ios::out);
 			string line = "";
 				while(getline(readfile, line)){
 
-					cout <<"oldlines " << line << endl;
+					//cout <<"oldlines " << line << endl;
 					line = line + FileIDer(line, filetype) + "\n";
 					putfile << line;
-                    cout << "newlines " << line << endl;
+                   //cout << "newlines " << line << endl;
                 }
 				putfile.close();
 				readfile.close();
