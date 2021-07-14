@@ -126,12 +126,11 @@ vector<string> pycommentor(string CodeLine){
                             nextcmd = "";
 							break;
 						case '(':
-//                            if(NestCount < 0)
-							lineArray.push_back(nextcmd + "(");
-							NestCount++;
+                            lineArray.push_back(nextcmd + "(");
+
+                            NestCount++;
                             lineArray.push_back("`" + to_string(NestCount) + "`");
 							nextcmd.pop_back();
-                            i++;
                             nextcmd = "";
                         case ')':
                             lineArray.push_back(nextcmd);
@@ -139,7 +138,6 @@ vector<string> pycommentor(string CodeLine){
 								lineArray.push_back("`" + to_string(NestCount) + "e`");
 								NestCount--;
 							}
-							//i++;
 							nextcmd = "";
 							break;
 						case '[':
@@ -209,6 +207,7 @@ vector<string> pycommentor(string CodeLine){
 	lineArray.push_back(nextcmd);
 	for(int i = 0; i < lineArray.size(); i++){
 		lineArray[i].erase(lineArray[i].begin(), std::find_if(lineArray[i].begin(), lineArray[i].end(), std::bind1st(std::not_equal_to<char>(), ' ')));
+        //cout << lineArray[i] << ", ";
 	}
 	return lineArray;
 }
@@ -217,13 +216,11 @@ string pycombiner(vector <string> lineArr){
 	string precomment = "";
 	string comment = "";
 	int Nest = 0;
-	//vector <string> A1, A2, A3;
 	
 	if (lineArr[0].length() > 1 || lineArr.size() > 1){
 		comment = " #";
 	}
 	for(int i = 0; i < lineArr.size(); i++){
-		//cout << lineArray[i] << "|";
 		if(pyoperatorcommentMake(lineArr[i]) == "notanoperator"){
 			precomment += pycommentMake(lineArr[i]);
 		}else{
