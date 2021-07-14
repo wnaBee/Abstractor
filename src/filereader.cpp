@@ -13,7 +13,7 @@ string FileIDer(string CodeLine, int FLTP);
 
 int main(int argc, char* argv[]){
 	fstream readfile;
-	ofstream putfile;
+	fstream putfile;
 	string output = "";
 	string Extensions[] = {"txt", "c++", "py", "C", ".h", "bash", "C#", "Vb"};
 	string FilExt[] = {".txt", ".cpp", ".py", ".c", ".h", ".sh", ".cs", ".vb"};
@@ -21,8 +21,6 @@ int main(int argc, char* argv[]){
 	if(argc < 3){
 		cout << "abstract [file] [output file extension] -c";
 	}else{
-		readfile.open(argv[1], ios::in);
-
         //define output file
 		//TODO: refactor into new function returning 2 values 1 string 1 int
 		for(int i = 0; i < 8; i++){ //iterate through file types
@@ -39,15 +37,17 @@ int main(int argc, char* argv[]){
 		}
 		//TODO: end of above function
 
+		readfile.open(argv[1], ios::in);
 
         if(readfile.is_open()){
 			//write to a new file
-			putfile.open(output, ios_base::binary | ios_base::out);
+			putfile.open(output, ios::out);
 			string line = "";
 				while(getline(readfile, line)){
 
-					//cout <<"oldlines " << line << endl;
-					line = line + FileIDer(line, filetype) + "\n";
+                    line.erase(std::remove(line.begin(), line.end(), '\r'), line.end());
+
+                    line = line + FileIDer(line, filetype) + "\n";
 					putfile << line;
                    //cout << "newlines " << line << endl;
                 }
