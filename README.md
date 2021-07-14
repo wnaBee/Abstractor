@@ -63,6 +63,14 @@ Options:
 
 Disclaimer: version 1.6 is complete however due to the many edgecases present within programming languages some code may return messy comments, however it should somewhat work. Some spacing and certain keywords still need some fixing and/or adding. The current version of the python commentor cannot handle nested functions with comment insertions e.g. `add((5+6),3)` will be processed correctly but `add(add(5,6),3)` will create something messy.
 
+## Patchnotes V. 1.6.1
+#### python
+* minor bugfixes
+#### general
+* fixed CRLF handling
+* fixed pyscript comments
+
+
 ## Patchnotes V. 1.6
 #### python
 * added command insertions (functions like `complex(6,7)` will now be evaluated as `return a complex number 6 and 7i` instead of `return a complex number using a real number and an imaginary number i 6,7`) which will help create more sohisticated comment structures
