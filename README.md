@@ -10,6 +10,7 @@ Prettyfies code by adding newlines after certain characters to increase readabil
 git clone https://github.com/wnaBee/abstractor.git
 bash installer.sh [ options ]
 ```
+Note: Sometimes you may need to run `source` for wherever the aliases are stored. I'm unsure of why the bash script won't simply preform the operation, but I'm working on a fix.
 
 #### installation options
 | option | extended | descriptions |
