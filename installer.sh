@@ -1,7 +1,7 @@
 #!/bin/bash
 
-dependencies=("g++","boost")
-cmpdep=("g++","boost")
+dependencies=("g++" "boost")
+cmpdep=("g++" "boost")
 DF=0
 installdir=.
 aliasdir=~/.bash_aliases
