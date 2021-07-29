@@ -259,7 +259,7 @@ string CPPcombiner(vector <string> lineArr){
 	string precomment = "";
 	string comment = "";
 	
-	if (lineArr[0].length() < 2 || CF == 3 || CF == 2){}else{
+	if (lineArr[0].length() < 2 || lineArr.size() < 1 || CF == 3 || CF == 2){}else{
 		comment = " //";
 	}
 	for(int i = 0; i < lineArr.size(); i++){
