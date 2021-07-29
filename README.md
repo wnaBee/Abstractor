@@ -1,4 +1,4 @@
-# abstractor V. 1.6
+# abstractor V. 1.7
 An automatic commentor and prettyfier for code.
 
 Generates comments for every line of code in a given file by splitting the string into its components and comparing them to a major library of commands/operators/Keywords for the corresponding language. 
@@ -10,7 +10,7 @@ Prettyfies code by adding newlines after certain characters to increase readabil
 git clone https://github.com/wnaBee/abstractor.git
 bash installer.sh [ options ]
 ```
-Note: Sometimes you may need to run `source` for wherever the aliases are stored. I'm unsure of why the bash script won't simply preform the operation, but I'm working on a fix.
+Note: The alias will only work after a system restart but this can be circumnavigated by running `source ~/.bashrc` in bash or `source ~/.zshrc` in zsh.
 
 #### installation options
 | option | extended | descriptions |
@@ -63,6 +63,13 @@ Options:
 | Python | py |
 
 Disclaimer: version 1.6 is complete however due to the many edgecases present within programming languages some code may return messy comments, however it should somewhat work. Some spacing and certain keywords still need some fixing and/or adding. The current version of the python commentor cannot handle nested functions with comment insertions e.g. `add((5+6),3)` will be processed correctly but `add(add(5,6),3)` will create something messy.
+
+## Patchnotes V. 1.7
+### general
+* Deprecated `formatter.sh`
+* Implemented automatic installation of dependencies
+* Improved prettifier (slightly)
+
 
 ## Patchnotes V. 1.6.1
 #### python
