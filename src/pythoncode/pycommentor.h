@@ -118,22 +118,22 @@ vector<string> pycommentor(string CodeLine){
 
                             lineArray.push_back(nextcmd);
 							if(NestCount >= 0){
-                                lineArray.push_back("`" + to_string(NestCount) + "e`");
-                                NestCount ++;
-                                lineArray.push_back("`" + to_string(NestCount) + "`");
-                            }
+								lineArray.push_back("`" + to_string(NestCount) + "e`");
+								NestCount ++;
+								lineArray.push_back("`" + to_string(NestCount) + "`");
+						}
 
-                            nextcmd = "";
+							nextcmd = "";
 							break;
 						case '(':
-                            lineArray.push_back(nextcmd + "(");
+							lineArray.push_back(nextcmd + "(");
 
-                            NestCount++;
-                            lineArray.push_back("`" + to_string(NestCount) + "`");
+							NestCount++;
+							lineArray.push_back("`" + to_string(NestCount) + "`");
 							nextcmd.pop_back();
-                            nextcmd = "";
-                        case ')':
-                            lineArray.push_back(nextcmd);
+							nextcmd = "";
+						case ')':
+							lineArray.push_back(nextcmd);
 							if(CodeLine[i] == ')'){ //code doesn't work without this extra condition, idk why but DO NOT REMOVE
 								lineArray.push_back("`" + to_string(NestCount) + "e`");
 								NestCount--;
@@ -163,51 +163,51 @@ vector<string> pycommentor(string CodeLine){
 							nextcmd = "";
 							break;
 						case '"':
-                            if(doubleprev == "\"" && prevchar == "\""){
-                                lineArray.push_back("");
+							if(doubleprev == "\"" && prevchar == "\""){
+								lineArray.push_back("");
 								nextcmd.pop_back();
 								i++;
-                                PCF = 3;
-                            }else{
-                                lineArray.push_back(nextcmd);
-                                PCF = 1;
-                            }
+								PCF = 3;
+							}else{
+								lineArray.push_back(nextcmd);
+								PCF = 1;
+							}
 							nextcmd = "";
 							break;
-                        case '#':
-                            lineArray.push_back(nextcmd);
+						case '#':
+							lineArray.push_back(nextcmd);
 							PCF = 2;
-                            i++;
+							i++;
 							nextcmd = "";
 						default:
 							if(prevchar == ":" || prevchar == "+"|| prevchar == "-"|| prevchar == "("|| prevchar == ")"|| prevchar == "["|| prevchar == "]"|| prevchar == "."|| prevchar == ">"|| prevchar == "~"|| prevchar == "!"|| prevchar == "&"|| prevchar == "*"|| prevchar == "<"|| prevchar == "/"|| prevchar == "%"|| prevchar == "^"|| prevchar == "|"|| prevchar == "?"|| prevchar == ","|| prevchar == "="){
 								lineArray.push_back(nextcmd); 
 								//nextcmd = nextcmd.substr(1);
-                                nextcmd = "";
+								nextcmd = "";
 							}
 					}
 					break;
 				case 1:
 					if(CodeLine[i] == '"'){PCF = 0;}
 					break;
-                case 2:
-                    if(i = CodeLine.length()){PCF = 0;}
-                    break;
-                case 3:
-                    if(CodeLine[i] == '"' && CodeLine[i-1] == '"' && CodeLine[i-2] == '"'){PCF = 0; i++;}
-                    break; 
+				case 2:
+					if(i = CodeLine.length()){PCF = 0;}
+					break;
+				case 3:
+					if(CodeLine[i] == '"' && CodeLine[i-1] == '"' && CodeLine[i-2] == '"'){PCF = 0; i++;}
+					break;
 			}
 			if(PCF == 3 || PCF == 2){}else{
-                nextcmd += CodeLine[i];
-                doubleprev = prevchar;
-                prevchar = CodeLine[i];
-            }
-    }
+				nextcmd += CodeLine[i];
+				doubleprev = prevchar;
+				prevchar = CodeLine[i];
+			}
+	}
 		
 	lineArray.push_back(nextcmd);
 	for(int i = 0; i < lineArray.size(); i++){
 		lineArray[i].erase(lineArray[i].begin(), std::find_if(lineArray[i].begin(), lineArray[i].end(), std::bind1st(std::not_equal_to<char>(), ' ')));
-        //cout << lineArray[i] << ", ";
+		//cout << lineArray[i] << ", ";
 	}
 	return lineArray;
 }
@@ -249,24 +249,24 @@ string SliceNDice(string input){
 	for(; Inserters != end; ++Inserters){ //convert matches to vector format
 		matches.push_back(Inserters->str());
 	}
-	///*
+
 	if(!matches.empty() && wipes > 0){
-        string Iclean = CutDelimiter;
-        Iclean.replace(4,1, to_string(wipes));
-        Iclean.replace(Iclean.end()-4,Iclean.end()-3, to_string(wipes));
-        input = boost::regex_replace(input, boost::regex(Iclean), "");
+		string Iclean = CutDelimiter;
+		Iclean.replace(4,1, to_string(wipes));
+		Iclean.replace(Iclean.end()-4,Iclean.end()-3, to_string(wipes));
+		input = boost::regex_replace(input, boost::regex(Iclean), "");
 
-    }
+	}
 
-    Sliced = input;
-    for(int i = 0; i < matches.size(); i++){ //insert pattern at correct position
-        string tempID = InsertID;
-        tempID = tempID.replace(0,5,to_string(i+1));
-        Sliced = boost::regex_replace(Sliced, boost::regex(tempID), matches[i]);
-    }
+	Sliced = input;
+	for(int i = 0; i < matches.size(); i++){ //insert pattern at correct position
+		string tempID = InsertID;
+		tempID = tempID.replace(0,5,to_string(i+1));
+		Sliced = boost::regex_replace(Sliced, boost::regex(tempID), matches[i]);
+	}
 
-    if(!matches.empty() && wipes > 0){ //erase to be inserted values from code
-    	matches.erase(matches.begin(),matches.begin()+wipes-1);
+	if(!matches.empty() && wipes > 0){ //erase to be inserted values from code
+		matches.erase(matches.begin(),matches.begin()+wipes-1);
 	}
 
 	Sliced = boost::regex_replace(Sliced, boost::regex("`[0-9]`"), "");
