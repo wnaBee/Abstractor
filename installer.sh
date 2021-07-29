@@ -1,11 +1,12 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 dependencies=("g++" "boost")
 cmpdep=("g++" "boost")
 DF=0
-installdir=.
 aliasdir=~/.bash_aliases
-installcmd=("the relevant command", "the relevant command")
+installdir=.
+installcmd=("the relevant command" "the relevant command")
+args=$#
 
 for i in $#
 do
@@ -27,52 +28,49 @@ do
 		-A | --Arch )
 		dependencies[0]=$(which g++)
 		dependencies[1]=$(pacman -Q | grep boost)
-		installcmd[0]=": sudo pacman -S g++"
-		installcmd[1]=": sudo pacman -S boost"
+		installcmd[0]="sudo pacman -S g++"
+		installcmd[1]="sudo pacman -S boost"
 		;;
 		-D | --Debian )
 		dependencies[0]=$(dpkg --list | grep g++)
 		dependencies[1]=$(dpkg --list | grep libboost)
-		installcmd[0]=": sudo apt-get install g++"
-		installcmd[1]=": sudo apt-get install libboost-all-dev"
+		installcmd[0]="sudo apt-get install g++"
+		installcmd[1]="sudo apt-get install libboost-all-dev"
 		;;
 		-M | --Other )
 		echo "compiling under assumption of g++"
-		dependencies+="g++"
-		dependencies+="boost"
+		dependencies+="g++ got"
+		dependencies+="boost got"
 		;;
 		esac; shift; done
 		if [[ "$1" == '--' ]]; then shift; fi
 done
+installpath=$(realpath ${installdir})
+echo "alias abstract='${installpath}/filereader'" >> ${aliasdir}
+wait
+
+trap "rm ${installdir}/filereader; sed -i '$ d' ${aliasdir}; exit 1"HUP INT QUIT TERM
+
 depi=0
+if [[ $args < 1 ]]
+then
+	printf "Example: \nbash installer.sh -M -z -d ~/programs \n\nOptions: \n-A	Install on a pacman based plattform \n-D	Install on an apt based plattform \n-M	Presume installation of dependencies and proceed \n-b	Generate alias for bash (default, ~/.bash_aliases) \n-z	Generate alias for zsh \n-d	Specify installation directory\n"
+	exit
+fi
 for dep in $dependencies
 do
 	if [[ $dep == ${cmpdep[depi]} ]]
 	then
-		echo "${dep} has not been installed, please install it by running ${installcmd[depi]} or specify '-M' in script to attempt compilation anyways"
+		eval ${installcmd[depi]} || echo "assuming depencies are installed"
 	fi
 	((depi=depi+1))
 done
 
-if [[ "${installdir}" == "." ]]
-then
-	installdir=$(echo $PWD)
-fi
-
-echo "alias abstract='bash ${installdir}/formatter.sh'" >> ${aliasdir}
-wait
-
-trap "rm ~/.filereader ${installdir/formatter.sh}; sed -i '$ d' ${aliasdir}; exit 1"HUP INT QUIT TERM
-
 echo "compiling code"
-g++ -I src/cppcode -I src/pythoncode -I src src/filereader.cpp -o ~/.filereader -lboost_regex
-wait
-
-echo "exporting formatter"
-cp src/formatter.sh ${installdir}/formatter.sh
+g++ -I src/cppcode -I src/pythoncode -I src src/filereader.cpp -o ${installdir}/filereader -lboost_regex
 wait
 
 echo "generating alias"
-source ${aliasdir}
+. ${aliasdir}
 wait
 
