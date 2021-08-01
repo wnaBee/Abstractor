@@ -6,11 +6,19 @@ Generates comments for every line of code in a given file by splitting the strin
 Prettyfies code by adding newlines after certain characters to increase readability.
 
 ### Installation
+#### quick install:
 ```
 git clone https://github.com/wnaBee/abstractor.git
 bash installer.sh [ options ]
+reboot
 ```
-Note: The alias will only work after a system restart but this can be circumnavigated by running `source ~/.bashrc` in bash or `source ~/.zshrc` in zsh.
+#### Manual install:
+```
+git clone https://github.com/wnaBee/abstractor.git
+cd Abstractor
+#install dependencies (see below for pacman and apt commands) 
+sudo g++ -I src/cppcode -I src/pythoncode -I src src/filereader.cpp -o /usr/bin/abstract -lboost_regex
+```
 
 #### installation options
 | option | extended | descriptions |
@@ -27,11 +35,10 @@ Note: The alias will only work after a system restart but this can be circumnavi
 bash installer.sh -b -M
 ```
 #### dependencies
-dependency | purpose
------------|----------
-g++ | compiling
-boost.regex | for insertions
-bash/bash emulation | script execution
+dependency | purpose | pacman | apt |
+-----------|---------|--------|-----|
+g++ | compiling | sudo pacman -S g++ | sudo apt-get install g++ |
+boost.regex | for insertions | sudo pacman -S boost | sudo apt-get install libboost-all-dev |
 
 ### Use
 ```
